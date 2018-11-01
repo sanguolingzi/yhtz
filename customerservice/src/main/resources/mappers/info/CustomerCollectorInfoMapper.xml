@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yinhetianze.business.customer.mapper.info.CustomerCollectorInfoMapper">
+  <resultMap id="BaseResultMap" type="com.yinhetianze.pojo.customer.BusiCustomerCollectorPojo">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="c_type" jdbcType="SMALLINT" property="cType" />
+    <result column="relation_id" jdbcType="INTEGER" property="relationId" />
+    <result column="del_flag" jdbcType="SMALLINT" property="delFlag" />
+    <result column="customer_id" jdbcType="INTEGER" property="customerId" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+  </resultMap>
+
+
+
+  <select id="selectList" parameterType="com.yinhetianze.business.customer.model.BusiCustomerCollectorModel"
+  resultType="com.yinhetianze.business.customer.model.BusiCustomerCollectorModel">
+      select
+         collector.id,
+         collector.content,
+         collector.relation_id "relationId",
+         collector.c_type "cType"
+      from busi_customer_collector collector
+      where 1=1
+      <if test="cType != null">
+       and collector.c_type =#{cType}
+      </if>
+      and collector.customer_id = #{customerId}
+      and collector.del_flag = 0
+  </select>
+
+    <select id="selectCount"  parameterType="com.yinhetianze.business.customer.model.BusiCustomerCollectorModel"
+            resultType="java.util.Map">
+        select
+        count(id) as "count"
+        from busi_customer_collector collector
+        where 1=1
+        <if test="customerId != null">
+            and collector.customer_id = #{customerId}
+        </if>
+        <if test="relationId != null">
+            and collector.relation_id = #{relationId}
+        </if>
+        <if test="cType != null">
+            and collector.c_type = #{cType}
+        </if>
+        and collector.del_flag = 0
+    </select>
+
+    <select id="selectProductCollect"  parameterType="com.yinhetianze.business.customer.model.BusiCustomerCollectorModel"
+            resultType="com.yinhetianze.business.customer.model.BusiCustomerProductCollectorModel">
+        select
+           collector.id,
+           collector.relation_id "relationId",
+           product.product_img "imgSrc",
+           product.sell_price "price",
+           product.market_price "mPrice",
+           product.prod_name "name",
+           product.p_status "pStatus",
+           product.prod_cate_id "pCateId",
+           product.vip_price "vipPrice"
+        from busi_customer_collector collector
+        join busi_product product on product.id = collector.relation_id
+        where 1=1
+        and product.del_flag = 0
+        and collector.customer_id = #{customerId}
+        and collector.c_type = 0
+        and collector.del_flag = 0
+    </select>
+
+    <select id="selectShopCollect"  parameterType="com.yinhetianze.business.customer.model.BusiCustomerCollectorModel"
+            resultType="com.yinhetianze.business.customer.model.BusiCustomerShopCollectorModel">
+        select
+           collector.id,
+           collector.relation_id "relationId",
+           shop.shop_logo "imgSrc",
+           companyinfo.region_location "regionLocation",
+           shop.shop_memo "memo",
+           shop.shop_name "name"
+        from busi_customer_collector collector
+        join busi_shop shop on shop.id = collector.relation_id
+        join busi_shop_companyinfo companyinfo  on companyinfo.id = shop.companyinfo_id
+        where 1=1
+        and shop.del_flag = 0 and companyinfo.del_flag = 0
+        and collector.customer_id = #{customerId}
+        and collector.c_type = 1
+        and collector.del_flag = 0
+    </select>
+</mapper>

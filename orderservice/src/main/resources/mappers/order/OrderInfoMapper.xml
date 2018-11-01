@@ -1,0 +1,370 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper	namespace="com.yinhetianze.business.order.mapper.OrderInfoMapper">
+
+
+    <sql id="order">
+        id,orders_no ordersNo,order_type orderType,total_amount totalAmount,number,freight freight,pay_integral payIntegral,discount discount,
+              pay_amount payAmount,DATE_FORMAT(create_time,'%Y-%m-%d %H:%i:%s') createTime,order_status orderStatus,pay_type payType,order_sourse orderSourse,receiver,receive_address_id receiveAddressId,address,phone,
+              address_default addressDefault,give_integral giveIntegral,audit_status auditStatus,total_order_no totalOrderNo,shop_id shopId,customer_id customerId,del_flag delFlag,integral_amount integralAmount,
+              DATE_FORMAT(pay_time,'%Y-%m-%d %H:%i:%s') payTime,DATE_FORMAT(delivery_time,'%Y-%m-%d %H:%i:%s') deliveryTime,DATE_FORMAT(complete_time,'%Y-%m-%d %H:%i:%s') completeTime,
+              is_give_integral isGiveIntegral,pro_amount proAmount,express_no expressNo,company_name companyName,DATE_FORMAT(evaluate_time,'%Y-%m-%d %H:%i:%s') evaluateTime,is_game_order isGameOrder,game_id gameId,settlement_amount settlementAmount,
+               DATE_FORMAT(cancel_time,'%Y-%m-%d %H:%i:%s') cancelTime,is_auto_cancel isAutoCancel,tax_type taxType,tax_no taxNo,tax_company taxCompany,receipt_type receiptType,promotion_price promotionPrice,promotion_user promotionUser,
+               reward_amount rewardAmount,CASE WHEN NOW() <![CDATA[<]]> timestampadd(day,7,complete_time) AND is_game_order=0 THEN 1 ELSE 0 END apply,partner_id partnerId,partner_amount partnerAmount,member_amount memberAmount,
+               game_notify_result gameNotifyResult,upgrade_promotion_user upgradePromotionUser,upgrade_promotion_price upgradePromotionPrice,proxy_shop_id proxyShopId,room_card_num roomCardNum,buyer_message buyerMessage
+    </sql>
+
+
+    <!--订单信息-->
+   <select id="findOrder" parameterType="map" resultType="map">
+       SELECT
+       <include refid="order"/>
+       FROM busi_order WHERE del_flag=0 AND audit_status!=1
+       <if test="customerId!=null">
+           AND customer_id=#{customerId}
+       </if>
+       <if test="shopId!=null">
+           AND shop_id=#{shopId}
+       </if>
+       <if test="proxyShopId!=null">
+           AND proxy_shop_id=#{proxyShopId}
+       </if>
+       <if test="orderStatus!=null and orderStatus!=''">
+           AND order_status IN (${orderStatus})
+       </if>
+       <if test="orderId!=null">
+           AND id=#{orderId}
+       </if>
+       <if test="ordersNo!=null">
+           AND orders_no=#{ordersNo}
+       </if>
+       <if test="totalOrderNo!=null">
+           AND total_order_no=#{totalOrderNo}
+       </if>
+       <if test="isGameOrder!=null">
+           AND is_game_order=#{isGameOrder}
+       </if>
+       <if test="beginTime!=null">
+           AND DATE_FORMAT(create_time,'%Y-%m-%d %H:%i:%s') <![CDATA[>=]]> #{beginTime}
+       </if>
+       <if test="endTime!=null">
+           AND DATE_FORMAT(create_time,'%Y-%m-%d %H:%i:%s') <![CDATA[<=]]> #{endTime}
+       </if>
+       ORDER BY
+       <if test="createTimeSort==null and totalAmountSort==null">
+           create_time DESC
+       </if>
+       <if test="createTimeSort==1">
+           create_time DESC
+       </if>
+       <if test="createTimeSort==0">
+           create_time
+       </if>
+       <if test="totalAmountSort==1">
+           total_amount DESC
+       </if>
+       <if test="totalAmountSort==0">
+           total_amount
+       </if>
+
+   </select>
+
+    <!--后台查询订单信息-->
+    <select id="findBackOrder" resultType="map" parameterType="map">
+        SELECT
+        <include refid="order"/>
+        FROM busi_order WHERE 1=1
+        <if test="customerId!=null">
+            AND customer_id=#{customerId}
+        </if>
+        <if test="shopId!=null">
+            AND shop_id=#{shopId}
+        </if>
+        <if test="proxyShopId!=null">
+            AND proxy_shop_id=#{proxyShopId}
+        </if>
+        <if test="orderStatus!=null">
+            AND order_status=#{orderStatus}
+        </if>
+        <if test="ordersNo!=null">
+            AND orders_no LIKE CONCAT(CONCAT('%',#{ordersNo},'%'))
+        </if>
+        <if test="totalOrderNo!=null">
+            AND total_order_no=#{totalOrderNo}
+        </if>
+        <if test="orderId!=null">
+            AND id=#{orderId}
+        </if>
+        <if test="isGameOrder!=null and isGameOrder!=''">
+            AND is_game_order IN (${isGameOrder})
+        </if>
+        <if test="beginTime!=null">
+            AND DATE_FORMAT(create_time,'%Y-%m-%d %H:%i:%s') <![CDATA[>=]]> #{beginTime}
+        </if>
+        <if test="endTime!=null">
+            AND DATE_FORMAT(create_time,'%Y-%m-%d %H:%i:%s') <![CDATA[<=]]> #{endTime}
+        </if>
+        ORDER BY create_time DESC
+    </select>
+
+
+
+    <!--订单详情-->
+    <select id="findOrderDetail" resultType="map">
+        SELECT id,product_name productName,product_title productTitle,original_price originalPrice,sell_price sellPrice,number,DATE_FORMAT(create_time,'%Y-%m-%d %H:%i:%s') createTime,final_price finalPrice,
+       photo_url photoUrl,product_spec productSpec,pay_integral payIntegral,prod_id prodId,prod_sku prodSku,order_id orderId,integral_amount integralAmount,number*sell_price totalAmount,number*final_price finalTotalAmount,
+        refund_status refundStatus,exchange_id exchangeId,product_distinction productDistinction,product_type productype,room_card_pic roomCardPic,game_amount gameAmount,u_price uPrice
+      FROM busi_order_detail
+      WHERE 1=1
+        <if test="orderId!=null">
+            AND order_id=#{orderId}
+        </if>
+        <if test="id!=null">
+            AND id=#{id}
+        </if>
+    </select>
+
+    <!-- 统计当前用户下订单数量 -->
+    <select id="countOrderByCustomerCode" resultType="map">
+        SELECT (SELECT COUNT(id) FROM busi_order WHERE order_status=1 AND customer_id=#{customerId} AND del_flag=0) createOrderNum,
+        (SELECT COUNT(id) FROM busi_order WHERE order_status=2 AND customer_id=#{customerId} AND del_flag=0) payOrderNum,
+        (SELECT COUNT(id) FROM busi_order WHERE order_status=3 AND customer_id=#{customerId} AND del_flag=0) deliveryOrderNum,
+        (SELECT COUNT(id) FROM busi_order WHERE order_status=4 AND customer_id=#{customerId} AND del_flag=0) completeOrderNum,
+        (SELECT COUNT(id) FROM busi_order_exchange  WHERE customer_id=#{customerId}) returnOrderNum
+    </select>
+
+    <select id="findAuditOrder" resultType="map">
+        SELECT id,audit_status auditStatus,reason,create_time createTime,create_user createUser,update_time updateTime,update_user updateUser,
+                del_flag delFlag,order_id orderId,once_audit_status onceAuditStatus
+        FROM busi_sys_orderaudit
+        WHERE id=#{id}
+    </select>
+
+    <select id="findOrderTransRecord" resultType="map">
+        SELECT id,totalOrdersNo,amount,deal_no dealNo,type,trans_result transResult,appid
+        FROM busi_order_trans_record
+        WHERE totalOrdersNo=#{totalOrdersNo} AND type=#{type}
+    </select>
+
+    <select id="countAmount" resultType="map">
+    SELECT SUM(bod.sell_price*bod.number) totalAmount,COUNT(bo.id) orderNumber FROM busi_order_detail bod
+    LEFT JOIN busi_order bo ON bod.order_id=bo.id
+    WHERE  bo.order_status>1  AND customer_id=#{customerId}
+    </select>
+
+    <select id="getTakeDelivery" resultType="map" parameterType="map">
+        SELECT
+          <include refid="order"/>
+        FROM
+          busi_order s
+        WHERE
+          order_status = #{orderStatus}
+        AND
+          DATE_ADD(delivery_time, INTERVAL #{takeDeliveryDays} DAY) &lt; NOW()
+        AND
+          s.is_game_order IN (0,2)
+    </select>
+
+    <select id="getGoodComment" resultType="map" parameterType="map">
+        SELECT
+            os.`order_id` AS orderId,
+            os.`prod_id` AS productId,
+            os.`product_spec` AS productSpec,
+            os.`product_name` AS productName,
+            os.`product_title` AS productTitle,
+            os.`prod_sku` AS productSku,
+            os.`photo_url` AS productImg,
+            o.`shop_id` AS shopId,
+            o.`order_status` AS orderStatus,
+            o.`orders_no` AS ordersNo,
+            o.`customer_id` AS customerId,
+            o.`number` AS number
+        FROM
+            busi_order o,
+            busi_order_detail os
+        WHERE
+            o.`id` = os.`order_id`
+        AND
+            o.`order_status` = #{orderStatus}
+        AND
+            DATE_ADD(o.`complete_time`, INTERVAL #{goodComment} DAY) &lt; NOW()
+        AND
+            o.`is_game_order` IN (0,1)
+    </select>
+
+    <select id="getCancelNonPayment" resultType="map" parameterType="map">
+        SELECT
+            os.`order_id` AS orderId,
+            os.`prod_sku` AS productSku,
+            o.`order_status` AS orderStatus,
+            os.`number` AS number,
+            os.`prod_id` AS productId,
+            o.`integral_amount` AS integralAmount,
+            o.`customer_id` AS customerId,
+            o.`orders_No` AS ordersNo,
+            o.`reward_amount` AS rewardAmount,
+            o.`is_game_order` AS isGameOrder
+        FROM
+            busi_order o,
+            busi_order_detail os
+        WHERE
+            o.`id` = os.`order_id`
+        AND
+            o.`order_status` = #{orderStatus}
+        AND
+            DATE_ADD(o.`create_time`, INTERVAL #{cancelNonPayment} HOUR) &lt; NOW();
+
+    </select>
+    <select id="rewardsOrder" resultType="map">
+        SELECT
+          <include refid="order"/>
+        FROM
+          busi_order
+        WHERE
+          order_status IN (4,5)
+        AND
+          isRebate = 0
+    </select>
+    <select id="findThirdOrder" resultType="com.yinhetianze.business.order.model.GameDataModel" parameterType="com.yinhetianze.business.order.model.OrderDto">
+        SELECT
+          o.`order_status` AS orderStatus,
+          o.`pro_amount` AS proAmount,
+          o.`number`,
+          o.`pay_amount` AS payAmount,
+          o.`total_order_no` AS totalOtderNo,
+          o.`customer_id` AS customerId,
+          o.`address`,
+          o.`receiver`,
+          o.`give_integral` AS giveIntegral,
+          o.`total_amount` AS  totalAmout,
+          o.`is_give_integral` AS isGiveIntegral,
+          o.`create_time` AS createTime,
+          o.`phone`,
+          o.`pay_integral` AS payIntegral,
+          otr.`deal_no` AS dealNo,
+          otr.`trans_result` AS transResult,
+          otr.`trade_time` AS tradeTime
+        FROM
+          busi_order o
+        LEFT JOIN  busi_order_trans_record otr
+	    ON o.`total_order_no` = otr.`totalOrdersNo`
+        WHERE o.`orders_no` = #{ordersNo}
+    </select>
+
+    <!--可结算的订单-->
+    <select id="settlementOrder" resultType="map"  parameterType="map">
+        SELECT o.id,o.total_amount totalAmount,o.orders_no ordersNo,o.complete_time completeTime,o.number number FROM busi_order o
+         LEFT JOIN busi_order_detail od ON o.id=od.order_id
+        WHERE o.settlement_status=1 AND NOW()>timestampadd(day,7,o.complete_time) AND od.refund_status IN(0,3,4) AND o.shop_id=#{shopId}
+        <if test="beginTime!=null">
+            AND DATE_FORMAT(o.complete_time,'%Y-%m-%d %H:%i:%s') <![CDATA[>=]]> #{beginTime}
+        </if>
+        <if test="endTime!=null">
+            AND DATE_FORMAT(o.complete_time,'%Y-%m-%d %H:%i:%s') <![CDATA[<=]]> #{endTime}
+        </if>
+        ORDER BY
+        <if test="completeTimeSort==null and totalAmountSort==null">
+            o.create_time DESC
+        </if>
+        <if test="completeTimeSort==1">
+            o.create_time DESC
+        </if>
+        <if test="completeTimeSort==0">
+            o.create_time
+        </if>
+        <if test="totalAmountSort==1">
+            o.total_amount DESC
+        </if>
+        <if test="totalAmountSort==0">
+            o.total_amount
+        </if>
+    </select>
+
+    <select id="noSettlementOrder" resultType="map"  parameterType="map">
+        SELECT o.id,o.total_amount totalAmount,o.orders_no ordersNo,o.complete_time completeTime,oe.exchange_no exchangeNo
+        FROM busi_order o LEFT JOIN busi_order_exchange oe ON o.orders_no=oe.order_no
+        LEFT JOIN  busi_order_detail od ON o.id=od.order_id
+        WHERE (od.refund_status IN(1,2) OR NOW() <![CDATA[<=]]> timestampadd(day,7,o.complete_time))
+         AND o.settlement_status=1 AND o.shop_id=#{shopId}
+        <if test="beginTime!=null">
+            AND DATE_FORMAT(o.complete_time,'%Y-%m-%d %H:%i:%s') <![CDATA[>=]]> #{beginTime}
+        </if>
+        <if test="endTime!=null">
+            AND DATE_FORMAT(o.complete_time,'%Y-%m-%d %H:%i:%s') <![CDATA[<=]]> #{endTime}
+        </if>
+        ORDER BY
+        <if test="completeTimeSort==null and totalAmountSort==null">
+            o.create_time DESC
+        </if>
+        <if test="completeTimeSort==1">
+            o.create_time DESC
+        </if>
+        <if test="completeTimeSort==0">
+            o.create_time
+        </if>
+        <if test="totalAmountSort==1">
+            o.total_amount DESC
+        </if>
+        <if test="totalAmountSort==0">
+            o.total_amount
+        </if>
+    </select>
+    
+    <select id="getexpandThe" parameterType="map" resultType="map">
+        SELECT
+        bo.orders_no ordersNo,
+        bo.id ordersId,
+        bo.customer_id customerId,
+        bo.promotion_user promotionUser,
+        SUM(s.promotion_price) promotionPrice,
+        bo.upgrade_promotion_user upgradePromotionUser,
+	    SUM(s.upgrade_promotion_price)  upgradePromotionPrice
+        FROM
+        busi_order_detail s ,busi_order bo
+        WHERE s.order_id = bo.id
+        AND DATE_ADD(complete_time, INTERVAL #{groundless} DAY) &lt; NOW()
+        AND bo.promotion_rebate = 0
+        AND bo.promotion_user IS NOT NULL
+        AND s.refund_status IN (0, 3, 4)
+        AND bo.is_game_order = 0
+        GROUP BY bo.id,bo.orders_no
+    </select>
+
+
+    <select id="autoSettlementOrder" resultType="map">
+        SELECT
+          SUM(s.total_amount)  totalAmount,
+          SUM(s.settlement_amount)  settlementAmount,
+          s.proxy_shop_id  proxyShopId,
+          GROUP_CONCAT(s.id) ids,
+          bs.bank ,
+          bs.account_name accountName,
+          bs.bank_card_number bankCardNumber,
+          bs.shop_name  shopName
+        FROM
+          `busi_order` s
+        LEFT JOIN `busi_shop_proxy` bs
+        ON bs.id=s.`proxy_shop_id`
+        WHERE s.`order_status` = 2
+          AND s.`is_game_order` = 0
+          AND s.`settlement_id` = 0
+        GROUP BY s.`proxy_shop_id`
+
+    </select>
+    
+    <select id="GetSettleOrder" parameterType="com.yinhetianze.business.order.model.OrderDto" resultType="map">
+        SELECT
+          id,
+          orders_no "ordersNo",
+          number,
+          settlement_amount "settlementAmount",
+          DATE_FORMAT(create_time,'%Y-%m-%d %H:%i:%s') "createTime",
+          DATE_FORMAT(pay_time,'%Y-%m-%d %H:%i:%s') "payTime",
+          order_status "orderStatus",
+          DATE_FORMAT(complete_time,'%Y-%m-%d %H:%i:%s') "completeTime"
+        FROM
+          `busi_order`
+        WHERE settlement_id = #{settlementId}
+    </select>
+    
+</mapper>

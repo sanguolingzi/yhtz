@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yinhetianze.systemservice.report.mapper.info.ReportInfoMapper">
+
+    <select id="selectSumExchange" resultType="int" parameterType="java.util.Map">
+         SELECT COUNT(id) FROM `busi_order_exchange`  WHERE  (check_state=2 OR check_state=1 OR money_check=1 OR money_check=2 AND del_flag=0)
+         <if test="startDate!=null and startDate!=''">
+             AND TO_DAYS( NOW( ) ) - TO_DAYS( create_time) >= #{startDate}
+         </if>
+         <if test="endDate!=null and endDate!=''">
+             AND TO_DAYS( NOW( ) ) - TO_DAYS( create_time) &lt;= #{endDate}
+         </if>
+    </select>
+    <select id="selectSumRefund" resultType="Integer">
+      SELECT SUM(apply_amount)FROM busi_order_exchange WHERE (check_state=2 OR money_check=2) AND del_flag=0
+    </select>
+    <select id="selectSumSupplier" resultType="Integer">
+      SELECT SUM(settlement_amount) FROM `busi_order` WHERE proxy_shop_id IS NOT NULL  AND del_flag=0
+    </select>
+    <select id="selectExchangeList" resultType="java.util.Map">
+        SELECT
+         id,
+         exchange_no "exchangeNo",
+         order_no "orderNo",
+         apply_amount "applyAmount",
+         check_state "checkState",
+         money_check "moneyCheck",
+         exchange_reason "exchangeReason",
+         exchange_type "exchangeType"
+        FROM
+         busi_order_exchange
+        WHERE
+         del_flag=0
+    </select>
+    <select id="getTotalOrder" resultType="map" parameterType="map">
+        SELECT
+        (SELECT
+        COUNT(s.id)
+        FROM
+        `busi_order` s
+        LEFT JOIN busi_order_detail b
+        ON s.id = b.`order_id`
+        WHERE s.`order_status` IN (2, 3, 4, 5, 6)
+        AND b.`refund_status` IN (0, 3, 4)) totalOrder,
+        (SELECT
+        COUNT(s.id)
+        FROM
+        `busi_order` s
+        LEFT JOIN busi_order_detail b
+        ON s.id = b.`order_id`
+        WHERE s.`order_status` IN (2, 3, 4, 5, 6)
+        AND b.`refund_status` IN (0, 3, 4)
+        AND s.`pay_time`   &lt;= #{endTime}
+        AND s.`pay_time`   &gt;= #{startTime}) todayOrder
+    </select>
+
+    <select id="getTotalAmountOrder" resultType="map" parameterType="map">
+        SELECT
+        (SELECT
+        SUM(total_amount)
+        FROM
+        busi_order
+        WHERE order_status IN (2, 3, 4, 5, 6)) totalAmount,
+        (SELECT
+        SUM(total_amount)
+        FROM
+        busi_order
+        WHERE order_status IN (2, 3, 4, 5, 6)
+        AND pay_time  &lt;= #{endTime}
+        AND pay_time  &gt;= #{startTime}) dayAmount
+    </select>
+
+    <select id="getTotalRebateAmount" resultType="map" parameterType="map">
+        SELECT
+        (SELECT
+        SUM(apply_amount)
+        FROM
+        `busi_order_exchange`
+        WHERE exchange_type = 2
+        AND exchange_status = 5) totalRebateAmount,
+        (SELECT
+        SUM(apply_amount)
+        FROM
+        `busi_order_exchange`
+        WHERE exchange_type = 2
+        AND exchange_status = 5
+        AND complete_time &lt;= #{endTime}
+        AND complete_time &gt;= #{startTime}) rebateAmount
+    </select>
+    
+    <select id="getTotalOrderDetail" resultType="com.yinhetianze.systemservice.report.model.OrderReportModel" parameterType="map">
+        SELECT
+          s.total_amount,
+          s.`orders_no`,
+          s.`pay_amount`,
+          s.`pay_time`,
+          s.`pay_type`,
+          s.`settlement_amount`,
+          s.`reward_amount`,
+          s.`integral_amount`,
+          s.`customer_id`,
+          s.`is_game_order`
+        FROM
+          `busi_order` s
+          LEFT JOIN busi_order_detail b
+            ON s.id = b.`order_id`
+        WHERE s.`order_status` IN (2, 3, 4, 5, 6)
+          AND b.`refund_status` IN (0, 3, 4)
+        <if test="startTime != null and endTime != null ">
+          AND s.`pay_time`   &lt;= #{endTime}
+          AND s.`pay_time`   &gt;= #{startTime}
+        </if>
+    </select>
+
+    <select id="getTotalAmountDetail" resultType="map" parameterType="map">
+        SELECT
+        s.total_amount,
+        s.`orders_no`,
+        s.`pay_amount`,
+        s.`pay_time`,
+        s.`pay_type`,
+        s.`settlement_amount`,
+        s.`reward_amount`,
+        s.`integral_amount`,
+        s.`customer_id`,
+        s.`is_game_order`
+        FROM
+        `busi_order` s
+        WHERE
+        order_status IN (2,3,4,5,6)
+        <if test="startTime != null and endTime != null ">
+            AND s.`pay_time`   &lt;= #{endTime}
+            AND s.`pay_time`   &gt;= #{startTime}
+        </if>
+    </select>
+        </mapper>
+

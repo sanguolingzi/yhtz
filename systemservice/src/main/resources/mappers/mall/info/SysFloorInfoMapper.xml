@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yinhetianze.systemservice.mall.mapper.info.SysFloorInfoMapper">
+  <resultMap id="BaseResultMap" type="com.yinhetianze.pojo.back.SysFloorPojo">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="floor_name" jdbcType="VARCHAR" property="floorName" />
+    <result column="sort" jdbcType="SMALLINT" property="sort" />
+    <result column="create_user" jdbcType="INTEGER" property="createUser" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_user" jdbcType="INTEGER" property="updateUser" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="del_flag" jdbcType="SMALLINT" property="delFlag" />
+    <result column="is_show" jdbcType="SMALLINT" property="isShow" />
+    <result column="floor_type" jdbcType="SMALLINT" property="floorType" />
+    <result column="photo_url" jdbcType="VARCHAR" property="photoUrl" />
+      <result column="icon" jdbcType="VARCHAR" property="icon" />
+  </resultMap>
+  <select id="selectSysFloorList" parameterType="com.yinhetianze.systemservice.mall.model.SysFloorModel"
+          resultType="com.yinhetianze.systemservice.mall.model.SysFloorModel">
+
+    select
+      sfl.id,
+      sfl.floor_name "floorName",
+      sfl.is_show "isShow",
+      sfl.create_time "createTime",
+      sfl.sort,
+      opt.optor_name "createUserName",
+      sfl.photo_url "photoUrl",
+      sfl.floor_type "floorType",
+      sfl.link_parameter "linkParameter",
+      sfl.link_markup "linkMarkup",
+      sfl.icon "icon",
+      sfl.floor_link "floorLink"
+    from busi_sys_floor sfl
+    left join busi_sys_optor opt on opt.id = sfl.create_user and opt.del_flag = 0
+    where sfl.del_flag = 0
+    <if test="floorName != '' and floorName != null">
+       and sfl.floor_name like '%${floorName}%'
+    </if>
+    <if test="floorType != '' and floorType != null">
+      and sfl.floor_type = #{floorType}
+    </if>
+    order by sfl.sort asc, sfl.create_time desc
+
+  </select>
+  <select id="selectFloorOne" parameterType="com.yinhetianze.pojo.back.SysFloorPojo" resultType="com.yinhetianze.systemservice.mall.model.FloorMobileIndexModel">
+    SELECT
+     id,
+     floor_name "floorName",
+     photo_url "photoUrl",
+     floor_type "floorType",
+     link_markup "linkMarkup",
+     link_parameter "linkParameter",
+     floor_link "floorLink",
+     sort,
+     icon
+    FROM
+     busi_sys_floor
+    WHERE
+     is_show=0
+    AND
+     del_flag=0
+    AND
+     id=#{id}
+  </select>
+    <select id="selectFloorList" resultType="com.yinhetianze.pojo.back.SysFloorPojo">
+        SELECT
+         id
+        FROM busi_sys_floor WHERE is_show=0 AND del_flag=0 AND floor_type=0 ORDER BY sort
+    </select>
+    <select id="getFloorList" resultType="java.util.Map">
+        SELECT
+          id,
+          floor_name "floorName"
+        FROM busi_sys_floor WHERE is_show=0 AND  del_flag=0 ORDER BY sort ASC, create_time DESC
+    </select>
+</mapper>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yinhetianze.business.message.mapper.busi.MessageBusiMapper">
+
+    <update id="updateMessageLastTime" parameterType="com.yinhetianze.pojo.message.BusiMessagePojo">
+       update busi_message
+         <set>
+            <if test="activeTime != null">
+                active_time = now()
+            </if>
+            <if test="logisticsTime != null">
+                logistics_time = now()
+            </if>
+            <if test="noticeTime != null">
+                notice_time = now()
+            </if>
+            <if test="infoTime != null">
+                info_time = now()
+            </if>
+         </set>
+       where id = #{id}
+    </update>
+</mapper>

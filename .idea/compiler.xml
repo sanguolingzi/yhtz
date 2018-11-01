@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="back" />
+        <module name="billing" />
+        <module name="billingservice" />
+        <module name="client" />
+        <module name="core" />
+        <module name="customer" />
+        <module name="customerservice" />
+        <module name="ElasticSearch" />
+        <module name="generator" />
+        <module name="kernel" />
+        <module name="messageservice" />
+        <module name="order" />
+        <module name="orderservice" />
+        <module name="pojo" />
+        <module name="product" />
+        <module name="productservice" />
+        <module name="shop" />
+        <module name="shopservice" />
+        <module name="SolrService" />
+        <module name="systemservice" />
+        <module name="task" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="back" target="1.8" />
+      <module name="billing" target="1.8" />
+      <module name="billingservice" target="1.8" />
+      <module name="client" target="1.8" />
+      <module name="core" target="1.8" />
+      <module name="customer" target="1.8" />
+      <module name="customerservice" target="1.8" />
+      <module name="ElasticSearch" target="1.5" />
+      <module name="generator" target="1.8" />
+      <module name="kernel" target="1.8" />
+      <module name="messageservice" target="1.8" />
+      <module name="order" target="1.8" />
+      <module name="orderservice" target="1.8" />
+      <module name="pojo" target="1.8" />
+      <module name="product" target="1.8" />
+      <module name="productservice" target="1.8" />
+      <module name="shop" target="1.8" />
+      <module name="shopservice" target="1.8" />
+      <module name="SolrService" target="1.5" />
+      <module name="systemservice" target="1.8" />
+      <module name="task" target="1.8" />
+      <module name="yinhetianze" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yinhetianze.systemservice.mall.mapper.info.MobileFloorDetailInfoMapper">
+  <resultMap id="BaseResultMap" type="com.yinhetianze.pojo.back.MobileFloorDetailPojo">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="create_user" jdbcType="INTEGER" property="createUser" />
+    <result column="update_user" jdbcType="INTEGER" property="updateUser" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="sort" jdbcType="SMALLINT" property="sort" />
+    <result column="link_markup" jdbcType="SMALLINT" property="linkMarkup" />
+    <result column="link_parameter" jdbcType="VARCHAR" property="linkParameter" />
+    <result column="mobile_floor_detail_link" jdbcType="VARCHAR" property="mobileFloorDetailLink" />
+    <result column="mobile_floor_id" jdbcType="VARCHAR" property="mobileFloorId" />
+    <result column="photo_url" jdbcType="VARCHAR" property="photoUrl" />
+    <result column="is_show" jdbcType="SMALLINT" property="isShow" />
+    <result column="del_flag" jdbcType="SMALLINT" property="delFlag" />
+  </resultMap>
+  <select id="selectMobileFloorDetailList" parameterType="com.yinhetianze.pojo.back.MobileFloorDetailPojo" resultType="java.util.Map">
+    SELECT
+      id,
+      mobile_floor_id "mobileFloorId",
+      photo_url "photoUrl",
+      sort,
+      is_show "isShow",
+      link_markup "linkMarkup",
+      link_parameter "linkParameter",
+      mobile_floor_detail_link "mobileFloorDetailLink"
+    FROM
+      busi_sys_mobile_floor_detail
+    WHERE
+      del_flag=0
+    AND
+      mobile_floor_id=#{mobileFloorId}
+    order by sort asc,create_time desc
+  </select>
+
+  <select id="selectMobileFloorIndex" parameterType="com.yinhetianze.pojo.back.MobileFloorDetailPojo" resultType="java.util.Map">
+    SELECT
+     mfd.id "mobileFloorDetailid",
+     mfd.mobile_floor_id "mobileFloorId",
+     mfd.photo_url "mobileFloorDetailPhotoUrl",
+     mfd.link_markup "mobileFloorDetailLinkMarkup",
+     mfd.link_parameter "mobileFloorDetailLinkParameter",
+     mfd.mobile_floor_detail_link "mobileFloorDetailLink"
+    FROM
+     busi_sys_mobile_floor_detail mfd
+    WHERE
+      mfd.del_flag=0 AND  mfd.is_show=0 AND  mfd.mobile_floor_id=#{mobileFloorId}
+    ORDER BY
+     mfd.sort ASC
+     LIMIT 2
+  </select>
+</mapper>

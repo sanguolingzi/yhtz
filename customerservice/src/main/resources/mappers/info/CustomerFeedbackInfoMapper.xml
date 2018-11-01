@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yinhetianze.business.customer.mapper.info.CustomerFeedbackInfoMapper">
+  <resultMap id="BaseResultMap" type="com.yinhetianze.pojo.customer.BusiCustomerFeedbackPojo">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="c_type" jdbcType="SMALLINT" property="cType" />
+    <result column="remark" jdbcType="VARCHAR" property="remark" />
+    <result column="del_flag" jdbcType="SMALLINT" property="delFlag" />
+    <result column="customer_id" jdbcType="INTEGER" property="customerId" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="f_status" jdbcType="SMALLINT" property="fStatus" />
+    <result column="f_description" jdbcType="VARCHAR" property="fDescription" />
+  </resultMap>
+
+  <select id="selectList" resultType="com.yinhetianze.business.customer.model.BusiCustomerFeedbackModel" parameterType="com.yinhetianze.business.customer.model.BusiCustomerFeedbackPageModel">
+       select
+           id,
+           f_description  "fDescription",
+           c_type "cType",
+           customer_id "customerId"
+       from busi_customer_feedback
+       where del_flag = 0
+  </select>
+
+    <select id="selectListForManage" resultType="com.yinhetianze.business.customer.model.BusiCustomerFeedbackModel" parameterType="com.yinhetianze.business.customer.model.BusiCustomerFeedbackPageModel">
+        select
+          feedback.id,
+          customer.phone,
+          customer.nick_name "nickName",
+          customer.id "customerId",
+          feedback.create_time "createTime",
+          feedback.c_type "cType"
+        from busi_customer_feedback feedback
+        left join busi_customer customer  on customer.id = feedback.customer_id
+        where feedback.del_flag = 0
+        <if test="@com.yinhetianze.core.utils.CommonUtil@isNotEmpty(cType)">
+            and feedback.c_type = #{cType}
+        </if>
+        <choose>
+            <when test="@com.yinhetianze.core.utils.CommonUtil@isNotEmpty(beginTime) and @com.yinhetianze.core.utils.CommonUtil@isNotEmpty(endTime)">
+                and date_format(feedback.create_time,'%Y-%m-%d') &gt;= #{beginTime}
+                and date_format(feedback.create_time,'%Y-%m-%d') &lt;= #{endTime}
+            </when>
+            <when test="@com.yinhetianze.core.utils.CommonUtil@isNotEmpty(beginTime)">
+                and date_format(feedback.create_time,'%Y-%m-%d') &gt;= #{beginTime}
+            </when>
+            <when test="@com.yinhetianze.core.utils.CommonUtil@isNotEmpty(endTime)">
+                and date_format(feedback.create_time,'%Y-%m-%d') &lt;= #{endTime}
+            </when>
+            <otherwise></otherwise>
+        </choose>
+        order by feedback.create_time desc
+    </select>
+</mapper>

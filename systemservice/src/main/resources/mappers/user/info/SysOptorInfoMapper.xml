@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yinhetianze.systemservice.user.mapper.info.SysOptorInfoMapper">
+  <select id="selectSysOptorList" parameterType="com.yinhetianze.systemservice.user.model.BusiSysOptorPageModel" resultType="com.yinhetianze.systemservice.user.model.BusiSysOptorModel">
+
+      select
+          id,
+          account,
+          optor_name "optorName",
+          phone,
+          create_time "createTime",
+          account_status "accountStatus",
+          tmp.roleNames,
+          tmp.roleIds
+      from  busi_sys_optor optor
+      left join
+      (
+        select
+        GROUP_CONCAT(role.role_name) roleNames,
+        GROUP_CONCAT(role.id) roleIds,
+        usr.optor_id
+        from busi_sys_userrole_relation usr
+        join busi_sys_role role on role.id = usr.role_id
+        where role.del_flag = 0 and usr.del_flag = 0
+        group by usr.optor_id
+      ) tmp on tmp.optor_id = optor.id
+      where del_flag = 0
+      <if test="account != null and account != ''">
+         and account like '%${account}%'
+      </if>
+
+      <if test="optorName != null and optorName != ''">
+        and optor_name like '%${optorName}%'
+      </if>
+      <if test="roleId != null and roleId != ''">
+        and exists (
+            select usr.id from busi_sys_userrole_relation usr
+            where role_id = #{roleId} and usr.optor_id = optor.id
+            and usr.del_flag = 0
+        )
+      </if>
+      order by create_time desc
+  </select>
+</mapper>

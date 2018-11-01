@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="FrameworkDetectionExcludesConfiguration">
+    <file type="web" url="file://$PROJECT_DIR$/back" />
+    <file type="web" url="file://$PROJECT_DIR$/billing" />
+    <file type="web" url="file://$PROJECT_DIR$/client" />
+    <file type="web" url="file://$PROJECT_DIR$/customer" />
+    <file type="web" url="file://$PROJECT_DIR$/kernel" />
+    <file type="web" url="file://$PROJECT_DIR$/order" />
+    <file type="web" url="file://$PROJECT_DIR$/product" />
+    <file type="web" url="file://$PROJECT_DIR$/shop" />
+    <file type="web" url="file://$PROJECT_DIR$/SolrService" />
+    <file type="web" url="file://$PROJECT_DIR$/task" />
+  </component>
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/ElasticSearch/pom.xml" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/out" />
+  </component>
+  <component name="SvnBranchConfigurationManager">
+    <option name="myConfigurationMap">
+      <map>
+        <entry key="$PROJECT_DIR$">
+          <value>
+            <SvnBranchConfiguration>
+              <option name="branchUrls">
+                <list>
+                  <option value="svn://192.168.8.254/repo/branches" />
+                  <option value="svn://192.168.8.254/repo/docs" />
+                  <option value="svn://192.168.8.254/repo/tags" />
+                  <option value="svn://192.168.8.254/repo/tools" />
+                </list>
+              </option>
+              <option name="trunkUrl" value="svn://192.168.8.254/repo/trunk" />
+            </SvnBranchConfiguration>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="mySupportsUserInfoFilter" value="true" />
+  </component>
+</project>

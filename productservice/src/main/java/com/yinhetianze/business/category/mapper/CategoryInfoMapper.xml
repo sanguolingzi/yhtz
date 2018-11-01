@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yinhetianze.business.category.mapper.CategoryInfoMapper">
+  <resultMap id="categoryPojo" type="com.yinhetianze.pojo.category.CategoryPojo">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="del_flag" jdbcType="SMALLINT" property="delFlag" />
+    <result column="cate_name" jdbcType="VARCHAR" property="cateName" />
+    <result column="parent_id" jdbcType="INTEGER" property="parentId" />
+    <result column="sort" jdbcType="SMALLINT" property="sort" />
+    <result column="is_show" jdbcType="SMALLINT" property="isShow" />
+    <result column="cate_level" jdbcType="SMALLINT" property="cateLevel" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="create_user" jdbcType="INTEGER" property="createUser" />
+    <result column="update_user" jdbcType="INTEGER" property="updateUser" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="is_leaf" jdbcType="SMALLINT" property="isLeaf" />
+    <result column="cate_img" jdbcType="VARCHAR" property="cateImg" />
+    <result column="cate_type" jdbcType="SMALLINT" property="cateType" />
+    <result column="cate_mobile_name" jdbcType="VARCHAR" property="cateMobileName" />
+    <result column="cate_belong" jdbcType="SMALLINT" property="cateBelong" />
+    <result column="shopping_guide" jdbcType="VARCHAR" property="shoppingGuide" />
+  </resultMap>
+
+  <select id="getCategoryList" parameterType="map" resultMap="categoryPojo">
+    select * from busi_product_category
+    <where>
+      del_flag=0
+      <if test="cateName != null and cateName != ''">
+         AND cate_name like CONCAT('%', #{cateName}, '%')
+      </if>
+      <if test="cateBelong != null">
+         AND  cate_belong=#{cateBelong}
+      </if>
+      <if test="parentId != null">
+        and parent_id = #{parentId}
+      </if>
+      <if test="isShow != null">
+        and is_show = #{isShow}
+      </if>
+      <if test="cateLevel != null">
+        and cate_level = #{cateLevel}
+      </if>
+      <if test="cateType != null">
+        and cate_type = #{cateType}
+      </if>
+    </where>
+  </select>
+
+  <select id="getSelectMap" resultType="map">
+    select id,parent_id as parentId,cate_name as cateName ,cate_level as cateLevel from busi_product_category where is_show=0 and del_flag=0
+  </select>
+
+  <select id="selectMap" resultType="map">
+     SELECT id,parent_id AS parentId,cate_mobile_name AS cateMobileName ,cate_level AS cateLevel , cate_img AS cateImg FROM busi_product_category WHERE is_show=0 AND del_flag=0
+  </select>
+
+  <select id="selectCategoryid" parameterType="com.yinhetianze.business.category.model.CategoryModel" resultType="int">
+      SELECT
+        COUNT(id)
+      FROM
+        busi_product_category
+      WHERE
+        cate_name=#{cateName}
+      AND
+        del_flag=0
+  </select>
+
+  <select id="getOneCateList" resultType="java.util.Map">
+       SELECT id,cate_name "cateName" FROM busi_product_category WHERE is_show=0 AND del_flag=0 AND cate_level=1
+  </select>
+</mapper>

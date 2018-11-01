@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yinhetianze.business.brand.mapper.BrandInfoMapper">
+  <resultMap id="brandMap" type="com.yinhetianze.pojo.brand.BrandPojo">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="brand_name" jdbcType="VARCHAR" property="brandName" javaType="java.lang.String"/>
+    <result column="brand_big_img" jdbcType="VARCHAR" property="brandBigImg" />
+    <result column="brand_small_img" jdbcType="VARCHAR" property="brandSmallImg" />
+    <result column="title" jdbcType="VARCHAR" property="title" />
+    <result column="synopsis" jdbcType="VARCHAR" property="synopsis" />
+    <result column="first_word" jdbcType="VARCHAR" property="firstWord" />
+    <result column="sort" jdbcType="INTEGER" property="sort" />
+    <result column="is_show" jdbcType="SMALLINT" property="isShow" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="description" jdbcType="VARCHAR" property="description" />
+    <result column="brand_type" jdbcType="SMALLINT" property="brandType" />
+    <result column="brand_shop_img" jdbcType="VARCHAR" property="brandShopImg" />
+    <result column="del_flag" jdbcType="SMALLINT" property="delFlag" />
+
+
+  </resultMap>
+
+  <sql id="selectColumn">
+    id,
+    brand_name,
+    brand_big_img,
+    brand_small_img,
+    title,
+    synopsis,
+    first_word,
+    sort,
+    is_show,
+    create_time,
+    description,
+    brand_type,
+    brand_shop_img
+  </sql>
+
+  <select id="getBrandList" parameterType="map" resultMap="brandMap">
+    select
+      <include refid="selectColumn"/>
+    from
+      busi_product_brand
+    <where>
+      del_flag=0
+      <if test="brandName != null and brandName !=''">
+       AND  brand_name like concat('%', #{brandName}, '%')
+      </if>
+      <if test="title != null and title !=''">
+        and title like concat('%', #{title}, '%')
+      </if>
+      <if test="synopsis != null and synopsis !=''">
+        and synopsis like concat('%', #{synopsis}, '%')
+      </if>
+      <if test="firstWord != null and firstWord !=''">
+        and first_word = #{firstWord}
+      </if>
+      <if test="isShow != null">
+        and is_show = #{isShow}
+      </if>
+      <if test="brandId != null">
+        and id = #{brandId}
+      </if>
+    </where>
+    order by sort, first_word, create_time desc
+  </select>
+
+  <select id="selectBrandList" parameterType="com.yinhetianze.business.product.model.ProductModel"
+          resultType="java.util.Map">
+    SELECT
+      busi_product_brand.id,
+      busi_product_brand.brand_name "brandName"
+    FROM
+      busi_product
+      LEFT JOIN busi_product_brand ON busi_product_brand.id=busi_product.prod_brand_id
+    WHERE
+      busi_product_brand.del_flag=0
+    AND
+      busi_product.del_flag=0
+    AND
+      busi_product.prod_cate_id=#{prodCateId}
+    AND
+      busi_product_brand.brand_type=0
+    GROUP BY
+      busi_product.prod_brand_id
+    <choose>
+      <when test="isAll != null">
+          limit #{isAll}
+      </when>
+    </choose>
+  </select>
+</mapper>

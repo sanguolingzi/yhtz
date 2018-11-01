@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yinhetianze.business.evaluate.mapper.EvaluateInfoMapper">
+  <resultMap id="BaseResultMap" type="com.yinhetianze.pojo.order.EvaluatePojo">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="evaluate_id" jdbcType="INTEGER" property="evaluateId" />
+    <result column="order_id" jdbcType="INTEGER" property="orderId" />
+    <result column="order_no" jdbcType="VARCHAR" property="orderNo" />
+    <result column="product_id" jdbcType="INTEGER" property="productId" />
+    <result column="product_suk" jdbcType="VARCHAR" property="productSuk" />
+    <result column="product_name" jdbcType="VARCHAR" property="productName" />
+    <result column="product_title" jdbcType="VARCHAR" property="productTitle" />
+    <result column="product_spec" jdbcType="VARCHAR" property="productSpec" />
+    <result column="product_img" jdbcType="VARCHAR" property="productImg" />
+    <result column="shop_id" jdbcType="INTEGER" property="shopId" />
+    <result column="content" jdbcType="VARCHAR" property="content" />
+    <result column="evaluate_img" jdbcType="VARCHAR" property="evaluateImg" />
+    <result column="product_star" jdbcType="SMALLINT" property="productStar" />
+    <result column="service_star" jdbcType="SMALLINT" property="serviceStar" />
+    <result column="logistics_star" jdbcType="SMALLINT" property="logisticsStar" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="evaluate_user" jdbcType="INTEGER" property="evaluateUser" />
+    <result column="add_evaluate" jdbcType="TINYINT" property="addEvaluate" />
+    <result column="answer" jdbcType="VARCHAR" property="answer" />
+    <result column="answer_time" jdbcType="TIMESTAMP" property="answerTime" />
+    <result column="is_show" jdbcType="SMALLINT" property="isShow" />
+    <result column="del_flag" jdbcType="SMALLINT" property="delFlag" />
+  </resultMap>
+
+  <resultMap id="BaseResultEvaluate" type="com.yinhetianze.business.evaluate.model.EvaluateModel">
+    <id column="evaluate_id" jdbcType="INTEGER" property="evaluateId" />
+    <result column="order_id" jdbcType="INTEGER" property="orderId" />
+    <result column="order_no" jdbcType="VARCHAR" property="orderNo" />
+    <result column="product_id" jdbcType="INTEGER" property="productId" />
+    <result column="product_suk" jdbcType="VARCHAR" property="productSuk" />
+    <result column="product_name" jdbcType="VARCHAR" property="productName" />
+    <result column="product_title" jdbcType="VARCHAR" property="productTitle" />
+    <result column="product_spec" jdbcType="VARCHAR" property="productSpec" />
+    <result column="product_img" jdbcType="VARCHAR" property="productImg" />
+    <result column="shop_id" jdbcType="INTEGER" property="shopId" />
+    <result column="content" jdbcType="VARCHAR" property="content" />
+    <result column="evaluate_img" jdbcType="VARCHAR" property="evaluateImg" />
+    <result column="product_star" jdbcType="SMALLINT" property="productStar" />
+    <result column="service_star" jdbcType="SMALLINT" property="serviceStar" />
+    <result column="logistics_star" jdbcType="SMALLINT" property="logisticsStar" />
+    <result column="create_time" jdbcType="VARCHAR" property="createTime" />
+    <result column="evaluate_user" jdbcType="INTEGER" property="evaluateUser" />
+    <result column="add_evaluate" jdbcType="TINYINT" property="addEvaluate" />
+    <result column="answer" jdbcType="VARCHAR" property="answer" />
+    <result column="answer_time" jdbcType="VARCHAR" property="answerTime" />
+    <result column="is_show" jdbcType="SMALLINT" property="isShow" />
+    <result column="del_flag" jdbcType="SMALLINT" property="delFlag" />
+  </resultMap>
+
+
+  <sql id="evaluate">
+    evaluate_id,order_id,order_no,product_id,product_suk,product_name,product_title,product_spec,
+    product_img,shop_id,content,evaluate_img,product_star,service_star,logistics_star,DATE_FORMAT(create_time,'%Y-%m-%d %H:%i:%s') create_time
+    ,
+    evaluate_user,add_evaluate,answer,is_show,DATE_FORMAT(answer_time,'%Y-%m-%d %H:%i:%s') answer_time
+  </sql>
+
+
+  <!--评价信息-->
+  <select id="findEvaluate" resultMap="BaseResultEvaluate" parameterType="map">
+    SELECT
+    <include refid="evaluate"/>
+    FROM busi_product_evaluate WHERE del_flag=0
+    <if test="productId!=null">
+      AND product_id=#{productId}
+    </if>
+    <if test="productSuk!=null">
+      AND product_suk=#{productSuk}
+    </if>
+    <if test="shopId!=null">
+      AND shop_id=#{shopId}
+    </if>
+    <if test="orderId!=null">
+      AND order_id=#{orderId}
+    </if>
+    <if test="orderNo!=null">
+      AND order_no=#{orderNo}
+    </if>
+    <if test="productStar!=null">
+      AND product_star=#{productStar}
+    </if>
+    <if test="evaluateUser!=null">
+      AND evaluate_user=#{evaluateUser}
+    </if>
+    <if test="evaluateId!=null">
+      AND evaluate_id=#{evaluateId}
+    </if>
+    <if test="addEvaluate!=null">
+      AND add_evaluate=#{addEvaluate}
+    </if>
+    <if test="isShow!=null">
+      AND is_show=#{isShow}
+    </if>
+    ORDER BY
+    <if test="createTimeSort==null">
+      create_time DESC
+    </if>
+    <if test="createTimeSort==1">
+      create_time DESC
+    </if>
+    <if test="createTimeSort==0">
+      create_time
+    </if>
+
+  </select>
+
+</mapper>

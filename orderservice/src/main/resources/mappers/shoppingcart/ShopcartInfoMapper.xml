@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper	namespace="com.yinhetianze.business.shoppingcart.mapper.ShopcartInfoMapper">
+
+	<sql id="baseSql" >
+		cs.id id,cs.customer_id customerId,cs.prod_id prodId,cs.number number,cs.shop_id shopId,cs.create_time createTime,cs.prod_sku prodSku,cs.proxy_shop_id proxyShopId
+	</sql>
+
+
+	<!-- 根据用户编码查询购物车信息 -->
+	<select id="findShopcartByCustomerId" resultType="map">
+	    SELECT
+		<include refid="baseSql"/>
+        FROM busi_order_shoppingcart cs
+        WHERE cs.customer_id= #{customerId} ORDER BY cs.create_time
+	</select>
+	
+	<!-- 根据主键查询购物车信息 -->
+	<select id="findShopcartById" resultType="map">
+	  SELECT
+	  <include refid="baseSql"/>
+	   FROM busi_order_shoppingcart cs
+	    WHERE cs.id=#{id}
+	</select>
+	
+    <!-- 一个用户购物车现有的商品数量 -->	
+	<select id="countNumberByCustomerId" resultType="int">
+	   SELECT SUM(number) totalNumber FROM busi_order_shoppingcart WHERE customer_id=#{customerId}
+	</select>
+	
+	 <!-- 一个用户下除了被的修改购物车商品数量 -->	
+	<select id="countNumber" resultType="int" >
+		SELECT SUM(number) totalNumber FROM busi_order_shoppingcart WHERE customer_id=#{customerId}
+		AND id NOT IN
+	    <foreach collection="list" index="index" item="item" separator="," open="(" close=")">
+            #{item.id}
+        </foreach>
+	</select>
+	
+	<!-- 根据用户编码和产品ID查询购物车信息 -->	
+	<select id="findShopcart" resultType="map">
+	    SELECT
+		<include refid="baseSql"/>
+        FROM busi_order_shoppingcart cs
+		WHERE cs.customer_id=#{customerId}  AND cs.prod_id=#{prodId} AND cs.prod_sku=#{prodSku}
+	</select>
+
+	<!--根据ID数组查询购物车信息-->
+	<select id="findShopcartByIds" resultType="map" >
+		SELECT
+		<include refid="baseSql"/>
+		FROM busi_order_shoppingcart cs
+		WHERE cs.id IN
+		<foreach item="item" collection="array" open="(" separator="," close=")">
+			#{item}
+		</foreach>
+	</select>
+	
+</mapper>

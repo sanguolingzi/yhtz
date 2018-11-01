@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yinhetianze.business.product.mapper.ProductUnitBusiMapper">
+  <resultMap id="BaseResultMap" type="com.yinhetianze.pojo.product.ProductUnitPojo">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="unit_name" jdbcType="VARCHAR" property="unitName" />
+    <result column="sort" jdbcType="SMALLINT" property="sort" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="is_show" jdbcType="SMALLINT" property="isShow" />
+  </resultMap>
+  <insert id="addProductUnitid" parameterType="com.yinhetianze.pojo.product.ProductUnitPojo" useGeneratedKeys="true" keyProperty="id" keyColumn="id" >
+    <selectKey keyProperty='id' resultType='int' order='AFTER'  >
+      select LAST_INSERT_ID();
+    </selectKey>
+    INSERT INTO
+      busi_product_unit(unit_name,is_show)
+    VALUES
+    (#{unitName},#{isShow})
+
+  </insert>
+
+  <update id="updateProductUnit" parameterType="map" >
+    UPDATE
+     busi_product_unit_relation LEFT JOIN busi_product_unit ON busi_product_unit_relation.unitId=busi_product_unit.id
+    SET
+     busi_product_unit.unit_name=#{unitName},
+     busi_product_unit.is_show=#{isShow},
+     busi_product_unit.sort=#{sort},
+     busi_product_unit_relation.categoryId=#{categoryid}
+    WHERE
+     busi_product_unit.id=busi_product_unit_relation.unitId
+    AND
+     busi_product_unit_relation.id=#{id}
+  </update>
+</mapper>

@@ -1,0 +1,522 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yinhetianze.business.product.mapper.ProductInfoMapper">
+  <resultMap id="prodResultMap" type="com.yinhetianze.pojo.product.ProductPojo">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="del_flag" jdbcType="SMALLINT" property="delFlag" />
+    <result column="p_title" jdbcType="VARCHAR" property="pTitle" />
+    <result column="p_subtitle" jdbcType="VARCHAR" property="pSubtitle" />
+    <result column="prod_name" jdbcType="VARCHAR" property="prodName" />
+    <result column="prod_cate_name" jdbcType="VARCHAR" property="prodCateName" />
+    <result column="prod_cate_id" jdbcType="INTEGER" property="prodCateId" />
+    <result column="prod_brand_id" jdbcType="INTEGER" property="prodBrandId" />
+    <result column="prod_brand_name" jdbcType="VARCHAR" property="prodBrandName" />
+    <result column="prod_code" jdbcType="VARCHAR" property="prodCode" />
+    <result column="market_price" jdbcType="DECIMAL" property="marketPrice" />
+    <result column="sell_price" jdbcType="DECIMAL" property="sellPrice" />
+    <result column="profits_proportion" jdbcType="DECIMAL" property="profitsProportion" />
+    <result column="integral_percent" jdbcType="DECIMAL" property="integralPercent" />
+    <result column="prod_unit_id" jdbcType="INTEGER" property="prodUnitId" />
+    <result column="prod_unit_name" jdbcType="VARCHAR" property="prodUnitName" />
+    <result column="is_freight_free" jdbcType="SMALLINT" property="isFreightFree" />
+    <result column="freight_free_price" jdbcType="DECIMAL" property="freightFreePrice" />
+    <result column="freight" jdbcType="DECIMAL" property="freight" />
+    <result column="is_replacement" jdbcType="SMALLINT" property="isReplacement" />
+    <result column="p_storage" jdbcType="INTEGER" property="pStorage" />
+    <result column="audit_state" jdbcType="SMALLINT" property="auditState" />
+    <result column="p_status" jdbcType="SMALLINT" property="pStatus" />
+    <result column="create_user" jdbcType="INTEGER" property="createUser" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_user" jdbcType="INTEGER" property="updateUser" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="product_img" jdbcType="VARCHAR" property="productImg" />
+    <result column="qrcode" jdbcType="VARCHAR" property="qrcode" />
+    <result column="shop_id" jdbcType="INTEGER" property="shopId" />
+    <result column="ship_address" jdbcType="VARCHAR" property="shipAddress" />
+    <result column="ship_city" jdbcType="SMALLINT" property="shipCity" />
+    <result column="ship_province" jdbcType="SMALLINT" property="shipProvince" />
+    <result column="shop_cate_id" jdbcType="INTEGER" property="shopCateId" />
+    <result column="shop_brand_id" jdbcType="INTEGER" property="shopBrandId" />
+    <result column="settlement_price" jdbcType="DECIMAL" property="settlementPrice" />
+    <result column="electronic_invoice" jdbcType="INTEGER" property="electronicInvoice" />
+    <result column="product_type" jdbcType="INTEGER" property="productType" />
+    <result column="product_distinction" jdbcType="INTEGER" property="productDistinction" />
+    <result column="up_time"   jdbcType="TIMESTAMP" property="upTime" />
+    <result column="down_time" jdbcType="TIMESTAMP" property="downTime" />
+    <result column="supply_price" jdbcType="DECIMAL" property="supplyPrice" />
+    <result column="retail_price" jdbcType="DECIMAL" property="retailPrice" />
+    <result column="share_price" jdbcType="DECIMAL" property="sharePrice" />
+    <result column="promotion_price" jdbcType="DECIMAL" property="promotionPrice" />
+    <result column="drop_shipping"   jdbcType="SMALLINT" property="dropShipping" />
+    <result column="drop_shipping_id" jdbcType="INTEGER" property="dropShippingId" />
+    <result column="flag_price" jdbcType="DECIMAL" property="flagPrice" />
+  </resultMap>
+
+  <sql id="selectColumnSql">
+    busi_product.id,
+    busi_product.del_flag,
+    busi_product.p_title,
+    busi_product.p_subtitle,
+    busi_product.prod_name,
+    busi_product_category.cate_name "prod_cate_name",
+    busi_product.prod_cate_id,
+    busi_product.prod_brand_id,
+    busi_product.prod_brand_name,
+    busi_product.prod_code,
+    busi_product.market_price,
+    busi_product.sell_price,
+    busi_product.profits_proportion,
+    busi_product.integral_percent,
+    busi_product.prod_unit_id,
+    busi_product.prod_unit_name,
+    busi_product.is_freight_free,
+    busi_product.freight_free_price,
+    busi_product.freight,
+    busi_product.is_replacement,
+    busi_product.p_storage,
+    busi_product.audit_state,
+    busi_product.p_status,
+    busi_product.create_time,
+    busi_product.update_time,
+    busi_product.product_img,
+    busi_product.qrcode,
+    busi_product.shop_id,
+    busi_product.ship_address,
+    busi_product.ship_city,
+    busi_product.ship_province,
+    busi_product.product_distinction,
+    busi_product.up_time,
+    busi_product.down_time,
+    busi_product.product_type,
+    busi_product.shop_brand_id,
+    busi_product.retail_price
+  </sql>
+
+  <select id="getProductList" parameterType="map" resultMap="prodResultMap">
+    select
+      <include refid="selectColumnSql"/>
+    from
+      busi_product LEFT JOIN busi_product_category ON busi_product.prod_cate_id=busi_product_category.id
+    <where>
+      <if test="prodName != null and prodName != ''">
+        busi_product.prod_name like concat('%', #{prodName}, '%')
+      </if>
+      <if test="prodCode != null and prodCode != ''">
+        and busi_product.prod_code = #{prodCode}
+      </if>
+      <if test="prodId != null">
+        and busi_product.id = #{prodId}
+      </if>
+      <if test="delFlag != null">
+        and busi_product.del_flag = #{delFlag}
+      </if>
+      <if test="isReplacement != null">
+        and busi_product.is_replacement = #{isReplacement}
+      </if>
+      <if test="shopId != null">
+        and busi_product.shop_id = #{shopId}
+      </if>
+      <if test="auditState != null">
+        and busi_product.audit_state = #{auditState}
+      </if>
+      <if test="prodStatus != null">
+        and busi_product.p_status = #{prodStatus}
+      </if>
+      <if test="isFreightFree != null">
+        and busi_product.is_freight_free = #{isFreightFree}
+      </if>
+      <if test="prodBrandId != null">
+        and busi_product.prod_brand_id = #{prodBrandId}
+      </if>
+      <if test="prodCateId != null">
+        and busi_product.prod_cate_id = #{prodCateId}
+      </if>
+      <if test="shipAddress != null and shipAddress != ''">
+        and busi_product.ship_address like concat('%', #{shipAddress}, '%')
+      </if>
+      <if test="prodCateName != null and prodCateName != ''">
+        and busi_product.prod_cate_name like concat('%', #{prodCateName}, '%')
+      </if>
+      <if test="shopCateId != null and shopCateId != ''">
+        and busi_product.shop_cate_id = #{shopCateId}
+      </if>
+      <if test="productType!=null">
+         and busi_product.product_type=#{productType}
+      </if>
+      <if test="settlement != null and settlement == 1">
+        and busi_product.profits_proportion IS NOT NULL
+      </if>
+      <if test="settlement != null and settlement == 2">
+        and busi_product.settlement_price IS NOT NULL
+      </if>
+      <if test="productDistinction !=null ">
+        and busi_product.product_distinction=#{productDistinction}
+      </if>
+
+      <choose>
+        <when test="lowSellPrice != null and highSellPrice != null">
+          and busi_product.sell_price between #{lowSellPrice} and #{highSellPrice}
+        </when>
+        <when test="lowSellPrice != null">
+          and busi_product.sell_price &gt; #{lowSellPrice}
+        </when>
+        <when test="highSellPrice != null">
+          and busi_product.sell_price &lt; #{highSellPrice}
+        </when>
+      </choose>
+    </where>
+    order by
+    busi_product.create_time desc
+  </select>
+  
+  <select id="getSearchGoods" resultType="map" parameterType="com.yinhetianze.business.product.model.ProductModel">
+      SELECT
+        s.`id`,
+        s.`p_title`,
+        s.`prod_name`,
+        s.`product_img`,
+        s.`sell_price`,
+        s.`market_price`
+      FROM
+        `busi_product` s
+      WHERE s.`del_flag` = 0
+        AND s.`p_status` = 0
+      <if test="prodName != null and prodName != ''">
+        AND s.`prod_name` LIKE CONCAT('%', #{prodName}, '%')
+      </if>
+      <if test="prodTitle != null and prodTitle != ''">
+        AND s.`p_title` LIKE CONCAT('%', #{prodTitle}, '%')
+      </if>
+      <if test="smallPrice != null">
+        AND s.`sell_price` &gt;= #{smallPrice}
+      </if>
+      <if test="bigPrice != null ">
+        AND s.`sell_price` &lt;= #{bigPrice}
+      </if>
+      <if test="shopId != null ">
+        AND s.`shop_id` = #{shopId}
+      </if>
+      <if test="sort !=null and sort==1">
+        ORDER BY s.`sell_price`
+      </if>
+      <if test="sort !=null and sort==2">
+        ORDER BY s.`sell_price` DESC
+      </if>
+  </select>
+  <select id="getProductBrandId" parameterType="com.yinhetianze.pojo.product.ProductPojo" resultType="int">
+    SELECT COUNT(id) FROM busi_product WHERE prod_brand_id=#{prodBrandId} AND del_flag=0
+  </select>
+
+  <select id="getMoBileProductList" parameterType="com.yinhetianze.business.product.model.ProductPageModel" resultType="java.util.Map">
+    SELECT
+      busi_product.id,
+      busi_product.p_title "pTitle",
+      busi_product.prod_name "prodName",
+      busi_product.market_price "marketPrice",
+      busi_product.sell_price "sellPrice",
+      busi_product.product_img "productImg",
+      busi_product.p_status "pStatus",
+      busi_product.integral_percent "integralPercent",
+      busi_product.product_distinction "productDistinction",
+      busi_product.vip_price "vipPrice",
+      busi_shop.shop_name "shopName",
+      busi_sys_area.name "name",
+      CAST(((SELECT p_value FROM `busi_sys_sysproperties`  WHERE p_name='uRatio' AND del_flag=0 AND is_work=1)*busi_product.share_price)AS DECIMAL  (11, 2))  AS uPrice,
+      busi_product.promotion_price  "promotionPrice",
+     (busi_product_sales.increase_sales+busi_product_sales.init_sales) "increaseSales"
+    FROM
+      busi_product_sales RIGHT JOIN busi_product ON busi_product.id=busi_product_sales.product_id
+      LEFT JOIN busi_shop  ON  busi_product.shop_id=busi_shop.id
+      LEFT JOIN busi_shop_companyinfo  ON  busi_shop.companyinfo_id=busi_shop_companyinfo.id
+      LEFT JOIN busi_sys_area ON busi_shop_companyinfo.region_location=busi_sys_area.code
+    WHERE
+      busi_product.del_flag=0
+    AND
+      busi_shop.del_flag=0
+    AND
+      busi_shop_companyinfo.del_flag=0
+    AND
+      busi_product.audit_state=3
+    AND
+      busi_product.p_status=0
+    <if test="shopId!=null">
+      AND  busi_product.shop_id=#{shopId}
+    </if>
+    <if test="shopCategoryId!=null">
+       AND busi_product.shop_cate_id=#{shopCategoryId}
+    </if>
+    <if test="prodCateId!=null">
+      AND  busi_product.prod_cate_id=#{prodCateId}
+    </if>
+    <if test="prodName!=null">
+      AND busi_product.prod_name  like concat('%', #{prodName}, '%')
+    </if>
+    <if test="prodBrandId!=null">
+      AND  busi_product.prod_brand_id=#{prodBrandId}
+    </if>
+    <if test="areaCode!=null and areaCode!=''">
+      AND busi_product.ship_province=#{areaCode}
+    </if>
+    <choose>
+      <when test="minsellPrice != null and maxsellPrice!=null">
+        AND busi_product.sell_price &gt;= #{minsellPrice}
+        AND  busi_product.sell_price &lt;= #{maxsellPrice}
+      </when>
+      <when test="minsellPrice != null">
+        AND busi_product.sell_price &gt;= #{minsellPrice}
+      </when>
+      <when test="maxsellPrice!=null">
+        AND  busi_product.sell_price &lt;= #{maxsellPrice}
+      </when>
+      <otherwise></otherwise>
+    </choose>
+    Order By
+    <choose>
+      <when test="shelfTime == 0">
+        busi_product.up_time ASC,
+      </when>
+      <when test="shelfTime == 1">
+        busi_product.up_time DESC,
+      </when>
+      <otherwise></otherwise>
+    </choose>
+    <choose>
+      <when test="salesVolume == 0">
+        (busi_product_sales.increase_sales+busi_product_sales.init_sales) ASC,
+      </when>
+      <when test="salesVolume == 1">
+        (busi_product_sales.increase_sales+busi_product_sales.init_sales) DESC,
+      </when>
+      <otherwise></otherwise>
+    </choose>
+    <choose>
+      <when test="sellPrice == 0">
+        busi_product.sell_price ASC,
+      </when>
+      <when test="sellPrice == 1">
+        busi_product.sell_price DESC,
+      </when>
+      <otherwise></otherwise>
+    </choose>
+    id ASC
+  </select>
+  <select id="getPcProductList" parameterType="com.yinhetianze.business.product.model.ProductPageModel" resultType="java.util.Map">
+     SELECT
+      busi_product.id,
+      busi_product.prod_name "prodName",
+      busi_product.market_price "marketPrice",
+      busi_product.sell_price "sellPrice",
+      busi_product.product_img "productImg",
+      busi_product.p_status "pStatus",
+      busi_shop.shop_name "shopName",
+      busi_product.product_distinction "productDistinction",
+      busi_sys_area.full_name "fullName",
+     (busi_product_sales.increase_sales+busi_product_sales.init_sales) "increaseSales"
+    FROM
+    busi_product_sales RIGHT JOIN busi_product ON busi_product.id=busi_product_sales.product_id
+    LEFT JOIN busi_shop  ON  busi_product.shop_id=busi_shop.id
+    LEFT JOIN busi_shop_companyinfo  ON  busi_shop.companyinfo_id=busi_shop_companyinfo.id
+    LEFT JOIN busi_sys_area ON busi_shop_companyinfo.region_location=busi_sys_area.code
+    WHERE
+    busi_product.del_flag=0
+    AND
+    busi_shop.del_flag=0
+    AND
+    busi_shop_companyinfo.del_flag=0
+    AND
+    busi_product.audit_state=3
+    AND
+    busi_product.p_status=0
+    <if test="shopId!=null">
+      AND  busi_product.shop_id=#{shopId}
+    </if>
+    <if test="shopCategoryId!=null">
+      AND busi_product.shop_cate_id=#{shopCategoryId}
+    </if>
+    <if test="prodCateId!=null">
+      AND  busi_product.prod_cate_id=#{prodCateId}
+    </if>
+    <if test="prodName!=null">
+      AND busi_product.prod_name  like concat('%', #{prodName}, '%')
+    </if>
+    <if test="prodBrandId!=null">
+      AND  busi_product.prod_brand_id=#{prodBrandId}
+    </if>
+    <if test="areaCode!=null and areaCode!=''">
+      AND busi_product.ship_province=#{areaCode}
+    </if>
+    <choose>
+      <when test="minsellPrice != null and maxsellPrice!=null">
+        AND busi_product.sell_price &gt;= #{minsellPrice}
+        AND  busi_product.sell_price &lt;= #{maxsellPrice}
+      </when>
+      <when test="minsellPrice != null">
+        AND busi_product.sell_price &gt;= #{minsellPrice}
+      </when>
+      <when test="maxsellPrice!=null">
+        AND  busi_product.sell_price &lt;= #{maxsellPrice}
+      </when>
+      <otherwise></otherwise>
+    </choose>
+     Order By
+    <choose>
+      <when test="shelfTime == 0">
+        busi_product.up_time ASC,
+      </when>
+      <when test="shelfTime == 1">
+        busi_product.up_time DESC,
+      </when>
+      <otherwise></otherwise>
+    </choose>
+    <choose>
+      <when test="salesVolume == 0">
+        (busi_product_sales.increase_sales+busi_product_sales.init_sales) ASC,
+      </when>
+      <when test="salesVolume == 1">
+        (busi_product_sales.increase_sales+busi_product_sales.init_sales) DESC,
+      </when>
+      <otherwise></otherwise>
+    </choose>
+    <choose>
+      <when test="sellPrice == 0">
+         busi_product.sell_price ASC,
+      </when>
+      <when test="sellPrice == 1">
+        busi_product.sell_price DESC,
+      </when>
+      <otherwise></otherwise>
+    </choose>
+     id ASC
+  </select>
+
+  <select id="selectProductList" parameterType="com.yinhetianze.pojo.product.ProductPojo" resultType="java.util.Map">
+  SELECT
+    busi_product.id,
+    busi_product.p_title "pTitle",
+    busi_product.p_subtitle "pSubtitle",
+    busi_product.prod_name  "prodName",
+    busi_product.prod_cate_name "prodCateName",
+    busi_product.prod_cate_id "prodCateId",
+    busi_product.prod_code "prodCode",
+    busi_product.market_price "marketPrice",
+    busi_product.sell_price "sellPrice",
+    busi_product.profits_proportion "profitsProportion",
+    busi_product.integral_percent "integralPercent",
+    busi_product.prod_unit_id "prodUnitId",
+    busi_product.prod_unit_name "prodUnitName",
+    busi_product.ship_address "shipAddress",
+    busi_product.is_freight_free "isFreightFree",
+    busi_product.freight_free_price "freightFreePrice",
+    busi_product.freight "freight",
+    busi_product.is_replacement "isReplacement",
+    busi_product.p_storage "pStorage",
+    busi_product.audit_state "auditState",
+    busi_product.p_status "pStatus",
+    busi_product.product_img "productImg",
+    busi_product.qrcode "qrcode",
+    busi_product.shop_id "shopId",
+    busi_product.salt "salt",
+    busi_product.electronic_invoice "electronicInvoice",
+    busi_product.shop_cate_id "shopCateId",
+    busi_product.settlement_price "settlementPrice",
+    busi_product.product_type "productType",
+    busi_product.supply_price "supplyPrice",
+    busi_product.retail_price "retailPrice",
+    busi_product.share_price "sharePrice",
+    busi_product.promotion_price "promotionPrice",
+    busi_product.product_distinction "productDistinction",
+    DATE_FORMAT(busi_product.up_time,"%Y-%m-%d %H:%i:%s") "upTime",
+    DATE_FORMAT(busi_product.down_time,"%Y-%m-%d %H:%i:%s") "downTime",
+    busi_shop.shop_name "shopName",
+    busi_product_brand.brand_name "brandName",
+    busi_shop_category.cate_name "shopCateName",
+    (SELECT reason FROM busi_sys_prodaudit WHERE busi_sys_prodaudit.product_id=busi_product.id AND id=(SELECT MAX(id) FROM busi_sys_prodaudit WHERE busi_sys_prodaudit.product_id=busi_product.id)) AS reason
+  FROM
+    busi_shop
+    RIGHT JOIN	busi_product ON busi_shop.id=busi_product.shop_id
+    LEFT JOIN busi_shop_brand  ON busi_product.shop_brand_id=busi_shop_brand.id
+    LEFT JOIN busi_product_brand  ON busi_shop_brand.brand_id=busi_product_brand.id ,busi_shop_category
+    WHERE
+    busi_product.shop_cate_id=busi_shop_category.id
+    AND
+    busi_product.del_flag=#{delFlag}
+  AND
+    busi_product.product_type=#{productType}
+    <if test="auditState!=null">
+    AND
+    busi_product.audit_state=#{auditState}
+  </if>
+  ORDER BY
+    busi_product.audit_state,busi_product.id DESC
+  </select>
+  
+  <select id="findShopProduct" resultType="map" parameterType="com.yinhetianze.pojo.product.ProductPojo">
+    SELECT
+      s.`id` as productId,
+      s.`product_img` as prodImg ,
+      s.`prod_name` as prodName,
+      s.`p_title` as prodTitle,
+      s.`supply_price` as supplyPrice,
+      s.`retail_price` as retailPrice,
+      s.`prod_cate_id` as prodCateId,
+      s.`shop_cate_id` as shopCateId,
+      s.`shop_brand_id` as shopBrandId,
+      s.`freight` as freight,
+      s.`settlement_price` as settlementPrice,
+      s.`profits_proportion` as profitsProportion,
+      s.`p_storage` as prodStorage,
+      s.`electronic_invoice` as electronicInvoice,
+      s.`is_replacement` as isReplacement,
+      s.`up_time` as upTime,
+      s.`down_time` as downTime,
+      s.`qrcode` as qrcode,
+      s.`product_distinction` as productDistinction,
+      s.`remark` as remark
+    FROM
+      busi_product s
+    WHERE s.`id` = #{id}
+
+  </select>
+
+  <select id="putawayProduct" parameterType="com.yinhetianze.pojo.product.ProductPojo" resultType="com.yinhetianze.pojo.product.ProductPojo">
+      SELECT
+        id
+      FROM
+        busi_product
+      WHERE audit_state=#{auditState}
+      AND p_status=#{pStatus}
+      <if test="upTime != null">
+        AND up_time &lt; #{upTime}
+      </if>
+      <if test="downTime != null">
+        AND down_time &lt; #{downTime}
+      </if>
+  </select>
+
+  <select id="selectSellPriceProductList" resultType="java.util.Map">
+    SELECT
+     id,
+     p_title "pTitle",
+     p_subtitle "pSubtitle",
+     prod_name "prodName",
+     market_price "marketPrice",
+     sell_price "sellPrice",
+     p_storage "pStorage",
+     product_img "productImg",
+     CAST(((SELECT p_value FROM `busi_sys_sysproperties`  WHERE p_name='uRatio' AND del_flag=0 AND is_work=1)*busi_product.share_price)AS DECIMAL  (11, 2))  AS uPrice,
+     product_distinction "productDistinction"
+    FROM
+     busi_product
+    WHERE
+     del_flag=0
+    AND
+     p_status=0
+    AND
+     audit_state=3
+    ORDER BY sell_price ASC ,create_time DESC
+
+  </select>
+</mapper>

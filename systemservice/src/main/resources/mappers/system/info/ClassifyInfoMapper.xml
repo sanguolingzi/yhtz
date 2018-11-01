@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yinhetianze.systemservice.system.mapper.info.ClassifyInfoMapper">
+  <resultMap id="BaseResultMap" type="com.yinhetianze.pojo.back.ClassifyPojo">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="classify_name" jdbcType="VARCHAR" property="classifyName" />
+    <result column="classify_img" jdbcType="VARCHAR" property="classifyImg" />
+    <result column="sort" jdbcType="SMALLINT" property="sort" />
+    <result column="is_show" jdbcType="SMALLINT" property="isShow" />
+  </resultMap>
+
+  <resultMap id="resultMap" type="com.yinhetianze.systemservice.system.model.ClassifyModelDto">
+    <id column="id" property="id" />
+    <result column="classifyName" property="classifyName" />
+    <result column="sort"  property="sort" />
+    <result column="is_show"  property="isShow" />
+    <result column="classify_img"  property="classifyImg" />
+    <collection property="questionList" column="classifyId" select="findQuestionByClassifyId" />
+  </resultMap>
+
+
+  <!--查询所有分类和对应的问答-->
+  <select id="findAllClassify" resultMap="resultMap">
+      SELECT id,classify_name classifyName,sort,busi_sys_help_classify.is_show,busi_sys_help_classify.classify_img,id classifyId FROM busi_sys_help_classify ORDER BY sort
+  </select>
+  <!--子查询-->
+  <select id="findQuestionByClassifyId" resultType="map">
+    SELECT hq.id questionId,hq.classify_id classifyId,hq.question_name questionName,hq.sort sort,hq.question_subTitle questionSubTitle,hq.is_show isShow,
+    (SELECT COUNT(id) FROM busi_sys_help_praise WHERE question_id=hq.id AND praise_status=1) helpful,
+    (SELECT COUNT(id) FROM busi_sys_help_praise WHERE question_id=hq.id AND praise_status=2) notHelpful
+    FROM busi_sys_help_question hq
+    WHERE hq.classify_id=#{classifyId}
+    ORDER BY hq.sort
+  </select>
+</mapper>

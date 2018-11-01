@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper	namespace="com.yinhetianze.business.evaluate.mapper.EvaluateBusiMapper">
+
+    <!--添加商品评价 -->
+    <insert id="addEvaluate" parameterType="list" >
+        INSERT INTO busi_product_evaluate (order_id,order_no,product_id,product_suk,product_name,product_title,product_spec,product_img,shop_id,content,evaluate_img,product_star,
+                             service_star,logistics_star,evaluate_user,add_evaluate)
+        VALUES
+        <foreach collection ="list" item="item" index= "index" separator =",">
+        (#{item.orderId},#{item.orderNo},#{item.productId},#{item.productSuk},#{item.productName},#{item.productTitle},#{item.productSpec},#{item.productImg},#{item.shopId},
+            #{item.content},#{item.evaluateImg},#{item.productStar},#{item.serviceStar},#{item.logisticsStar},#{item.evaluateUser},#{item.addEvaluate})
+        </foreach>
+    </insert>
+
+
+    <!--更新商品评价-->
+    <update id="updateEvaluate" parameterType="map">
+        UPDATE busi_product_evaluate
+        <trim prefix="set" suffixOverrides=",">
+            <if test="answer!=null">
+                answer=#{answer},
+            </if>
+            <if test="answerTime!=null">
+                answer_time=#{answerTime},
+            </if>
+            <if test="isShow!=null">
+                is_show=#{isShow},
+            </if>
+            <if test="delFlag!=null">
+                del_flag=#{delFlag}
+            </if>
+        </trim>
+        WHERE evaluate_id=#{evaluateId}
+    </update>
+
+    <!-- 批量更新商品评价隐藏 -->
+    <update id="modifyEvaluate" parameterType="int">
+        update busi_product_evaluate
+        SET is_show=0
+        where evaluate_id in
+        <foreach item="item" collection="array" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </update>
+
+    <insert id="autoEvaluate">
+        INSERT INTO busi_product_evaluate (
+          order_id,
+          product_id,
+          product_suk,
+          product_name,
+          product_title,
+          product_spec,
+          product_img,
+          shop_id,
+          content,
+          product_star,
+          service_star,
+          logistics_star,
+          order_no,
+          evaluate_user
+        )
+        VALUES
+          (
+            #{orderId},
+            #{productId},
+            #{productSuk},
+            #{productName},
+            #{productTitle},
+            #{productSpec},
+            #{productImg},
+            #{shopId},
+            #{content},
+            #{productStar},
+            #{serviceStar},
+            #{logisticsStar},
+            #{orderNo},
+            #{evaluateUser}
+          )
+      </insert>
+
+
+</mapper>

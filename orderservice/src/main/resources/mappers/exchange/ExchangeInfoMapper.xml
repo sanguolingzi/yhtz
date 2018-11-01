@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yinhetianze.business.exchange.mapper.info.ExchangeInfoMapper">
+  <resultMap id="BaseResultMap" type="com.yinhetianze.pojo.order.ExchangePojo">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="exchange_no" jdbcType="VARCHAR" property="exchangeNo" />
+    <result column="order_no" jdbcType="VARCHAR" property="orderNo" />
+    <result column="order_detail_id" jdbcType="INTEGER" property="orderDetailId" />
+    <result column="shop_id" jdbcType="INTEGER" property="shopId" />
+    <result column="exchange_type" jdbcType="SMALLINT" property="exchangeType" />
+    <result column="exchange_reason" jdbcType="SMALLINT" property="exchangeReason" />
+    <result column="exchange_desc" jdbcType="VARCHAR" property="exchangeDesc" />
+    <result column="exchange_img" jdbcType="VARCHAR" property="exchangeImg" />
+    <result column="customer_id" jdbcType="INTEGER" property="customerId" />
+    <result column="exchange_status" jdbcType="SMALLINT" property="exchangeStatus" />
+    <result column="apply_amount" jdbcType="DECIMAL" property="applyAmount" />
+    <result column="refund_amount" jdbcType="DECIMAL" property="refundAmount" />
+    <result column="refund_star_coin" jdbcType="DECIMAL" property="refundStarCoin" />
+    <result column="order_amount" jdbcType="DECIMAL" property="orderAmount" />
+    <result column="refund_total_amount" jdbcType="DECIMAL" property="refundTotalAmount" />
+    <result column="company_name" jdbcType="VARCHAR" property="companyName" />
+    <result column="express_code" jdbcType="VARCHAR" property="expressCode" />
+    <result column="express_freight" jdbcType="DECIMAL" property="expressFreight" />
+    <result column="check_state" jdbcType="SMALLINT" property="checkState" />
+    <result column="money_check" jdbcType="SMALLINT" property="moneyCheck" />
+    <result column="refuse_reason" jdbcType="VARCHAR" property="refuseReason" />
+    <result column="user_id" jdbcType="INTEGER" property="userId" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="express_time" jdbcType="TIMESTAMP" property="expressTime" />
+    <result column="collect_time" jdbcType="TIMESTAMP" property="collectTime" />
+    <result column="complete_time" jdbcType="TIMESTAMP" property="completeTime" />
+      <result column="details" jdbcType="VARCHAR" property="details" />
+      <result column="proxy_shop_id" jdbcType="INTEGER" property="proxyShopId" />
+  </resultMap>
+
+  <select id="findExchangeOrder" parameterType="com.yinhetianze.business.exchange.model.ExchangeModel" resultType="com.yinhetianze.pojo.order.ExchangePojo">
+      SELECT id,exchange_no exchangeNo,order_no orderNo,order_detail_id orderDetailId,shop_id shopId,exchange_type exchangeType,exchange_reason exchangeReason,
+       exchange_desc exchangeDesc,exchange_img exchangeImg,customer_id customerId,exchange_status exchangeStatus,apply_amount applyAmount,
+       refund_amount refundAmount,refund_star_coin refundStarCoin,refund_total_amount refundTotalAmount,order_amount orderAmount,company_name companyName,
+       express_code expressCode,express_freight expressFreight,check_state checkState,money_check moneyCheck,refuse_reason refuseReason,user_id userId,create_time createTime,
+       update_time updateTime,express_time expressTime,collect_time collectTime,complete_time completeTime,details,proxy_shop_id proxyShopId
+     FROM busi_order_exchange
+    WHERE del_flag=0
+      <if test="id != null">
+    AND id = #{id}
+  </if>
+      <if test="exchangeNo != null and exchangeNo!=''">
+        and exchange_no = #{exchangeNo}
+      </if>
+      <if test="shopId != null">
+        and shop_id = #{shopId}
+      </if>
+      <if test="exchangeType != null">
+        and exchange_type = #{exchangeType}
+      </if>
+      <if test="customerId != null">
+        and customer_id = #{customerId}
+      </if>
+      <if test="exchangeStatus != null">
+        and exchange_status = #{exchangeStatus}
+      </if>
+      <if test="userId != null">
+        and user_id = #{userId}
+      </if>
+      ORDER BY
+      <if test="createTimeSort==null and applyAmountSort==null">
+        create_time DESC
+      </if>
+      <if test="createTimeSort==1">
+        create_time DESC
+      </if>
+      <if test="createTimeSort==0">
+        create_time
+      </if>
+      <if test="applyAmountSort==1">
+        apply_amount DESC
+      </if>
+      <if test="applyAmountSort==0">
+        apply_amount
+      </if>
+
+  </select>
+
+</mapper>

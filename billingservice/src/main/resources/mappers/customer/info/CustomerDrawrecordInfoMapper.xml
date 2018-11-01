@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yinhetianze.business.customer.mapper.info.CustomerDrawrecordInfoMapper">
+  <resultMap id="BaseResultMap" type="com.yinhetianze.pojo.customer.BusiCustomerDrawrecordPojo">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="draw_type" jdbcType="SMALLINT" property="drawType" />
+    <result column="draw_amount" jdbcType="DECIMAL" property="drawAmount" />
+    <result column="bank_number" jdbcType="VARCHAR" property="bankNumber" />
+    <result column="apply_time" jdbcType="TIMESTAMP" property="applyTime" />
+    <result column="audit_status" jdbcType="SMALLINT" property="auditStatus" />
+    <result column="audit_user" jdbcType="INTEGER" property="auditUser" />
+    <result column="audit_time" jdbcType="TIMESTAMP" property="auditTime" />
+    <result column="receive_user" jdbcType="VARCHAR" property="receiveUser" />
+    <result column="bankroll_id" jdbcType="INTEGER" property="bankrollId" />
+    <result column="del_flag" jdbcType="SMALLINT" property="delFlag" />
+    <result column="draw_number" jdbcType="VARCHAR" property="drawNumber" />
+  </resultMap>
+
+
+  <select id="selectList" parameterType="com.yinhetianze.business.customer.model.BusiCustomerDrawrecordModel"
+          resultType="com.yinhetianze.business.customer.model.BusiCustomerDrawrecordModel">
+    select
+       id,
+       draw_type "drawType",
+       CONVERT(draw_amount/100,DECIMAL(10,2)) "drawAmount",
+       bank_number "bankNumber",
+       apply_time "applyTime",
+       audit_status "auditStatus",
+       receive_user "receiveUser",
+       draw_number "drawNumber",
+       reason
+    from busi_customer_drawrecord draw
+    where 1=1 and draw.pay_type = 1
+    <if test="bankNumber !=null and bankNumber != ''">
+        and draw.bank_number like '%${bankNumber}%'
+    </if>
+    <if test="receiveUser !=null and receiveUser != ''">
+      and draw.receive_user like '%${receiveUser}%'
+    </if>
+    <if test="drawNumber !=null and drawNumber != ''">
+      and draw.draw_number like '%${drawNumber}%'
+    </if>
+    <if test="auditStatus !=null and auditStatus != ''">
+      and draw.audit_status = #{auditStatus}
+    </if>
+    order by draw.apply_time desc,audit_status desc
+  </select>
+
+    <select id="selectListByCustomer" parameterType="com.yinhetianze.business.customer.model.BusiCustomerDrawrecordModel"
+            resultType="com.yinhetianze.business.customer.model.BusiCustomerDrawrecordModel">
+        select
+        id,
+        CONVERT(draw_amount/100,DECIMAL(10,2)) "drawAmount",
+        bank_number "bankNumber",
+        DATE_FORMAT(apply_time,'%Y-%m-%d %H:%i:%s') "applyTime",
+        audit_status "auditStatus",
+        receive_user "receiveUser",
+        draw_number "drawNumber",
+        reason,
+        pay_type "payType",
+        CONVERT(service_charge/100,DECIMAL(10,2)) "serviceCharge",
+        CONVERT(final_amount/100,DECIMAL(10,2)) "finalAmount"
+        from busi_customer_drawrecord draw
+        where 1=1 and draw.bankroll_id = #{bankrollId}
+        <if test="bankNumber !=null and bankNumber != ''">
+            and draw.bank_number like '%${bankNumber}%'
+        </if>
+        <if test="receiveUser !=null and receiveUser != ''">
+            and draw.receive_user like '%${receiveUser}%'
+        </if>
+        <if test="drawNumber !=null and drawNumber != ''">
+            and draw.draw_number like '%${drawNumber}%'
+        </if>
+        <if test="auditStatus !=null and auditStatus != ''">
+            and draw.audit_status = #{auditStatus}
+        </if>
+        order by draw.apply_time desc
+    </select>
+
+
+  <select id="selectCount" parameterType="java.util.Map" resultType="java.lang.Integer">
+      select count(s.id) from busi_customer_drawrecord s
+      where s.apply_time >= date_sub(now(), interval ${dayInterval} DAY)
+      and s.bankroll_id = #{bankrollId} and s.audit_status = 0
+  </select>
+
+</mapper>

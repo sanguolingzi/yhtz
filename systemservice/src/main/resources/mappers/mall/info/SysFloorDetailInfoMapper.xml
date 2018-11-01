@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yinhetianze.systemservice.mall.mapper.info.SysFloorDetailInfoMapper">
+  <select id="selectSysFloorProductList" parameterType="com.yinhetianze.systemservice.mall.model.SysFloorDetailModel"
+          resultType="com.yinhetianze.systemservice.mall.model.SysFloorDetailModel">
+
+    select
+      sflp.id,
+      sflp.content_id "contentId",
+      sflp.floor_id "floorId",
+      sflp.photo_url "photoUrl",
+      sflp.photo_type "photoType",
+      sflp.is_show "isShow",
+      sflp.content_type "contentType",
+      sflp.description,
+      sflp.create_time "createTime",
+      sflp.sort,
+      opt.optor_name "createUserName"
+    from busi_sys_floor_detail sflp
+    left join busi_sys_optor opt on opt.id = sflp.create_user and opt.del_flag = 0
+    where sflp.del_flag = 0
+    <if test="floorId != '' and floorId != null">
+      and sflp.floor_id = #{floorId}
+    </if>
+    <if test="description!='' and description!=null">
+        and sflp.description  like concat('%', #{description}, '%')
+    </if>
+    order by sflp.sort asc,sflp.create_time desc
+
+  </select>
+
+  <select id="selectForPcIndex" parameterType="com.yinhetianze.systemservice.mall.model.SysFloorDetailModel"
+          resultType="java.util.Map">
+    select
+      sflp.description "name",
+      sflp.content_id "contentId",
+      sflp.floor_id "floorId",
+      sflp.photo_url "photoUrl",
+      busi_product.sell_price "sellPrice",
+      busi_product.p_title "prodTitle",
+      busi_product.product_distinction "productDistinction"
+    from busi_sys_floor_detail sflp   LEFT JOIN busi_product ON sflp.content_id=busi_product.id
+    where
+      sflp.del_flag = 0
+    and sflp.floor_id = #{floorId}
+    and sflp.is_show = 0
+    and busi_product.del_flag=0
+    and busi_product.p_status=0
+    and busi_product.audit_state=3
+    order by sflp.sort asc
+    <choose>
+      <when test="isAll != null">
+          limit #{isAll}
+      </when>
+      <otherwise></otherwise>
+    </choose>
+  </select>
+  <select id="selectForMobileIndex"  resultType="java.util.Map"  parameterType="com.yinhetianze.systemservice.mall.model.SysFloorDetailModel">
+      select
+      sflp.description "name",
+      sflp.content_id "contentId",
+      sflp.floor_id "floorId",
+      sflp.photo_url "photoUrl",
+      busi_product.sell_price "sellPrice",
+      busi_product.p_title "prodTitle",
+      busi_product.market_price "marketPrice",
+      busi_product.product_distinction "productDistinction",
+      CAST(((SELECT p_value FROM `busi_sys_sysproperties`  WHERE p_name='uRatio' AND del_flag=0 AND is_work=1)*busi_product.share_price)AS DECIMAL  (11, 2))  AS uPrice,
+      busi_product.promotion_price  "promotionPrice",
+      busi_product.vip_price "vipPrice"
+      from busi_sys_floor_detail sflp   LEFT JOIN busi_product ON sflp.content_id=busi_product.id
+      where
+      sflp.del_flag = 0
+      and sflp.floor_id = #{floorId}
+      and sflp.is_show = 0
+      and busi_product.del_flag=0
+      and busi_product.p_status=0
+      and busi_product.audit_state=3
+      order by sflp.sort asc,sflp.create_time desc
+      <choose>
+          <when test="isAll != null">
+              limit #{isAll}
+          </when>
+          <otherwise></otherwise>
+      </choose>
+  </select>
+  <select id="selectPcFloorProductList" parameterType="com.yinhetianze.systemservice.mall.model.FloorDetailProductPageModel" resultType="java.util.Map">
+    SELECT
+      busi_product.id,
+      busi_product.prod_name "prodName",
+      busi_product.market_price "marketPrice",
+      busi_product.sell_price "sellPrice",
+      busi_product.product_img "productImg",
+      busi_product.p_status "pStatus",
+      busi_product.product_distinction "productDistinction",
+      busi_product_sales.increase_sales "increaseSales"
+    FROM
+      busi_sys_floor_detail  LEFT JOIN busi_product ON busi_sys_floor_detail.content_id=busi_product.id
+      LEFT JOIN busi_product_sales ON  busi_product.id=busi_product_sales.product_id
+    WHERE
+     busi_sys_floor_detail.del_flag=0
+    AND
+     busi_product.del_flag=0
+    AND
+     busi_product.audit_state=3
+    AND
+     busi_sys_floor_detail.floor_id=#{floorId}
+    <if test="prodName!=null">
+      AND busi_product.prod_name  like concat('%', #{prodName}, '%')
+    </if>
+    <choose>
+      <when test="minsellPrice != null and maxsellPrice!=null">
+        AND busi_product.sell_price &gt;= #{minsellPrice}
+        AND  busi_product.sell_price &lt;= #{maxsellPrice}
+      </when>
+      <when test="minsellPrice != null">
+        AND busi_product.sell_price &gt;= #{minsellPrice}
+      </when>
+      <when test="maxsellPrice!=null">
+        AND  busi_product.sell_price &lt;= #{maxsellPrice}
+      </when>
+      <otherwise></otherwise>
+    </choose>
+    Order By
+    <choose>
+      <when test="shelfTime == 0">
+        busi_product.up_time ASC,
+      </when>
+      <when test="shelfTime == 1">
+        busi_product.up_time DESC,
+      </when>
+      <otherwise></otherwise>
+    </choose>
+    <choose>
+      <when test="salesVolume == 0">
+        (busi_product_sales.increase_sales+busi_product_sales.init_sales) ASC,
+      </when>
+      <when test="salesVolume == 1">
+        (busi_product_sales.increase_sales+busi_product_sales.init_sales) DESC,
+      </when>
+      <otherwise></otherwise>
+    </choose>
+    <choose>
+      <when test="sellPrice == 0">
+        busi_product.sell_price ASC,
+      </when>
+      <when test="sellPrice == 1">
+        busi_product.sell_price DESC,
+      </when>
+      <otherwise></otherwise>
+    </choose>
+    id ASC
+  </select>
+</mapper>

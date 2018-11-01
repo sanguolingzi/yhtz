@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yinhetianze.business.tag.mapper.ProductTagInfoMapper">
+  <resultMap id="productTagMap" type="com.yinhetianze.pojo.tag.ProductTagPojo">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="tag_name" jdbcType="VARCHAR" property="tagName" />
+    <result column="tag_content" jdbcType="VARCHAR" property="tagContent" />
+    <result column="tag_img" jdbcType="VARCHAR" property="tagImg" />
+    <result column="is_show" jdbcType="SMALLINT" property="isShow" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+  </resultMap>
+
+  <sql id="selectColumnSql">
+    id,
+    tag_name,
+    tag_content,
+    tag_img,
+    is_show,
+    create_time
+  </sql>
+
+  <!-- 默认查询未删除的标签信息 -->
+  <select id="getProductTagList" parameterType="map" resultMap="productTagMap">
+    SELECT
+      <include refid="selectColumnSql"/>
+    FROM
+      busi_product_tag
+    <where>
+      <if test="tagName != null and tagName != ''">
+        tag_name like concat('%', #{tagName}, '%')
+      </if>
+      <if test="isShow != null">
+        and is_show = #{isShow}
+      </if>
+      <if test="tagId != null">
+        and id = #{tagId}
+      </if>
+      <choose>
+        <when test="delFlag != null">
+          and del_flag = #{delFlag}
+        </when>
+        <otherwise>
+          and del_flag = 0
+        </otherwise>
+      </choose>
+    </where>
+    ORDER BY
+      create_time desc
+  </select>
+
+  <select id="getProductTagByName" parameterType="string" resultMap="productTagMap">
+    SELECT
+      <include refid="selectColumnSql"/>
+    FROM
+      busi_product_tag
+    WHERE
+      tag_name = #{tagName}
+  </select>
+</mapper>

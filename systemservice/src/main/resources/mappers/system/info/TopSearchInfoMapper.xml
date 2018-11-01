@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yinhetianze.systemservice.system.mapper.info.TopSearchInfoMapper">
+  <resultMap id="BaseResultMap" type="com.yinhetianze.pojo.back.TopSearchPojo">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="hot_word" jdbcType="VARCHAR" property="hotWord" />
+    <result column="sort" jdbcType="SMALLINT" property="sort" />
+    <result column="is_show" jdbcType="SMALLINT" property="isShow" />
+    <result column="create_user" jdbcType="INTEGER" property="createUser" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_user" jdbcType="INTEGER" property="updateUser" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="del_flag" jdbcType="SMALLINT" property="delFlag" />
+  </resultMap>
+
+  <select id="selectTopSearchList" parameterType="com.yinhetianze.systemservice.system.model.TopSearchModel"
+          resultType="com.yinhetianze.systemservice.system.model.TopSearchModel">
+     select
+        bts.id,
+        bts.hot_word "hotWord",
+        bts.sort,
+        bts.is_show "isShow",
+        bts.create_time "createTime",
+        opt.optor_name "createUserName"
+     from busi_top_search bts
+     left join busi_sys_optor opt on opt.id = bts.create_user
+          and opt.del_flag = 0
+     where bts.del_flag = 0
+     order by bts.create_time desc
+  </select>
+
+    <select id="getPhoneTopSearch" parameterType="com.yinhetianze.systemservice.system.model.TopSearchModel" resultType="map">
+     SELECT
+      s.`hot_word`
+    FROM
+      busi_top_search s
+    WHERE s.`is_show` = #{isShow}
+      AND s.`del_flag` = #{delFlag}
+    </select>
+</mapper>

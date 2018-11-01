@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yinhetianze.systemservice.system.mapper.info.SearchBoxInfoMapper">
+  <resultMap id="BaseResultMap" type="com.yinhetianze.pojo.back.SearchBoxPojo">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="search_name" jdbcType="VARCHAR" property="searchName" />
+    <result column="sort" jdbcType="SMALLINT" property="sort" />
+    <result column="is_show" jdbcType="SMALLINT" property="isShow" />
+    <result column="del_flag" jdbcType="SMALLINT" property="delFlag" />
+    <result column="create_user" jdbcType="INTEGER" property="createUser" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_user" jdbcType="INTEGER" property="updateUser" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+  </resultMap>
+
+
+  <select id="selectModelList" parameterType="com.yinhetianze.systemservice.system.model.SearchBoxModel" resultType="com.yinhetianze.systemservice.system.model.SearchBoxModel">
+     select
+        sbx.id,
+        sbx.search_name "searchName",
+        sbx.sort,
+        sbx.is_show "isShow",
+        sbx.create_time "createTime",
+        opt.optor_name "createUserName"
+     from busi_search_box sbx
+     left join busi_sys_optor opt on opt.id = sbx.create_user
+          and opt.del_flag = 0
+     where sbx.del_flag = 0
+     order by sbx.create_time desc
+
+  </select>
+
+    <select id="selectSearchBoxId" parameterType="com.yinhetianze.systemservice.system.model.SearchBoxModel" resultType="int">
+        SELECT
+          COUNT(id)
+        FROM
+         busi_search_box
+        WHERE
+          search_name=#{searchName}
+        AND
+         del_flag=0
+
+    </select>
+
+</mapper>

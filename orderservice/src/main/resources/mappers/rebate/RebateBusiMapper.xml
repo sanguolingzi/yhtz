@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yinhetianze.business.rebate.mapper.RebateBusiMapper">
+  <resultMap id="BaseResultMap" type="com.yinhetianze.pojo.order.RebatePojo">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="record_id" jdbcType="INTEGER" property="recordId" />
+    <result column="customer_id" jdbcType="INTEGER" property="customerId" />
+    <result column="record_no" jdbcType="VARCHAR" property="recordNo" />
+    <result column="yoka_amount" jdbcType="DECIMAL" property="yokaAmount" />
+    <result column="order_amount" jdbcType="DECIMAL" property="orderAmount" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+  </resultMap>
+</mapper>

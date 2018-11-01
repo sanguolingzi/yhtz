@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yinhetianze.business.customer.mapper.busi.CustomerBankrollBusiMapper">
+
+
+
+    <update id="updateBankrollAmount" parameterType="java.util.Map">
+        update busi_customer_bankroll
+        set amount = amount<choose><when test="flowType == 1 "> - </when><otherwise> + </otherwise></choose> #{amount}
+        where id=#{id} and amount = #{oldAmount}
+        and amount <choose><when test="flowType == 1 "> - </when><otherwise> + </otherwise></choose> #{amount} >= 0
+    </update>
+
+    <update id="updateBankrollIntegral" parameterType="java.util.Map">
+        update busi_customer_bankroll
+        set integral = integral<choose><when test="flowType == 1 "> - </when><otherwise> + </otherwise></choose> #{integral}
+        where id=#{id} and integral = #{oldIntegral}
+        and integral<choose><when test="flowType == 1 "> - </when><otherwise> + </otherwise></choose>#{integral} >= 0
+    </update>
+
+    <update id="updateBankrollStarCoin" parameterType="java.util.Map">
+        update busi_customer_bankroll
+        set star_coin = star_coin <choose><when test="flowType == 1 "> - </when><otherwise> + </otherwise></choose> #{starCoin}
+        where id=#{id} and star_coin = #{oldStarCoin}
+        and star_coin <choose><when test="flowType == 1 "> - </when><otherwise> + </otherwise></choose> #{starCoin} >= 0
+    </update>
+
+    <update id="updateBankrollRewardAmount" parameterType="java.util.Map">
+        update busi_customer_bankroll
+        set reward_amount = reward_amount <choose><when test="flowType == 1 "> - </when><otherwise> + </otherwise></choose> #{rewardAmount}
+        where id=#{id} and reward_amount = #{oldRewardAmount}
+        and reward_amount <choose><when test="flowType == 1 "> - </when><otherwise> + </otherwise></choose> #{rewardAmount} >= 0
+    </update>
+
+    <update id="addBankrollRewardAmount" parameterType="java.util.Map">
+        update busi_customer_bankroll
+        set reward_amount = reward_amount  +  #{rewardAmount}
+        where id=#{id}
+    </update>
+
+    <update id="addBankrollUsedRewardAmount" parameterType="java.util.Map">
+        update busi_customer_bankroll
+        set used_reward_amount = used_reward_amount  +  #{usedRewardAmount}
+        where id=#{id}
+    </update>
+
+
+    <update id="updateRewardsBankrollAmount" parameterType="map">
+        UPDATE
+          busi_customer_bankroll
+        SET
+          yoka_amount = yoka_amount + #{amount},
+          not_yoka_amount = not_yoka_amount - #{amount},
+          star_coin = star_coin + #{amount}
+        WHERE
+          customer_id = #{customerId}
+        AND
+          not_yoka_amount = #{notYokaAmount}
+    </update>
+    <insert id="updateFanliYoka" parameterType="map">
+        INSERT INTO busi_fanli_yoka (
+          customer_id,
+          record_no,
+          yoka_amount,
+          yoka_point_amount
+        )
+        VALUES
+          (
+            #{customerId},
+            #{recordNo},
+            #{yokaAmount},
+            #{yokaPointAmount}
+            )
+    </insert>
+
+    <update id="bindCustomerByGameId" parameterType="com.yinhetianze.pojo.customer.BusiCustomerBankrollPojo">
+        update busi_customer_bankroll
+        set customer_id = #{customerId}
+        where game_id = #{gameId} and customer_id = null
+    </update>
+
+    <update id="setGameId"  parameterType="com.yinhetianze.pojo.customer.BusiCustomerBankrollPojo">
+        update busi_customer_bankroll
+        set game_id = #{gameId}
+        where id = #{id} and game_id is null
+    </update>
+
+    <update id="clearGameId" parameterType="java.lang.Integer">
+        update busi_customer_bankroll
+        set game_id = null
+        where id = #{id} and customer_id is null
+    </update>
+
+
+    <update id="bindGameIdByCustomerId" parameterType="com.yinhetianze.pojo.customer.BusiCustomerBankrollPojo">
+        update busi_customer_bankroll
+        set game_id = #{gameId},reward_amount=reward_amount+#{rewardAmount}
+        where id = #{id} and game_id is null
+    </update>
+</mapper>

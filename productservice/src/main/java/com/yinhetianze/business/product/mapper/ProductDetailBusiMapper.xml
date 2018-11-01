@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yinhetianze.business.product.mapper.ProductDetailBusiMapper">
+  <resultMap id="BaseResultMap" type="com.yinhetianze.pojo.product.ProductDetailPojo">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="del_flag" jdbcType="SMALLINT" property="delFlag" />
+    <result column="prod_id" jdbcType="INTEGER" property="prodId" />
+    <result column="cost_price" jdbcType="DECIMAL" property="costPrice" />
+    <result column="sale_price" jdbcType="DECIMAL" property="salePrice" />
+    <result column="member_price" jdbcType="DECIMAL" property="memberPrice" />
+    <result column="market_price" jdbcType="DECIMAL" property="marketPrice" />
+    <result column="prod_speci" jdbcType="VARCHAR" property="prodSpeci" />
+    <result column="sku_code" jdbcType="VARCHAR" property="skuCode" />
+    <result column="p_storage" jdbcType="SMALLINT" property="pStorage" />
+    <result column="p_status" jdbcType="SMALLINT" property="pStatus" />
+    <result column="create_user" jdbcType="INTEGER" property="createUser" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_user" jdbcType="INTEGER" property="updateUser" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="prod_param" jdbcType="LONGVARCHAR" property="prodParam" />
+    <result column="prod_details" jdbcType="LONGVARCHAR" property="prodDetails" />
+    <result column="vip_price" jdbcType="DECIMAL" property="vipPrice" />
+    <result column="u_price" jdbcType="DECIMAL" property="uPrice" />
+    <result column="number" jdbcType="INTEGER" property="number" />
+    <result column="flag_price" jdbcType="DECIMAL" property="flagPrice" />
+    <result column="promotion_price" jdbcType="DECIMAL" property="promotionPrice" />
+  </resultMap>
+
+  <!-- 批量新增商品单品详情 -->
+  <insert id="addProductDetail" parameterType="com.yinhetianze.pojo.product.ProductDetailPojo">
+    insert into
+    busi_product_detail(
+    prod_id
+    ,sale_price
+    ,vip_price
+    ,u_price
+    ,prod_param
+    ,prod_details
+    ,prod_speci
+    ,sku_code
+    ,p_storage
+    ,p_status
+    ,create_time
+    ,create_user
+    ,number
+    ,flag_price
+    ,promotion_price
+    ,cost_price
+    )
+    values
+    <foreach collection="list" separator="," item="detail">
+      (
+      #{detail.prodId}
+      ,#{detail.salePrice}
+      ,#{detail.vipPrice}
+      <choose>
+        <when test="detail.uPrice != null">
+          ,#{detail.uPrice}
+        </when>
+        <otherwise>
+          ,0
+        </otherwise>
+      </choose>
+      <choose>
+        <when test="detail.prodParam != null and detail.prodParam != ''">
+          ,#{detail.prodParam}
+        </when>
+        <otherwise>
+          ,null
+        </otherwise>
+      </choose>
+
+      <choose>
+        <when test="detail.prodDetails != null and detail.prodDetails != ''">
+          ,#{detail.prodDetails}
+        </when>
+        <otherwise>
+          ,null
+        </otherwise>
+      </choose>
+
+      <choose>
+        <when test="detail.prodSpeci != null and detail.prodSpeci != ''">
+          ,#{detail.prodSpeci}
+        </when>
+        <otherwise>
+          ,null
+        </otherwise>
+      </choose>
+
+      ,#{detail.skuCode}
+
+      <choose>
+        <when test="detail.pStorage != null">
+          ,#{detail.pStorage}
+        </when>
+        <otherwise>
+          ,0
+        </otherwise>
+      </choose>
+
+      <choose>
+        <when test="detail.pStatus != null">
+          ,#{detail.pStatus}
+        </when>
+        <otherwise>
+          ,0
+        </otherwise>
+      </choose>
+
+      ,#{detail.createTime}
+
+      <choose>
+        <when test="detail.createUser != null">
+          ,#{detail.createUser}
+        </when>
+        <otherwise>
+          ,null
+        </otherwise>
+      </choose>
+
+      <choose>
+        <when test="detail.number != null">
+          ,#{detail.number}
+        </when>
+        <otherwise>
+          ,0
+        </otherwise>
+      </choose>
+
+      <choose>
+        <when test="detail.flagPrice != null">
+          ,#{detail.flagPrice}
+        </when>
+        <otherwise>
+          ,0
+        </otherwise>
+      </choose>
+
+      <choose>
+        <when test="detail.promotionPrice != null">
+          ,#{detail.promotionPrice}
+        </when>
+        <otherwise>
+          ,0
+        </otherwise>
+      </choose>
+
+      <choose>
+        <when test="detail.costPrice != null">
+          ,#{detail.costPrice}
+        </when>
+        <otherwise>
+          ,0
+        </otherwise>
+      </choose>
+      )
+    </foreach>
+  </insert>
+
+  <update id="modifyProductDetailByProdId" parameterType="com.yinhetianze.pojo.product.ProductDetailPojo">
+    update busi_product_detail
+    <set>
+      update_time = CURRENT_TIMESTAMP
+      <if test="skuCode != null and skuCode != ''">
+        , sku_code = #{skuCode}
+      </if>
+      <if test="salePrice != null">
+        , sale_price = #{salePrice}
+      </if>
+      <if test="costPrice != null">
+        , cost_price = #{costPrice}
+      </if>
+      <if test="memberPrice != null">
+        , member_price = #{memberPrice}
+      </if>
+      <if test="marketPrice != null">
+        , market_price = #{marketPrice}
+      </if>
+      <if test="prodSpeci != null and prodSpeci != ''">
+        , prod_speci = #{prodSpeci}
+      </if>
+      <if test="pStorage != null">
+        , prod_param = #{pStorage}
+      </if>
+      <if test="pStatus != null">
+        , p_status = #{pStatus}
+      </if>
+      <if test="delFlag != null">
+        , del_flag = #{delFlag}
+      </if>
+    </set>
+    where prod_id = #{prodId}
+  </update>
+
+  <update id="updatePDStorage" parameterType="map">
+     UPDATE busi_product_detail SET p_storage=p_storage+#{number} WHERE prod_id=#{prodId} AND sku_code=#{skuCode} AND (p_storage+#{number})&gt;=0
+  </update>
+
+  <update id="updateProductDetailAuditing" parameterType="com.yinhetianze.pojo.product.ProductDetailPojo">
+     UPDATE busi_product_detail SET sale_price=#{salePrice} where sku_code=#{skuCode}
+  </update>
+	
+  <insert id="addShopProductDetail" parameterType="com.yinhetianze.pojo.product.ProductDetailPojo">
+    insert into
+    busi_product_detail(
+     prod_id
+    ,cost_price
+    ,member_price
+    ,prod_speci
+    ,sku_code
+    ,p_storage
+    ,create_time
+    ,create_user
+    )
+    values
+    <foreach collection="list" separator="," item="detail">
+      (
+      #{detail.prodId}
+      ,#{detail.costPrice}
+      ,#{detail.memberPrice}
+      <choose>
+        <when test="detail.prodSpeci != null and detail.prodSpeci != ''">
+          ,#{detail.prodSpeci}
+        </when>
+        <otherwise>
+          ,null
+        </otherwise>
+      </choose>
+      ,#{detail.skuCode}
+      <choose>
+        <when test="detail.pStorage != null">
+          ,#{detail.pStorage}
+        </when>
+        <otherwise>
+          ,0
+        </otherwise>
+      </choose>
+      ,#{detail.createTime}
+      <choose>
+        <when test="detail.createUser != null">
+          ,#{detail.createUser}
+        </when>
+        <otherwise>
+          ,null
+        </otherwise>
+      </choose>
+      )
+    </foreach>
+  </insert>
+</mapper>

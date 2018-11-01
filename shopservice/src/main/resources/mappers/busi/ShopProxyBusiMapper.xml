@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yinhetianze.business.shop.mapper.busi.ShopProxyBusiMapper">
+  <resultMap id="BaseResultMap" type="com.yinhetianze.pojo.back.ShopProxyPojo">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="shop_account" jdbcType="VARCHAR" property="shopAccount" />
+    <result column="shop_password" jdbcType="VARCHAR" property="shopPassword" />
+    <result column="account_name" jdbcType="VARCHAR" property="accountName" />
+    <result column="shop_name" jdbcType="VARCHAR" property="shopName" />
+    <result column="shop_logo" jdbcType="VARCHAR" property="shopLogo" />
+    <result column="contact_phone" jdbcType="VARCHAR" property="contactPhone" />
+    <result column="shop_province" jdbcType="VARCHAR" property="shopProvince" />
+    <result column="shop_city" jdbcType="VARCHAR" property="shopCity" />
+    <result column="shop_area" jdbcType="VARCHAR" property="shopArea" />
+    <result column="shop_address" jdbcType="VARCHAR" property="shopAddress" />
+    <result column="shop_code" jdbcType="VARCHAR" property="shopCode" />
+    <result column="shop_phone" jdbcType="VARCHAR" property="shopPhone" />
+    <result column="shop_email" jdbcType="VARCHAR" property="shopEmail" />
+    <result column="settlement_method" jdbcType="SMALLINT" property="settlementMethod" />
+    <result column="bank" jdbcType="VARCHAR" property="bank" />
+    <result column="bank_card_number" jdbcType="VARCHAR" property="bankCardNumber" />
+    <result column="customer_id" jdbcType="INTEGER" property="customerId" />
+    <result column="optor_id" jdbcType="INTEGER" property="optorId" />
+    <result column="create_user" jdbcType="INTEGER" property="createUser" />
+    <result column="update_user" jdbcType="INTEGER" property="updateUser" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="is_valid" jdbcType="SMALLINT" property="isValid" />
+    <result column="del_flag" jdbcType="SMALLINT" property="delFlag" />
+    <result column="is_message" jdbcType="SMALLINT" property="isMessage" />
+    <result column="open_id" jdbcType="VARCHAR" property="openId" />
+  </resultMap>
+
+</mapper>

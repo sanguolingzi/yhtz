@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yinhetianze.business.customer.mapper.busi.CustomerBankrollFlowBusiMapper">
+
+    <update id="updateGameIdFlowToCustomer" parameterType="java.util.Map">
+        update busi_customer_bankroll_flow flow
+        set
+            flow.relation_id =  #{bankrollId},
+            flow.bankroll_id = #{customerBankrollId},
+            flow.update_time = now()
+        where flow.bankroll_id = #{bankrollId}
+    </update>
+</mapper>

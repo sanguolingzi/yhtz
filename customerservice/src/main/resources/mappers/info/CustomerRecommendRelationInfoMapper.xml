@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yinhetianze.business.customer.mapper.info.CustomerRecommendRelationInfoMapper">
+  <resultMap id="BaseResultMap" type="com.yinhetianze.pojo.customer.BusiCustomerRecommendRelationPojo">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="recom_customer_id" jdbcType="INTEGER" property="recomCustomerId" />
+    <result column="recomed_customer_id" jdbcType="INTEGER" property="recomedCustomerId" />
+    <result column="del_flag" jdbcType="SMALLINT" property="delFlag" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+  </resultMap>
+
+
+  <select id="selectRecommendRelationList" parameterType="java.lang.Integer" resultType="com.yinhetianze.business.customer.model.BusiCustomerRecommendRelationModel">
+     select
+        DATE_FORMAT(bcrr.create_time,'%Y-%m-%d %H:%i:%s') "createTime",
+        customer.phone,
+        bcrr.show_id "showId",
+        customer.id,
+        customer.is_member "isMember"
+     from busi_customer_recommend_relation bcrr
+     left join busi_customer customer  on bcrr.recomed_game_id = customer.game_id
+     where bcrr.recom_game_id = #{recommendGameId}
+     and bcrr.del_flag = 0
+     order by bcrr.create_time desc
+  </select>
+    
+    <select id="selectRecommendRelationCount" parameterType="java.util.Map" resultType="integer">
+      select count(s.id)
+      from busi_customer_yiyuan_relation bcyr
+      join busi_customer_recommend_relation s on s.recomed_game_id = bcyr.game_id
+      where s.recom_game_id = #{gameId}
+        and bcyr.create_time > DATE_SUB(now(),INTERVAL #{recommendLimitDay} day)
+        and s.del_flag = 0 and bcyr.type = 2
+
+    </select>
+
+    <select id="selectCount"  parameterType="java.util.Map" resultType="integer">
+        select
+           count(bcrr.id)
+        from busi_customer_recommend_relation bcrr
+        where bcrr.recom_game_id = #{gameId}
+        and bcrr.del_flag = 0
+    </select>
+</mapper>

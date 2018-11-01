@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yinhetianze.business.customer.mapper.busi.CustomerCollectorBusiMapper">
+
+
+    <update id="deleteInfo" parameterType="com.yinhetianze.pojo.customer.BusiCustomerCollectorPojo">
+        update busi_customer_collector coll
+        SET
+          coll.del_flag = 1,
+          coll.relation_id_his = coll.relation_id,
+          coll.relation_id = null
+        where coll.id = #{id} and coll.customer_id = #{customerId}
+
+    </update>
+</mapper>

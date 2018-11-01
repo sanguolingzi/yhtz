@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yinhetianze.systemservice.system.mapper.info.SysBannerInfoMapper">
+  <resultMap id="BaseResultMap" type="com.yinhetianze.pojo.back.SysBannerPojo">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="link_url" jdbcType="VARCHAR" property="linkUrl" />
+    <result column="sort" jdbcType="SMALLINT" property="sort" />
+    <result column="is_show" jdbcType="SMALLINT" property="isShow" />
+    <result column="photo_url" jdbcType="VARCHAR" property="photoUrl" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="create_user" jdbcType="INTEGER" property="createUser" />
+    <result column="update_user" jdbcType="INTEGER" property="updateUser" />
+    <result column="del_flag" jdbcType="SMALLINT" property="delFlag" />
+    <result column="banner_type" jdbcType="SMALLINT" property="bannerType" />
+    <result column="theme" jdbcType="VARCHAR" property="theme" />
+    <result column="memo" jdbcType="VARCHAR" property="memo" />
+    <result column="link_markup" jdbcType="SMALLINT" property="linkMarkup" />
+    <result column="link_parameter" jdbcType="VARCHAR" property="linkParameter" />
+  </resultMap>
+
+  <select id="selectSysBannerList" parameterType="com.yinhetianze.systemservice.system.model.SysBannerModel"
+  resultType="com.yinhetianze.systemservice.system.model.SysBannerModel">
+    select
+      banner.id,
+      banner.photo_url "photoUrl",
+      banner.theme,
+      banner.memo,
+      banner.sort,
+      banner.is_show "isShow",
+      banner.link_url "linkUrl",
+      banner.create_time "createTime",
+      banner.banner_type "bannerType",
+      optor.optor_name "createUserName",
+      banner.banner_position "bannerPosition",
+      banner.link_markup "linkMarkup",
+      banner.link_parameter "linkParameter"
+    from  busi_sys_banner  banner
+    left join busi_sys_optor optor on optor.id = banner.create_user
+    where banner.del_flag = 0
+    order by banner.sort asc ,banner.create_time desc
+
+
+  </select>
+
+
+
+  <select id="selectForMobileIndex"  parameterType="com.yinhetianze.systemservice.system.model.SysBannerModel"
+          resultType="java.util.Map">
+     select
+       banner.photo_url "photoUrl",
+       banner.link_url "linkUrl",
+       banner.banner_position  "bannerPosition",
+       banner.link_markup "linkMarkup",
+       banner.link_parameter "linkParameter"
+     from  busi_sys_banner  banner
+     where banner.del_flag = 0 and banner.is_show = 0
+     <if test="bannerType!=null">
+       and banner.banner_type=#{bannerType}
+     </if>
+     order by banner.sort asc ,banner.create_time desc
+  </select>
+</mapper>

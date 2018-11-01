@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yinhetianze.systemservice.mall.mapper.info.ChannelInfoMapper">
+
+  <select id="selectChannelList" parameterType="com.yinhetianze.systemservice.mall.model.ChannelModel"
+          resultType="com.yinhetianze.systemservice.mall.model.ChannelModel">
+
+    select
+      cha.id,
+      cha.channel_name "channelName",
+      cha.channel_link "channelLink",
+      cha.channel_image "channelImage",
+      cha.is_show "isShow",
+      cha.create_time "createTime",
+      cha.sort,
+      opt.optor_name "createUserName",
+      cha.link_markup "linkMarkup",
+      cha.link_parameter "linkParameter"
+    from busi_channel cha
+    left join busi_sys_optor opt on opt.id = cha.create_user and opt.del_flag = 0
+    where cha.del_flag = 0
+    order by cha.sort asc ,cha.create_time desc
+
+
+  </select>
+
+
+  <select id="selectForMobileIndex" parameterType="com.yinhetianze.systemservice.mall.model.ChannelModel"
+          resultType="java.util.Map">
+
+    select
+      cha.channel_name "channelName",
+      cha.channel_link "channelLink",
+      cha.channel_image "channelImage",
+      cha.link_markup "linkMarkup",
+      cha.link_parameter "linkParameter"
+    from busi_channel cha
+    where cha.del_flag = 0 and cha.is_show = 0
+    order by cha.sort asc ,cha.create_time desc
+
+
+  </select>
+
+</mapper>

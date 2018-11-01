@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yinhetianze.common.business.sys.area.mapper.AreaInfoMapper">
+  <resultMap id="BaseResultMap" type="com.yinhetianze.pojo.task.AreaPojo">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="code" jdbcType="VARCHAR" property="code" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="parent_id" jdbcType="VARCHAR" property="parentId" />
+    <result column="short_name" jdbcType="VARCHAR" property="shortName" />
+    <result column="level_type" jdbcType="SMALLINT" property="levelType" />
+    <result column="city_code" jdbcType="VARCHAR" property="cityCode" />
+    <result column="zip_code" jdbcType="VARCHAR" property="zipCode" />
+    <result column="full_name" jdbcType="VARCHAR" property="fullName" />
+    <result column="lng" jdbcType="VARCHAR" property="lng" />
+    <result column="lat" jdbcType="VARCHAR" property="lat" />
+    <result column="pinyin" jdbcType="VARCHAR" property="pinyin" />
+  </resultMap>
+
+  <sql id="selectColumnSql">
+    code,
+    name,
+    level_type levelType,
+    parent_id parentId,
+    zip_code zipCode,
+    full_name fullName,
+    pinyin
+  </sql>
+
+  <select id="getAreaMapList" parameterType="map" resultType="map">
+    select
+      <include refid="selectColumnSql"/>
+    from
+      busi_sys_area
+    <where>
+      <if test="code != null and code != ''">
+        code = #{code}
+      </if>
+      <if test="name != null and name != ''">
+        and code = #{name}
+      </if>
+      <if test="parentId != null and parentId != ''">
+        and parent_id = #{parentId}
+      </if>
+      <if test="zipCode != null and zipCode != ''">
+        and zip_code = #{zipCode}
+      </if>
+      <if test="levelType != null and levelType != ''">
+        and level_type = #{levelType}
+      </if>
+    </where>
+    order by
+      level_type, code
+  </select>
+</mapper>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/ElasticSearch/ElasticSearch.iml" filepath="$PROJECT_DIR$/ElasticSearch/ElasticSearch.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SolrService/SolrService.iml" filepath="$PROJECT_DIR$/SolrService/SolrService.iml" />
+      <module fileurl="file://$PROJECT_DIR$/back/back.iml" filepath="$PROJECT_DIR$/back/back.iml" />
+      <module fileurl="file://$PROJECT_DIR$/billing/billing.iml" filepath="$PROJECT_DIR$/billing/billing.iml" />
+      <module fileurl="file://$PROJECT_DIR$/billingservice/billingservice.iml" filepath="$PROJECT_DIR$/billingservice/billingservice.iml" />
+      <module fileurl="file://$PROJECT_DIR$/client/client.iml" filepath="$PROJECT_DIR$/client/client.iml" />
+      <module fileurl="file://$PROJECT_DIR$/core/core.iml" filepath="$PROJECT_DIR$/core/core.iml" />
+      <module fileurl="file://$PROJECT_DIR$/customer/customer.iml" filepath="$PROJECT_DIR$/customer/customer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/customerservice/customerservice.iml" filepath="$PROJECT_DIR$/customerservice/customerservice.iml" />
+      <module fileurl="file://$PROJECT_DIR$/generator/generator.iml" filepath="$PROJECT_DIR$/generator/generator.iml" />
+      <module fileurl="file://$PROJECT_DIR$/kernel/kernel.iml" filepath="$PROJECT_DIR$/kernel/kernel.iml" />
+      <module fileurl="file://$PROJECT_DIR$/messageservice/messageservice.iml" filepath="$PROJECT_DIR$/messageservice/messageservice.iml" />
+      <module fileurl="file://$PROJECT_DIR$/order/order.iml" filepath="$PROJECT_DIR$/order/order.iml" />
+      <module fileurl="file://$PROJECT_DIR$/orderservice/orderservice.iml" filepath="$PROJECT_DIR$/orderservice/orderservice.iml" />
+      <module fileurl="file://$PROJECT_DIR$/pojo/pojo.iml" filepath="$PROJECT_DIR$/pojo/pojo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/product/product.iml" filepath="$PROJECT_DIR$/product/product.iml" />
+      <module fileurl="file://$PROJECT_DIR$/productservice/productservice.iml" filepath="$PROJECT_DIR$/productservice/productservice.iml" />
+      <module fileurl="file://$PROJECT_DIR$/shop/shop.iml" filepath="$PROJECT_DIR$/shop/shop.iml" />
+      <module fileurl="file://$PROJECT_DIR$/shopservice/shopservice.iml" filepath="$PROJECT_DIR$/shopservice/shopservice.iml" />
+      <module fileurl="file://$PROJECT_DIR$/systemservice/systemservice.iml" filepath="$PROJECT_DIR$/systemservice/systemservice.iml" />
+      <module fileurl="file://$PROJECT_DIR$/task/task.iml" filepath="$PROJECT_DIR$/task/task.iml" />
+      <module fileurl="file://$PROJECT_DIR$/yinhetianze.iml" filepath="$PROJECT_DIR$/yinhetianze.iml" />
+    </modules>
+  </component>
+</project>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yinhetianze.systemservice.system.mapper.info.QuestionInfoMapper">
+  <resultMap id="BaseResultMap" type="com.yinhetianze.pojo.back.QuestionPojo">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="question_name" jdbcType="VARCHAR" property="questionName" />
+      <result column="question_subTitle" jdbcType="VARCHAR" property="questionSubTitle" />
+    <result column="question_answer" jdbcType="VARCHAR" property="questionAnswer" />
+    <result column="sort" jdbcType="SMALLINT" property="sort" />
+    <result column="is_show" jdbcType="SMALLINT" property="isShow" />
+    <result column="classify_id" jdbcType="INTEGER" property="classifyId" />
+  </resultMap>
+
+  <select id="getQuestion" parameterType="com.yinhetianze.systemservice.system.model.QuestionModel"
+          resultType="com.yinhetianze.systemservice.system.model.QuestionModel">
+       SELECT
+        id,
+        question_name "questionName",
+        question_subTitle "questionSubTitle"
+      FROM
+        busi_sys_help_question
+      WHERE
+        question_name LIKE concat('%', #{questionName}, '%')
+      OR
+       question_subTitle LIKE concat('%', #{questionName}, '%')
+      AND
+       is_show=1
+  </select>
+</mapper>

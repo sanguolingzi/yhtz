@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yinhetianze.business.product.mapper.ProductBusiMapper">
+  <resultMap id="BaseResultMap" type="com.yinhetianze.pojo.product.ProductPojo">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="del_flag" jdbcType="SMALLINT" property="delFlag" />
+    <result column="p_title" jdbcType="VARCHAR" property="pTitle" />
+    <result column="p_subtitle" jdbcType="VARCHAR" property="pSubtitle" />
+    <result column="prod_name" jdbcType="VARCHAR" property="prodName" />
+    <result column="prod_cate_name" jdbcType="VARCHAR" property="prodCateName" />
+    <result column="prod_cate_id" jdbcType="INTEGER" property="prodCateId" />
+    <result column="prod_brand_id" jdbcType="INTEGER" property="prodBrandId" />
+    <result column="prod_brand_name" jdbcType="VARCHAR" property="prodBrandName" />
+    <result column="prod_code" jdbcType="VARCHAR" property="prodCode" />
+    <result column="market_price" jdbcType="DECIMAL" property="marketPrice" />
+    <result column="sell_price" jdbcType="DECIMAL" property="sellPrice" />
+    <result column="profits_proportion" jdbcType="DECIMAL" property="profitsProportion" />
+    <result column="integral_percent" jdbcType="DECIMAL" property="integralPercent" />
+    <result column="prod_unit_id" jdbcType="INTEGER" property="prodUnitId" />
+    <result column="prod_unit_name" jdbcType="VARCHAR" property="prodUnitName" />
+    <result column="is_freight_free" jdbcType="SMALLINT" property="isFreightFree" />
+    <result column="freight_free_price" jdbcType="DECIMAL" property="freightFreePrice" />
+    <result column="freight" jdbcType="DECIMAL" property="freight" />
+    <result column="is_replacement" jdbcType="SMALLINT" property="isReplacement" />
+    <result column="p_storage" jdbcType="INTEGER" property="pStorage" />
+    <result column="audit_state" jdbcType="SMALLINT" property="auditState" />
+    <result column="p_status" jdbcType="SMALLINT" property="pStatus" />
+    <result column="create_user" jdbcType="INTEGER" property="createUser" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_user" jdbcType="INTEGER" property="updateUser" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="product_img" jdbcType="VARCHAR" property="productImg" />
+    <result column="qrcode" jdbcType="VARCHAR" property="qrcode" />
+    <result column="shop_id" jdbcType="INTEGER" property="shopId" />
+    <result column="shop_cate_id" jdbcType="INTEGER" property="shopCateId" />
+    <result column="shop_brand_id" jdbcType="INTEGER" property="shopBrandId" />
+    <result column="settlement_price" jdbcType="DECIMAL" property="settlementPrice" />
+    <result column="electronic_invoice" jdbcType="INTEGER" property="electronicInvoice" />
+    <result column="product_type" jdbcType="INTEGER" property="productType" />
+    <result column="product_distinction" jdbcType="INTEGER" property="productDistinction" />
+    <result column="remark" jdbcType="VARCHAR" property="remark" />
+    <result column="supply_price" jdbcType="DECIMAL" property="supplyPrice" />
+    <result column="retail_price" jdbcType="DECIMAL" property="retailPrice" />
+    <result column="share_price" jdbcType="DECIMAL" property="sharePrice" />
+    <result column="promotion_price" jdbcType="DECIMAL" property="promotionPrice" />
+    <result column="drop_shipping"   jdbcType="SMALLINT" property="dropShipping" />
+    <result column="drop_shipping_id" jdbcType="INTEGER" property="dropShippingId" />
+    <result column="flag_price" jdbcType="DECIMAL" property="flagPrice" />
+  </resultMap>
+
+  <!-- 逻辑删除商品信息，只能对下架和售罄的商品进行逻辑删除 -->
+  <delete id="deleteProduct" parameterType="integer">
+    update busi_product set del_flag = 1
+    WHERE
+      id = #{productId}
+    and
+      p_status = 1 or p_status = 2
+  </delete>
+
+  <!--更新商品库存-->
+  <update id="updateStorage" parameterType="map">
+     UPDATE busi_product SET p_storage=p_storage+#{number} WHERE id=#{prodId} AND (p_storage+#{number})&gt;=0
+  </update>
+
+  <!--添加商品时设置默认销量 -->
+  <insert id="addProductSales" parameterType="map">
+     insert  into
+        busi_product_sales(product_id,init_sales)
+    values
+      (#{productId},#{initSales})
+
+  </insert>
+</mapper>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yinhetianze.business.product.mapper.ProductFresherRewardInfoMapper">
+  <resultMap id="BaseResultMap" type="com.yinhetianze.pojo.product.ProductFresherRewardPojo">
+    <!--
+      WARNING - @mbg.generated
+    -->
+      <id column="id" jdbcType="INTEGER" property="id" />
+      <result column="STATUS" jdbcType="SMALLINT" property="status" />
+      <result column="prod_id" jdbcType="INTEGER" property="prodId" />
+      <result column="exchange_u_price" jdbcType="DECIMAL" property="exchangeUPrice" />
+      <result column="exchange_time" jdbcType="TIMESTAMP" property="exchangeTime" />
+      <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+      <result column="regeister_time" jdbcType="TIMESTAMP" property="regeisterTime" />
+      <result column="game_id" jdbcType="INTEGER" property="gameId" />
+      <result column="handle_status" jdbcType="SMALLINT" property="handleStatus" />
+  </resultMap>
+  <select id="selectProductFresherRewardId" parameterType="java.util.Map" resultType="com.yinhetianze.pojo.product.ProductFresherRewardPojo">
+      SELECT busi_product_fresher_reward.id "id"
+      FROM busi_product_fresher_reward  LEFT JOIN busi_customer_bankroll ON busi_product_fresher_reward.game_id=busi_customer_bankroll.game_id
+      WHERE  busi_customer_bankroll.del_flag=0 AND busi_product_fresher_reward.handle_status=1
+      AND busi_customer_bankroll.reward_amount>=#{uReward}
+      AND TO_DAYS( NOW( ) ) - TO_DAYS(busi_product_fresher_reward.regeister_time) &lt;= #{daysReward}
+  </select>
+</mapper>

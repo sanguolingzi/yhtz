@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yinhetianze.business.category.mapper.CateParamRelaInfoMapper">
+  <resultMap id="BaseResultMap" type="com.yinhetianze.pojo.category.CateParamRelaPojo">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="cate_id" jdbcType="INTEGER" property="cateId" />
+    <result column="param_id" jdbcType="INTEGER" property="paramId" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+  </resultMap>
+  <select id="getCateParamRelaList" parameterType="com.yinhetianze.business.category.model.ParameterModel" resultType="java.util.Map">
+    SELECT
+      busi_product_cate_param_rela.id,busi_product_cate_param_rela.cate_id "cateId",
+      busi_product_category.cate_name "cateName",busi_product_parameter.param_name "paramName",
+      busi_product_parameter.is_inputable "isInputable",busi_product_parameter.status,
+      busi_product_parameter.is_whole_line "isWholeLine",busi_product_parameter.sort,
+      busi_product_parameter.first_word "firstWord",busi_product_cate_param_rela.param_id "paramId"
+    FROM
+      busi_product_parameter
+      RIGHT JOIN busi_product_cate_param_rela ON   busi_product_cate_param_rela.param_id=busi_product_parameter.id
+      LEFT JOIN busi_product_category ON busi_product_cate_param_rela.cate_id=busi_product_category.id
+    WHERE
+      busi_product_cate_param_rela.del_flag=0
+    AND
+      busi_product_category.del_flag=0
+    AND
+      busi_product_parameter.del_flag=0
+    <if test="paramName != null">
+      AND
+      busi_product_parameter.param_name LIKE concat('%',#{paramName},'%')
+    </if>
+  </select>
+  <select id="getParameterId" parameterType="com.yinhetianze.pojo.category.CateParamRelaPojo" resultType="int">
+    SELECT
+     param_id
+    FROM
+     busi_product_cate_param_rela
+    WHERE
+     del_flag=0
+    AND
+     id=#{id}
+  </select>
+</mapper>

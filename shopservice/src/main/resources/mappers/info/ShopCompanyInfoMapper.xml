@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yinhetianze.business.shop.mapper.info.ShopCompanyInfoMapper">
+
+  <select id="selectList" resultType="com.yinhetianze.business.shop.model.BusiShopCompanyModel"
+          parameterType="com.yinhetianze.business.shop.model.BusiShopCompanyPageModel">
+
+    select
+        companyinfo.id,
+        companyinfo.company_name "companyName",
+        companyinfo.regeister_time "regeisterTime",
+        companyinfo.audit_status  "auditStatus",
+        customer.id "customerId",
+        customer.phone
+    from busi_shop_companyinfo companyinfo
+    left join busi_customer customer  on customer.id = companyinfo.customer_id
+    where companyinfo.del_flag = 0 and  customer.del_flag = 0
+    <if test="companyName != null and companyName != ''">
+       and companyinfo.company_name like '%${companyName}%'
+    </if>
+
+    <if test="auditStatus != null and auditStatus != ''">
+      and companyinfo.audit_status = #{auditStatus}
+    </if>
+    <choose>
+      <when test="regeisterBeginTime != null and regeisterEndTime != null">
+         and date_format(companyinfo.create_time,'%Y-%m-%d') &gt;= #{regeisterBeginTime}
+         and date_format(companyinfo.create_time,'%Y-%m-%d') &lt;= #{regeisterEndTime}
+      </when>
+      <when test="regeisterBeginTime != null">
+        and date_format(companyinfo.create_time,'%Y-%m-%d') &gt;= #{regeisterBeginTime}
+      </when>
+      <when test="regeisterEndTime != null">
+        and date_format(companyinfo.create_time,'%Y-%m-%d') &lt;= #{regeisterEndTime}
+      </when>
+      <otherwise></otherwise>
+    </choose>
+    order by companyinfo.create_time desc,companyinfo.audit_status desc
+  </select>
+</mapper>

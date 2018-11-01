@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yinhetianze.business.product.mapper.ProductGuessBusiMapper">
+  <resultMap id="BaseResultMap" type="com.yinhetianze.pojo.product.ProductGuessPojo">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="prod_id" jdbcType="INTEGER" property="prodId" />
+    <result column="create_user" jdbcType="SMALLINT" property="createUser" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_user" jdbcType="SMALLINT" property="updateUser" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="del_flag" jdbcType="SMALLINT" property="delFlag" />
+  </resultMap>
+
+  <select id="getProductGuessList" parameterType="com.yinhetianze.business.product.model.ProductGuessModel" resultType="java.util.Map">
+     SELECT
+      busi_product_guess.id,
+      busi_product_guess.prod_id "prodId",
+      busi_product.prod_name "prodName",
+      busi_product.p_title "pTitle",
+      busi_product.p_subtitle "pSubtitle",
+      busi_product.sell_price "sellPrice",
+      busi_product.market_price "marketPrice",
+      busi_product.p_status "pStatus",
+      busi_product_guess.sort "sort",
+      busi_product_category.cate_name "prodCateName",
+      busi_product.product_img "productImg"
+    FROM
+      busi_product_guess LEFT JOIN busi_product ON  busi_product.id=busi_product_guess.prod_id
+      LEFT JOIN busi_product_category ON busi_product.prod_cate_id=busi_product_category.id
+    WHERE
+      busi_product_guess.`del_flag`=0
+    AND
+      busi_product.del_flag=0
+    AND
+     busi_product.audit_state=3
+      <if test="prodName!='' and prodName!=null">
+          and busi_product.prod_name  like concat('%', #{prodName}, '%')
+      </if>
+    ORDER BY
+     busi_product_guess.sort ASC
+  </select>
+
+  <select id="getProductGuess" parameterType="com.yinhetianze.business.product.model.ProductGuessModel" resultType="int">
+    SELECT
+      COUNT(id)
+    FROM
+      busi_product_guess
+    WHERE
+      prod_id=#{prodId}
+    AND
+      del_flag=0
+  </select>
+
+</mapper>

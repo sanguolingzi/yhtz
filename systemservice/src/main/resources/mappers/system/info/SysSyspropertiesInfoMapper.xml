@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yinhetianze.systemservice.system.mapper.info.SysSyspropertiesInfoMapper">
+  <resultMap id="BaseResultMap" type="com.yinhetianze.pojo.back.BusiSysSyspropertiesPojo">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="p_name" jdbcType="VARCHAR" property="pName" />
+    <result column="p_value" jdbcType="VARCHAR" property="pValue" />
+    <result column="create_user" jdbcType="INTEGER" property="createUser" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_user" jdbcType="INTEGER" property="updateUser" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="del_flag" jdbcType="SMALLINT" property="delFlag" />
+    <result column="is_work" jdbcType="SMALLINT" property="isWork" />
+    <result column="p_module" jdbcType="SMALLINT" property="pModule" />
+    <result column="p_description" jdbcType="VARCHAR" property="pDescription" />
+  </resultMap>
+
+  <select id="selectPropertiesList" resultType="com.yinhetianze.systemservice.system.model.BusiSysSyspropertiesModel"
+          parameterType="com.yinhetianze.systemservice.system.model.BusiSysSyspropertiesModel">
+      select
+          sysproperty.id,
+          sysproperty.p_name "pName",
+          sysproperty.p_value "pValue",
+          sysproperty.create_time "createTime",
+          sysproperty.is_work "isWork",
+          sysproperty.p_module "pModule",
+          sysproperty.p_description "pDescription"
+      from busi_sys_sysproperties sysproperty
+      where sysproperty.del_flag = 0
+      <if test="pName != null and pName != ''">
+        and sysproperty.p_name like '%${pName}%'
+      </if>
+      <if test="pDescription !=null and pDescription != ''">
+        AND sysproperty.p_description like '%${pDescription}%'
+      </if>
+      <if test="isWork != null">
+         and sysproperty.is_work =#{isWork}
+      </if>
+      order by sysproperty.create_time desc
+
+  </select>
+
+
+
+    <select id="sysPropertiesid" parameterType="com.yinhetianze.systemservice.system.model.BusiSysSyspropertiesModel" resultType="int">
+        SELECT
+         COUNT(id)
+        FROM
+          busi_sys_sysproperties
+        WHERE
+          p_name=#{pName}
+        AND
+         del_flag=0
+    </select>
+</mapper>

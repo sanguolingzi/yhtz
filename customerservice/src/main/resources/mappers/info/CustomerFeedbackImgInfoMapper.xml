@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yinhetianze.business.customer.mapper.info.CustomerFeedbackImgInfoMapper">
+  <resultMap id="BaseResultMap" type="com.yinhetianze.pojo.customer.BusiCustomerFeedbackImgPojo">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="del_flag" jdbcType="SMALLINT" property="delFlag" />
+    <result column="feedback_id" jdbcType="INTEGER" property="feedbackId" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="img_url" jdbcType="VARCHAR" property="imgUrl" />
+  </resultMap>
+
+
+  <select id="selectByFeedbackId" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+     select
+        id,
+        img_url
+     from busi_customer_feedbackImg
+     where del_flag = 0
+     and feedback_id=#{feedbackId}
+     order by sort_no asc
+  </select>
+</mapper>

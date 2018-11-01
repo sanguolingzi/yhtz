@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yinhetianze.business.task.mapper.TaskHisBusiMapper">
+  <resultMap id="BaseResultMap" type="com.yinhetianze.pojo.task.TaskHisPojo">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <result column="task_id" jdbcType="INTEGER" property="taskId" />
+    <result column="begin_time" jdbcType="TIMESTAMP" property="beginTime" />
+    <result column="end_time" jdbcType="TIMESTAMP" property="endTime" />
+    <result column="state" jdbcType="SMALLINT" property="state" />
+    <result column="remarks" jdbcType="VARCHAR" property="remarks" />
+  </resultMap>
+</mapper>

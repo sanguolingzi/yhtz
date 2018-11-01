@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yinhetianze.business.unit.mapper.UnitInfoMapper">
+  <resultMap id="unitResultMap" type="com.yinhetianze.pojo.unit.UnitPojo">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="unit_name" jdbcType="VARCHAR" property="unitName" />
+    <result column="sort" jdbcType="SMALLINT" property="sort" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="is_show" jdbcType="SMALLINT" property="isShow" />
+  </resultMap>
+
+  <sql id="unitColumnSql">
+    id,
+    unit_name,
+    sort,
+    create_time,
+    is_show
+  </sql>
+
+  <select id="getUnitList" parameterType="map" resultMap="unitResultMap">
+    select
+      <include refid="unitColumnSql"/>
+    from
+      busi_product_unit
+    <where>
+      <if test="unitName != null and unitName != ''">
+        unit_name = #{unitName}
+      </if>
+      <if test="isShow != null">
+        is_show = #{isShow}
+      </if>
+      <if test="unitId != null">
+        and id = #{unitId}
+      </if>
+    </where>
+    ORDER BY
+      sort, create_time desc
+  </select>
+</mapper>

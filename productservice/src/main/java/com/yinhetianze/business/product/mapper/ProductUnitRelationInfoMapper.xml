@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yinhetianze.business.product.mapper.ProductUnitRelationInfoMapper">
+  <resultMap id="BaseResultMap" type="com.yinhetianze.pojo.product.ProductUnitRelationPojo">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="categoryId" jdbcType="INTEGER" property="categoryid" />
+    <result column="unitId" jdbcType="INTEGER" property="unitid" />
+  </resultMap>
+
+  <select id="getProductUnitRelationList" parameterType="com.yinhetianze.business.product.model.ProductUnitModel" resultType="java.util.Map">
+    SELECT
+      busi_product_unit_relation.id,
+      busi_product_unit.unit_name "unitName",
+      busi_product_unit.is_show "isShow",
+      busi_product_category.cate_name "cateName",
+      busi_product_unit_relation.categoryId "categoryid",
+      busi_product_unit.sort "sort"
+    FROM
+      busi_product_unit
+      RIGHT JOIN busi_product_unit_relation ON busi_product_unit.id= busi_product_unit_relation.unitId
+      LEFT JOIN busi_product_category ON busi_product_unit_relation.categoryId=busi_product_category.id
+    WHERE
+      busi_product_unit.del_flag=0
+    AND
+      busi_product_unit_relation.del_flag=0
+    AND
+      busi_product_category.del_flag=0
+    <if test="unitName != null">
+    AND
+      busi_product_unit.unit_name LIKE concat('%',#{unitName},'%')
+    </if>
+  </select>
+
+  <select id="getProductUnitid" parameterType="com.yinhetianze.pojo.product.ProductUnitRelationPojo" resultType="int">
+     SELECT
+     unitId
+     FROM
+     busi_product_unit_relation
+     WHERE  del_flag=0
+     AND id=#{id}
+  </select>
+
+  <select id="getProductUnitRelation" parameterType="com.yinhetianze.business.product.model.ProductUnitRelationModel" resultType="java.util.Map">
+    SELECT
+      busi_product_unit_relation.id,
+      busi_product_unit.unit_name "unitName",
+      busi_product_unit.is_show "isShow",
+      busi_product_category.cate_name "cateName"
+    FROM
+      busi_product_unit
+      RIGHT JOIN busi_product_unit_relation ON busi_product_unit.id= busi_product_unit_relation.unitId
+      LEFT JOIN busi_product_category ON busi_product_unit_relation.categoryId=busi_product_category.id
+    WHERE
+      busi_product_unit.del_flag=0
+    AND
+      busi_product_unit_relation.del_flag=0
+    AND
+      busi_product_category.del_flag=0
+    AND
+      busi_product_unit_relation.id = #{id}
+  </select>
+  
+  <select id="getCategoryUnit"  parameterType="com.yinhetianze.business.product.model.ProductUnitRelationModel" resultType="map">
+    SELECT
+     bpu.`id` AS unitId,
+     bpu.`unit_name` AS unitName
+    FROM
+      `busi_product_unit_relation` bpur,
+      busi_product_unit bpu
+    WHERE bpur.`unitId` = bpu.`id`
+      AND bpur.`categoryId` = #{categoryid}
+
+  </select>
+
+  <select id="getProductUnitName" parameterType="map" resultType="Integer">
+    SELECT
+       busi_product_unit_relation.id
+    FROM
+       busi_product_unit_relation
+    LEFT JOIN busi_product_unit ON busi_product_unit_relation.unitId=busi_product_unit.id
+    WHERE
+      busi_product_unit_relation.del_flag=0
+    AND
+      busi_product_unit.del_flag=0
+    AND
+      busi_product_unit_relation.categoryId=#{categoryid} AND busi_product_unit.unit_name=#{unitName}
+  </select>
+</mapper>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yinhetianze.business.customer.mapper.info.CustomerDrawQueueInfoMapper">
+  <resultMap id="BaseResultMap" type="com.yinhetianze.pojo.customer.BusiCustomerDrawQueuePojo">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="draw_id" jdbcType="INTEGER" property="drawId" />
+    <result column="draw_number" jdbcType="VARCHAR" property="drawNumber" />
+    <result column="id_type" jdbcType="SMALLINT" property="idType" />
+    <result column="retry_count" jdbcType="SMALLINT" property="retryCount" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="is_handle" jdbcType="SMALLINT" property="isHandle" />
+    <result column="del_flag" jdbcType="SMALLINT" property="delFlag" />
+  </resultMap>
+
+
+  <select id="selectList" parameterType="java.util.Map"
+  resultType="com.yinhetianze.pojo.customer.BusiCustomerDrawQueuePojo">
+    select
+        q.id,
+        q.draw_id "drawId",
+        q.draw_number "drawNumber",
+        q.id_type "idType"
+    from busi_customer_drawqueue q
+    where
+        q.is_handle = 0
+    and q.del_flag = 0
+    and q.retry_count &lt;= 3
+    and TIMESTAMPDIFF(MINUTE,q.create_time,now(0)) >= #{minuteInterval}
+  </select>
+</mapper>

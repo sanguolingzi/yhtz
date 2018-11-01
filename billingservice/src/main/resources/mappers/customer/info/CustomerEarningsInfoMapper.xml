@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yinhetianze.business.customer.mapper.info.CustomerEarningsInfoMapper">
+  <resultMap id="BaseResultMap" type="com.yinhetianze.pojo.customer.CustomerEarningsPojo">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="customer_id" jdbcType="INTEGER" property="customerId" />
+    <result column="amount" jdbcType="DECIMAL" property="amount" />
+    <result column="create_id" jdbcType="INTEGER" property="createId" />
+    <result column="create_time" jdbcType="DATE" property="createTime" />
+  </resultMap>
+
+
+  <select id="selectDbCurrentTime" resultType="java.util.Map">
+      select DATE_FORMAT(now(),'%Y-%m-%d') currentDate
+  </select>
+
+
+  <select id="selectEaringList" parameterType="java.util.Map" resultType="com.yinhetianze.business.customer.model.BusiCustomerEaringModel">
+    select
+        customer.id,
+        customer.photo_url "photoUrl",
+        customer.phone "phone",
+        CONVERT(tt.amount/100,DECIMAL(10,2)) "amount",
+        customer.is_member "isMember",
+        rel.show_id "showId",
+        rel.recomed_game_id "gameId"
+    from
+    <choose>
+       <when test="paraMap.type == 1">
+         (
+            select rel.recomed_game_id,rel.show_id from busi_customer_recommend_relation rel where rel.recom_game_id = #{paraMap.gameId}
+         ) rel
+
+       </when>
+       <when test="paraMap.type == 2">
+         (
+            select rel.recomed_game_id,rel.show_id from busi_customer_recommend_relation rel where rel.grand_recom_game_id = #{paraMap.gameId}
+         ) rel
+
+       </when>
+       <when test="paraMap.type == 3">
+         (
+           select rel.recomed_game_id,rel.show_id from busi_customer_recommend_relation rel where 1=1
+           and rel.grand_recom_game_id != #{paraMap.gameId}
+           and rel.recom_game_id != #{paraMap.gameId}
+           and rel.partner_id = #{paraMap.gameId}
+         ) rel
+       </when>
+    </choose>
+    left join busi_customer customer  on customer.game_id = rel.recomed_game_id
+    left join
+    (
+      select ear.customer_id,ear.create_id,sum(ear.amount) amount from busi_customer_earnings ear
+      where ear.customer_id = #{paraMap.customerId}
+      group by ear.customer_id,ear.create_id
+    ) tt on tt.create_id = customer.id
+    order by
+    <choose>
+      <when test="paraMap.sortColumn == 1">
+          tt.amount
+         <choose>
+           <when test="paraMap.orderType == 'asc' ">
+             asc
+           </when>
+           <otherwise>desc</otherwise>
+         </choose>
+      </when>
+      <otherwise>
+         customer.create_time
+          <choose>
+            <when test="paraMap.orderType == 'asc' ">
+              asc
+            </when>
+            <otherwise>desc</otherwise>
+          </choose>
+      </otherwise>
+    </choose>
+  </select>
+
+  <select id="selectTotalEaring" parameterType="java.util.Map" resultType="java.util.Map">
+    select
+    CONVERT(sum(tt.amount)/100,DECIMAL(10,2)) "amount"
+    from busi_customer_recommend_relation rel
+    left join busi_customer customer  on customer.game_id = rel.recomed_game_id
+    left join
+    (
+      select ear.customer_id,ear.create_id,sum(ear.amount) amount from busi_customer_earnings ear
+      where ear.customer_id = #{paraMap.customerId}
+      group by ear.customer_id,ear.create_id
+    ) tt on tt.create_id = customer.id
+    where 1=1
+    <choose>
+      <!-- 一级市场-->
+      <when test="paraMap.type == 1">
+        and rel.recom_game_id = #{paraMap.gameId}
+      </when>
+      <!-- 二级市场 -->
+      <when test="paraMap.type == 2">
+        and rel.grand_recom_game_id = #{paraMap.gameId}
+      </when>
+      <!-- 拓展市场 -->
+      <when test="paraMap.type == 3">
+        and rel.grand_recom_game_id != #{paraMap.gameId}
+        and rel.recom_game_id != #{paraMap.gameId}
+        and rel.partner_id = #{paraMap.gameId}
+      </when>
+
+    </choose>
+  </select>
+
+  <select id="selectEaringByCondition" resultType="java.util.Map" parameterType="java.util.Map">
+    select
+    CONVERT(sum(ear.amount)/100,DECIMAL(10,2)) "amount"
+    from busi_customer_earnings ear
+    where ear.customer_id = #{paraMap.customerId}
+    and ear.create_id = #{paraMap.createId}
+    <if test="paraMap.beginTime != null">
+      and ear.create_time  &gt;= STR_TO_DATE(#{paraMap.beginTime},'%y-%M-%d')
+    </if>
+    <if test="paraMap.endTime != null">
+      and ear.create_time  &lt;= STR_TO_DATE(#{paraMap.endTime},'%y-%M-%d')
+    </if>
+
+  </select>
+</mapper>

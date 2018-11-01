@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yinhetianze.business.shop.mapper.info.ShopInfoMapper">
+
+    <resultMap id="BaseResultMap" type="com.yinhetianze.pojo.shop.BusiShopPojo">
+        <id column="id" property="id" jdbcType="INTEGER" />
+        <result column="shop_name" property="shopName" jdbcType="VARCHAR" />
+        <result column="shop_qrcode" property="shopQrcode" jdbcType="VARCHAR" />
+        <result column="shop_logo" property="shopLogo" jdbcType="VARCHAR" />
+        <result column="shop_memo" property="shopMemo" jdbcType="VARCHAR" />
+        <result column="shop_description" property="shopDescription" jdbcType="VARCHAR" />
+        <result column="audit_status" property="auditStatus" jdbcType="SMALLINT" />
+        <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+        <result column="line_pay_qrcode" property="linePayQrcode" jdbcType="VARCHAR" />
+        <result column="postage" property="postage" jdbcType="DECIMAL" />
+        <result column="company_audit" property="companyAudit" jdbcType="SMALLINT" />
+        <result column="account" property="account" jdbcType="VARCHAR" />
+        <result column="customer_id" property="customerId" jdbcType="INTEGER" />
+        <result column="shop_type" property="shopType" jdbcType="SMALLINT" />
+        <result column="del_flag" property="delFlag" jdbcType="SMALLINT" />
+    </resultMap>
+
+    <sql id="Base_Column_List" >
+        id, shop_name, shop_qrcode, shop_logo, shop_memo,
+        shop_description, audit_status, create_time, line_pay_qrcode,
+        postage, company_audit, account, customer_id, shop_type,
+        del_flag
+    </sql>
+
+    <select id="selectShopInfoList" parameterType="com.yinhetianze.business.shop.model.BusiShopSearchModel"
+            resultType="com.yinhetianze.business.shop.model.BusiShopSearchModel" >
+        select
+            shop.id,
+            shop.shop_name "shopName",
+            companyinfo.region_location "regionLocation",
+            shop.shop_memo "shopMemo",
+            shop.shop_logo "shopLogo",
+            shop.shop_main_product "shopMainProduct"
+        from busi_shop shop
+        left join busi_shop_companyinfo companyinfo on companyinfo.id = shop.companyinfo_id
+        where shop.del_flag = 0
+        <if test="searchContent != null and searchContent != ''">
+          and
+            (
+            shop.shop_name like '%${searchContent}%'
+                 or
+            shop.shop_memo like '%${searchContent}%'
+            )
+        </if>
+        order by shop.shop_name ${orderSort}
+    </select>
+
+    <select id="selectList" resultType="com.yinhetianze.business.shop.model.BusiShopPageModel"
+            parameterType="com.yinhetianze.business.shop.model.BusiShopPageModel">
+
+        select
+            shop.id,
+            shop.shop_name "shopName",
+            shop.audit_status "auditStatus",
+            shop.customer_id "customerId"
+        from busi_shop shop
+        join busi_shop_companyinfo companyinfo  on companyinfo.id = shop.companyinfo_id
+        left join busi_customer customer  on customer.id = shop.customer_id
+        where shop.del_flag = 0 and  customer.del_flag = 0 and companyinfo.del_flag = 0
+        and companyinfo.audit_status = 0
+        <if test="shopName != null and shopName != ''">
+            and shop.shop_name like '%${shopName}%'
+        </if>
+
+        <if test="auditStatus != null and auditStatus != ''">
+            and shop.audit_status = #{auditStatus}
+        </if>
+        order by shop.create_time desc,shop.audit_status desc
+    </select>
+
+    <select id="selectShopGuessList" resultType="java.util.Map">
+        SELECT
+            busi_shop.id,
+            busi_shop.shop_name "shopName",
+            busi_shop.shop_logo "shopLogo"
+        FROM
+            busi_shop
+        WHERE
+           busi_shop.del_flag=0
+    </select>
+
+    <select id="selectSelfSupportShop" resultType="java.util.Map" parameterType="com.yinhetianze.pojo.shop.BusiShopPojo">
+        SELECT
+            busi_shop.id "shopId",
+            busi_shop.shop_qrcode "shopQrcode",
+            busi_shop.shop_name "shopName",
+            busi_shop.shop_wap_photo "shopWapPhoto",
+            busi_shop.shop_main_photo "shopMainPhoto",
+            busi_shop.shop_decorate "shopDecorate",
+            busi_shop.shop_logo "shopLogo",
+            busi_shop.shop_memo "shopMemo",
+            busi_shop.shop_description "shopDescription",
+            busi_shop.companyinfo_id "companyinfoId",
+            busi_shop_companyinfo.region_location "regionLocation",
+            busi_shop_companyinfo.city "city",
+            busi_shop_companyinfo.area_county "areaCounty",
+            busi_shop_companyinfo.address "detailedAddress",
+            busi_shop_companyinfo.business_license "businessLicense"
+        FROM
+            busi_shop
+        LEFT JOIN
+             busi_shop_companyinfo ON busi_shop.companyinfo_id=busi_shop_companyinfo.id
+        WHERE busi_shop.id=#{id}
+    </select>
+</mapper>

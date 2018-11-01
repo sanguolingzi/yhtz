@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yinhetianze.business.product.mapper.ProductExtraInfoMapper">
+  <resultMap id="BaseResultMap" type="com.yinhetianze.pojo.product.ProductExtraPojo">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="prod_id" jdbcType="INTEGER" property="prodId" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="prod_param" jdbcType="LONGVARCHAR" property="prodParam" />
+    <result column="prod_introduction" jdbcType="LONGVARCHAR" property="prodIntroduction" />
+  </resultMap>
+</mapper>

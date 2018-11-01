@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yinhetianze.business.settlement.mapper.SettlementBusiMapper">
+  <resultMap id="BaseResultMap" type="com.yinhetianze.pojo.order.SettlementPojo">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="settlement_id" jdbcType="INTEGER" property="settlementId" />
+    <result column="settlement_no" jdbcType="VARCHAR" property="settlementNo" />
+    <result column="shop_id" jdbcType="INTEGER" property="shopId" />
+    <result column="shop_name" jdbcType="VARCHAR" property="shopName" />
+    <result column="customer_id" jdbcType="INTEGER" property="customerId" />
+    <result column="total_cost" jdbcType="DECIMAL" property="totalCost" />
+    <result column="finalt_total_cost" jdbcType="DECIMAL" property="finaltTotalCost" />
+    <result column="rake_cost" jdbcType="DECIMAL" property="rakeCost" />
+    <result column="reviewer" jdbcType="VARCHAR" property="reviewer" />
+    <result column="reviewer_time" jdbcType="TIMESTAMP" property="reviewerTime" />
+    <result column="status" jdbcType="TINYINT" property="status" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="paymentInfo" jdbcType="VARCHAR" property="paymentinfo" />
+    <result column="payment_time" jdbcType="TIMESTAMP" property="paymentTime" />
+    <result column="orders_ids" jdbcType="LONGVARCHAR" property="ordersIds" />
+    <result column="refuse_reason" jdbcType="VARCHAR" property="refuseReason" />
+    <result column="bank_card_name" jdbcType="VARCHAR" property="bankCardName" />
+    <result column="bank_card_no" jdbcType="VARCHAR" property="bankCardNo" />
+    <result column="bank_user_name" jdbcType="VARCHAR" property="bankUserName" />
+  </resultMap>
+</mapper>

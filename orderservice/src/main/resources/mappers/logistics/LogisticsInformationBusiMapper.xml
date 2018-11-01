@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yinhetianze.business.logistics.mapper.busi.LogisticsInformationBusiMapper">
+  <resultMap id="BaseResultMap" type="com.yinhetianze.pojo.order.LogisticsInformationPojo">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="orders_id" jdbcType="INTEGER" property="ordersId" />
+    <result column="express_company" jdbcType="VARCHAR" property="expressCompany" />
+    <result column="express_code" jdbcType="VARCHAR" property="expressCode" />
+    <result column="logistice_code" jdbcType="VARCHAR" property="logisticeCode" />
+    <result column="receiver_name" jdbcType="VARCHAR" property="receiverName" />
+    <result column="receiver_mobile" jdbcType="VARCHAR" property="receiverMobile" />
+    <result column="receiver_province" jdbcType="VARCHAR" property="receiverProvince" />
+    <result column="receiver_city" jdbcType="VARCHAR" property="receiverCity" />
+    <result column="receiver_area" jdbcType="VARCHAR" property="receiverArea" />
+    <result column="receiver_address" jdbcType="VARCHAR" property="receiverAddress" />
+    <result column="sender_name" jdbcType="VARCHAR" property="senderName" />
+    <result column="sender_Mobile" jdbcType="VARCHAR" property="senderMobile" />
+    <result column="sender_province" jdbcType="VARCHAR" property="senderProvince" />
+    <result column="sender_city" jdbcType="VARCHAR" property="senderCity" />
+    <result column="sender_area" jdbcType="VARCHAR" property="senderArea" />
+    <result column="sender_address" jdbcType="VARCHAR" property="senderAddress" />
+    <result column="subscription_time" jdbcType="TIMESTAMP" property="subscriptionTime" />
+    <result column="is_subscription" jdbcType="VARCHAR" property="isSubscription" />
+    <result column="subscription_reason" jdbcType="VARCHAR" property="subscriptionReason" />
+    <result column="estimated_delivery_time" jdbcType="TIMESTAMP" property="estimatedDeliveryTime" />
+    <result column="push_time" jdbcType="TIMESTAMP" property="pushTime" />
+    <result column="push_logistics" jdbcType="VARCHAR" property="pushLogistics" />
+  </resultMap>
+</mapper>

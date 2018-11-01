@@ -1,0 +1,1 @@
+    ALTER TABLE `reward_game_record` ADD UNIQUE ( `game_task_id` )  

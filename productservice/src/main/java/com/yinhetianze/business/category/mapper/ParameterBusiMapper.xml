@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yinhetianze.business.category.mapper.ParameterBusiMapper">
+  <resultMap id="BaseResultMap" type="com.yinhetianze.pojo.category.ParameterPojo">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="param_name" jdbcType="VARCHAR" property="paramName" />
+    <result column="sort" jdbcType="SMALLINT" property="sort" />
+    <result column="first_word" jdbcType="VARCHAR" property="firstWord" />
+    <result column="is_inputable" jdbcType="SMALLINT" property="isInputable" />
+    <result column="is_whole_line" jdbcType="SMALLINT" property="isWholeLine" />
+    <result column="status" jdbcType="SMALLINT" property="status" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+  </resultMap>
+  <insert id="addParameterId" parameterType="com.yinhetianze.pojo.category.ParameterPojo" useGeneratedKeys="true" keyProperty="id" keyColumn="id">
+    <selectKey keyProperty='id' resultType='int' order='AFTER'>
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    INSERT INTO
+    busi_product_parameter(param_name,sort,first_word,is_inputable,is_whole_line,status)
+    VALUES
+    (#{paramName},#{sort},#{firstWord},#{isInputable},#{isWholeLine},#{status})
+
+  </insert>
+</mapper>

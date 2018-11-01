@@ -1,0 +1,1 @@
+ALTER TABLE busi_product_unit DROP INDEX unit_name

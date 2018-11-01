@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yinhetianze.business.shophistory.mapper.info.ShopHistoryInfoMapper">
+  <resultMap id="BaseResultMap" type="com.yinhetianze.pojo.shop.BusiShopHistoryPojo">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="shop_id" jdbcType="INTEGER" property="shopId" />
+    <result column="shop_name" jdbcType="VARCHAR" property="shopName" />
+    <result column="shop_qrcode" jdbcType="VARCHAR" property="shopQrcode" />
+    <result column="shop_main_photo" jdbcType="VARCHAR" property="shopMainPhoto" />
+    <result column="shop_logo" jdbcType="VARCHAR" property="shopLogo" />
+    <result column="shop_memo" jdbcType="VARCHAR" property="shopMemo" />
+    <result column="shop_description" jdbcType="VARCHAR" property="shopDescription" />
+    <result column="audit_status" jdbcType="SMALLINT" property="auditStatus" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="line_pay_qrcode" jdbcType="VARCHAR" property="linePayQrcode" />
+    <result column="postage" jdbcType="DECIMAL" property="postage" />
+    <result column="postage_free" jdbcType="DECIMAL" property="postageFree" />
+    <result column="company_audit" jdbcType="SMALLINT" property="companyAudit" />
+    <result column="account" jdbcType="VARCHAR" property="account" />
+    <result column="companyinfo_id" jdbcType="INTEGER" property="companyinfoId" />
+    <result column="customer_id" jdbcType="INTEGER" property="customerId" />
+    <result column="shop_phone" jdbcType="VARCHAR" property="shopPhone" />
+    <result column="shop_type" jdbcType="SMALLINT" property="shopType" />
+    <result column="del_flag" jdbcType="SMALLINT" property="delFlag" />
+    <result column="phone_show" jdbcType="SMALLINT" property="phoneShow" />
+    <result column="visitor_count" jdbcType="INTEGER" property="visitorCount" />
+    <result column="shop_main_product" jdbcType="VARCHAR" property="shopMainProduct" />
+    <result column="shop_decorate" jdbcType="LONGVARCHAR" property="shopDecorate" />
+  </resultMap>
+
+
+  <select id="selectShopHis" resultType="com.yinhetianze.pojo.shop.BusiShopHistoryPojo" parameterType="com.yinhetianze.business.shophistory.model.BusiShopHistoryModel" >
+    select * from busi_shop_history s
+    where s.shop_id = #{shopId}
+    order by id desc
+    limit 1
+  </select>
+</mapper>

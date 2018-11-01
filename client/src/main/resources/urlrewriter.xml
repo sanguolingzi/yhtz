@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!DOCTYPE urlrewrite
+        PUBLIC "-//tuckey.org//DTD UrlRewrite 4.0//EN"
+        "http://www.tuckey.org/res/dtds/urlrewrite4.0.dtd">
+
+<urlrewrite>
+
+    <rule match-type="wildcard">
+        <from>/client/customer/**</from><!-- 匹配/client/customer/后的所有内容，并赋值到$1 -->
+        <to type="forward">/cust/${replace:$1:/:--}</to>
+    </rule>
+    <rule match-type="wildcard">
+        <from>/customer/**</from><!-- 匹配/client/customer/后的所有内容，并赋值到$1 -->
+        <to type="forward">/cust/${replace:$1:/:--}</to>
+    </rule>
+    <rule match-type="wildcard">
+        <from>/client/customer</from><!-- 匹配/client/customer/后的所有内容，并赋值到$1 -->
+        <to type="forward">/cust</to>
+    </rule>
+    <rule match-type="wildcard">
+        <from>/customer</from><!-- 匹配/client/customer/后的所有内容，并赋值到$1 -->
+        <to type="forward">/cust</to>
+    </rule>
+    <!--<rule match-type="wildcard">
+        <from>/customer/**</from>&lt;!&ndash; 匹配/customer/后的所有内容，并赋值到$1 &ndash;&gt;
+        <to type="forward">/customer/${replace:$1:/:&#45;&#45;}</to>
+    </rule>-->
+
+    <rule match-type="wildcard">
+        <from>/client/product/**</from><!-- 匹配/client/product/后的所有内容，并赋值到$1 -->
+        <to type="forward">/prod/${replace:$1:/:--}</to>
+    </rule>
+    <rule match-type="wildcard">
+        <from>/product/**</from><!-- 匹配/client/product/后的所有内容，并赋值到$1 -->
+        <to type="forward">/prod/${replace:$1:/:--}</to>
+    </rule>
+    <rule match-type="wildcard">
+        <from>/client/product</from><!-- 匹配/client/product/后的所有内容，并赋值到$1 -->
+        <to type="forward">/prod</to>
+    </rule>
+    <rule match-type="wildcard">
+        <from>/product</from><!-- 匹配/client/product/后的所有内容，并赋值到$1 -->
+        <to type="forward">/prod</to>
+    </rule>
+    <!--<rule match-type="wildcard">
+        <from>/product/**</from>&lt;!&ndash; 匹配/product/后的所有内容，并赋值到$1 &ndash;&gt;
+        <to type="forward">/product/${replace:$1:/:&#45;&#45;}</to>
+    </rule>-->
+
+    <rule match-type="wildcard">
+        <from>/client/order/**</from><!-- 匹配/client/product/后的所有内容，并赋值到$1 -->
+        <to type="forward">/ord/${replace:$1:/:--}</to>
+    </rule>
+    <rule match-type="wildcard">
+        <from>/order/**</from><!-- 匹配/client/product/后的所有内容，并赋值到$1 -->
+        <to type="forward">/ord/${replace:$1:/:--}</to>
+    </rule>
+    <rule match-type="wildcard">
+        <from>/client/order</from><!-- 匹配/client/product/后的所有内容，并赋值到$1 -->
+        <to type="forward">/ord</to>
+    </rule>
+    <rule match-type="wildcard">
+        <from>/order</from><!-- 匹配/client/product/后的所有内容，并赋值到$1 -->
+        <to type="forward">/ord</to>
+    </rule>
+    <!--<rule match-type="wildcard">
+        <from>/product/**</from>&lt;!&ndash; 匹配/product/后的所有内容，并赋值到$1 &ndash;&gt;
+        <to type="forward">/product/${replace:$1:/:&#45;&#45;}</to>
+    </rule>-->
+
+    <rule match-type="wildcard">
+        <from>/client/back/**</from><!-- 匹配/client/back/后的所有内容，并赋值到$1 -->
+        <to type="forward">/sys/${replace:$1:/:--}</to>
+    </rule>
+    <rule match-type="wildcard">
+        <from>/back/**</from><!-- 匹配/client/back/后的所有内容，并赋值到$1 -->
+        <to type="forward">/sys/${replace:$1:/:--}</to>
+    </rule>
+    <rule match-type="wildcard">
+        <from>/client/back</from><!-- 匹配/client/back/后的所有内容，并赋值到$1 -->
+        <to type="forward">/sys</to>
+    </rule>
+    <rule match-type="wildcard">
+        <from>/back</from><!-- 匹配/client/back/后的所有内容，并赋值到$1 -->
+        <to type="forward">/sys</to>
+    </rule>
+    <!--<rule match-type="wildcard">
+        <from>/back/**</from>&lt;!&ndash; 匹配/back/后的所有内容，并赋值到$1 &ndash;&gt;
+        <to type="forward">/back/${replace:$1:/:&#45;&#45;}</to>
+    </rule>-->
+
+    <rule match-type="wildcard">
+        <from>/client/shop/**</from><!-- 匹配/client/shop/后的所有内容，并赋值到$1 -->
+        <to type="forward">/sp/${replace:$1:/:--}</to>
+    </rule>
+    <rule match-type="wildcard">
+        <from>/shop/**</from><!-- 匹配/client/shop/后的所有内容，并赋值到$1 -->
+        <to type="forward">/sp/${replace:$1:/:--}</to>
+    </rule>
+    <rule match-type="wildcard">
+        <from>/client/shop</from><!-- 匹配/client/shop/后的所有内容，并赋值到$1 -->
+        <to type="forward">/sp</to>
+    </rule>
+    <rule match-type="wildcard">
+        <from>/shop</from><!-- 匹配/client/shop/后的所有内容，并赋值到$1 -->
+        <to type="forward">/sp</to>
+    </rule>
+    <!--<rule match-type="wildcard">
+        <from>/shop/**</from>&lt;!&ndash; 匹配/shop/后的所有内容，并赋值到$1 &ndash;&gt;
+        <to type="forward">/shop/${replace:$1:/:&#45;&#45;}</to>
+    </rule>-->
+
+    <rule match-type="wildcard">
+        <from>/client/accounting/**</from><!-- 匹配/client/billing/后的所有内容，并赋值到$1 -->
+        <to type="forward">/bill/${replace:$1:/:--}</to>
+    </rule>
+    <rule match-type="wildcard">
+        <from>/accounting/**</from><!-- 匹配/client/billing/后的所有内容，并赋值到$1 -->
+        <to type="forward">/bill/${replace:$1:/:--}</to>
+    </rule>
+    <rule match-type="wildcard">
+        <from>/client/accounting</from><!-- 匹配/client/billing/后的所有内容，并赋值到$1 -->
+        <to type="forward">/bill</to>
+    </rule>
+    <rule match-type="wildcard">
+        <from>/accounting</from><!-- 匹配/client/billing/后的所有内容，并赋值到$1 -->
+        <to type="forward">/bill</to>
+    </rule>
+    <!--<rule match-type="wildcard">
+        <from>/billing/**</from>&lt;!&ndash; 匹配/billing/后的所有内容，并赋值到$1 &ndash;&gt;
+        <to type="forward">/billing/${replace:$1:/:&#45;&#45;}</to>
+    </rule>-->
+
+    <rule match-type="wildcard">
+        <from>/client/task/**</from><!-- 匹配/client/task/后的所有内容，并赋值到$1 -->
+        <to type="forward">/sche/${replace:$1:/:--}</to>
+    </rule>
+    <rule match-type="wildcard">
+        <from>/task/**</from><!-- 匹配/client/task/后的所有内容，并赋值到$1 -->
+        <to type="forward">/sche/${replace:$1:/:--}</to>
+    </rule>
+    <rule match-type="wildcard">
+        <from>/client/task</from><!-- 匹配/client/task/后的所有内容，并赋值到$1 -->
+        <to type="forward">/sche</to>
+    </rule>
+    <rule match-type="wildcard">
+        <from>/task</from><!-- 匹配/client/task/后的所有内容，并赋值到$1 -->
+        <to type="forward">/sche</to>
+    </rule>
+    <!--<rule match-type="wildcard">
+        <from>/task/**</from>&lt;!&ndash; 匹配/task/后的所有内容，并赋值到$1 &ndash;&gt;
+        <to type="forward">/task/${replace:$1:/:&#45;&#45;}</to>
+    </rule>-->
+
+</urlrewrite>

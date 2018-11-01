@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yinhetianze.common.business.sys.sysproperties.mapper.SysPropertiesInfoMapper">
+
+  <sql id="selectColumnSql">
+    id,
+    p_name name,
+    p_value value,
+    del_flag delFlag,
+    is_work isWork,
+    p_module module,
+    p_description description
+  </sql>
+
+  <select id="getSysPropertiesInfoList" parameterType="map" resultType="map">
+    select
+      <include refid="selectColumnSql"/>
+    FROM
+      busi_sys_sysproperties
+    <where>
+      <if test="id != null">
+        id = #{id}
+      </if>
+      <if test="name != null and name !=''">
+        and name like concat('%', #{name}, '%')
+      </if>
+      <if test="delFlag != null">
+        and del_flag = #{delFlag}
+      </if>
+      <if test="isWork != null">
+        and is_work = #{isWork}
+      </if>
+      <if test="module != null">
+        and p_module = #{module}
+      </if>
+    </where>
+  </select>
+
+</mapper>

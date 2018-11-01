@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yinhetianze.systemservice.system.mapper.info.SysMemberInfoMapper">
+  <resultMap id="BaseResultMap" type="com.yinhetianze.pojo.back.BusiSysMemberInfoPojo">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="create_user" jdbcType="INTEGER" property="createUser" />
+    <result column="update_user" jdbcType="INTEGER" property="updateUser" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="member_title" jdbcType="VARCHAR" property="memberTitle" />
+    <result column="member_content" jdbcType="VARCHAR" property="memberContent" />
+    <result column="sort" jdbcType="SMALLINT" property="sort" />
+    <result column="member_img" jdbcType="VARCHAR" property="memberImg" />
+    <result column="member_banner" jdbcType="VARCHAR" property="memberBanner" />
+    <result column="is_show" jdbcType="SMALLINT" property="isShow" />
+    <result column="del_flag" jdbcType="SMALLINT" property="delFlag" />
+    <result column="parent_id" jdbcType="INTEGER" property="parentId" />
+    <result column="member_level" jdbcType="SMALLINT" property="memberLevel" />
+  </resultMap>
+
+  <select id="selectParentSystemMember" parameterType="com.yinhetianze.systemservice.system.model.SysMemberInfoModel"
+  resultType="com.yinhetianze.systemservice.system.model.SysMemberInfoModel" >
+    select
+        id,
+        member_title "memberTitle",
+        <!--
+        member_img "memberImg",
+        member_banner "memberBanner",
+        -->
+        member_content "memberContent",
+        is_show "isShow",
+        create_time "createTime",
+        sort
+    from busi_sys_member_info info
+    where info.parent_id = 0 and info.del_flag = 0
+    order by info.sort desc,info.create_time desc
+
+  </select>
+
+
+
+  <select id="selectChildSystemMember" parameterType="com.yinhetianze.systemservice.system.model.SysMemberInfoModel"
+          resultType="com.yinhetianze.systemservice.system.model.SysMemberInfoModel" >
+    select
+        id,
+        member_title "memberTitle",
+        member_content "memberContent",
+        member_img "memberImg",
+        parent_id "parentId",
+        is_show "isShow",
+        create_time "createTime",
+        sort
+    from busi_sys_member_info info
+    where info.del_flag = 0
+    and info.parent_id = #{parentId}
+    order by info.sort asc,info.create_time desc
+
+  </select>
+</mapper>

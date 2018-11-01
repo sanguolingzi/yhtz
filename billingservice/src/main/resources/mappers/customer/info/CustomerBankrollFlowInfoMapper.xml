@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yinhetianze.business.customer.mapper.info.CustomerBankrollFlowInfoMapper">
+  <resultMap id="BaseResultMap" type="com.yinhetianze.pojo.customer.BusiCustomerBankrollFlowPojo">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="flow_category" jdbcType="SMALLINT" property="flowCategory" />
+    <result column="flow_type" jdbcType="SMALLINT" property="flowType" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="amount" jdbcType="DECIMAL" property="amount" />
+    <result column="flow_number" jdbcType="VARCHAR" property="flowNumber" />
+    <result column="flow_description" jdbcType="SMALLINT" property="flowDescription" />
+    <result column="del_flag" jdbcType="SMALLINT" property="delFlag" />
+    <result column="bankroll_id" jdbcType="INTEGER" property="bankrollId" />
+  </resultMap>
+
+  <sql id="Base_Column_List" >
+    id, flow_category, flow_type, create_time, amount, flow_number, flow_description,
+    del_flag, bankroll_id
+  </sql>
+
+  <select id="selectList" resultType="com.yinhetianze.business.customer.model.BusiCustomerBankrollFlowModel"
+          parameterType="java.util.Map" >
+    select
+          id,
+          flow_category "flowCategory",
+          flow_type "flowType",
+          DATE_FORMAT(create_time,'%Y-%m-%d %H:%i:%s') "startTime",
+          CONVERT(amount/100,DECIMAL(10,2)) "amount",
+          flow_number "flowNumber",
+          flow_description "flowDescription"
+    from busi_customer_bankroll_flow
+    where bankroll_id=#{bankrollId}
+    and del_flag = 0
+    <if test="flowCategory != null">
+      and flow_category = #{flowCategory}
+    </if>
+
+    <if test="flowType != null">
+      and flow_type = #{flowType}
+    </if>
+
+    <if test="flowNumber != null">
+      and flow_number like '%${flowNumber}%'
+    </if>
+    <if test="flowDescription != null">
+      and flow_description = #{flowDescription}
+    </if>
+
+    <!--根据时间段来查询 -->
+    <if test="startTime != null">
+      and create_time &gt;= STR_TO_DATE(#{startTime},'%Y-%m-%d')
+    </if>
+
+    <if test="endTime != null">
+      and create_time &lt;= STR_TO_DATE(#{endTime},'%Y-%m-%d')
+    </if>
+    order by create_time desc
+  </select>
+
+  <select id="selectConsumption" resultType="java.util.Map" parameterType="java.util.Map">
+    select
+    flow_number "flowNumber",
+    DATE_FORMAT(max(s.create_time),'%Y-%m-%d %H:%i:%s') "createTime",
+    GROUP_CONCAT(CONCAT(s.amount,'@',s.flow_category,'@',s.flow_description)) "content"
+    from busi_customer_bankroll_flow s
+    where s.del_flag = 0  and s.flow_type = #{paraMap.flowType}
+    and s.bankroll_id  = #{paraMap.bankrollId}
+    group by s.flow_number
+    order by createTime desc
+
+  </select>
+
+  <select id="selectPersonal" parameterType="java.util.Map"
+          resultType="com.yinhetianze.business.customer.model.BusiAmountFlowModel">
+    select
+      DATE_FORMAT(s.create_time,'%Y-%m-%d %H:%i:%s') "startTime",
+      CONVERT(s.amount/100,DECIMAL(10,2)) "amount",
+      <!-- 付款金额 -->
+      ord.pay_amount "relationAmount",
+      <!-- 订单类型 0普通订单 1游戏订单 2礼包订单 3一元购订单-->
+      ord.is_game_order "isGameOrder"
+      from busi_customer_bankroll_flow s
+      left join busi_order ord on ord.id = s.relation_id
+      where s.bankroll_id = #{paraMap.bankrollId}
+      and s.create_id = #{paraMap.createId}
+      and s.flow_category = 1
+      and s.flow_type = 0
+      order by s.create_time desc
+  </select>
+
+  <select id="selectMarket" parameterType="java.util.Map" resultType="com.yinhetianze.business.customer.model.BusiCustomerBankrollFlowModel">
+    select
+        s.create_id "createId",
+        ss.customer_id "customerId",
+        sum(s.amount) "amount"
+    from busi_customer_bankroll_flow s
+    join busi_customer_bankroll ss on ss.id = s.bankroll_id
+    where DATE_FORMAT(s.create_time,'%Y-%m-%d') = #{paraMap.currentDate}
+    and s.flow_category = 1
+    and s.flow_type = 0
+    and ss.customer_id = #{paraMap.customerId}
+    group by s.create_id,s.bankroll_id;
+  </select>
+
+</mapper>

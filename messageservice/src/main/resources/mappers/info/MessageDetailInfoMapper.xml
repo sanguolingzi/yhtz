@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yinhetianze.business.message.mapper.info.MessageDetailInfoMapper">
+  <resultMap id="BaseResultMap" type="com.yinhetianze.pojo.message.BusiMessageDetailPojo">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="m_type" jdbcType="SMALLINT" property="mType" />
+    <result column="m_title" jdbcType="VARCHAR" property="mTitle" />
+    <result column="del_flag" jdbcType="SMALLINT" property="delFlag" />
+    <result column="message_id" jdbcType="INTEGER" property="messageId" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="m_content" jdbcType="LONGVARCHAR" property="mContent" />
+  </resultMap>
+  
+  
+  <select id="selecMessagetList" parameterType="com.yinhetianze.business.message.model.BusiMessageDetailPageModel"
+          resultType="com.yinhetianze.business.message.model.BusiMessageDetailModel">
+    select
+        m_type "mType",
+        m_title "mTitle",
+        m_content "mContent",
+        create_time "createTime",
+        DATE_FORMAT(create_time,'%Y-%m-%d %H:%i:%s') "startTime"
+    from busi_message_detail
+    where del_flag = 0
+      and m_type = #{mType}
+      and message_id = #{messageId}
+    <if test="createTime != null">
+      and create_time >= #{createTime}
+    </if>
+    order  by create_time desc
+  </select>
+</mapper>

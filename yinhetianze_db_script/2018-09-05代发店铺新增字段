@@ -1,0 +1,7 @@
+ALTER TABLE busi_shop_proxy
+ADD COLUMN is_message SMALLINT COMMENT '是否发送过短信 0是  1没有'  DEFAULT 1
+
+
+
+
+---------------------2018-09-05 已执行-------------------------

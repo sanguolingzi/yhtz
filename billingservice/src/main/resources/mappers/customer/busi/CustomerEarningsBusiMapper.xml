@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yinhetianze.business.customer.mapper.busi.CustomerEarningsBusiMapper">
+  <resultMap id="BaseResultMap" type="com.yinhetianze.pojo.customer.CustomerEarningsPojo">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="customer_id" jdbcType="INTEGER" property="customerId" />
+    <result column="amount" jdbcType="DECIMAL" property="amount" />
+    <result column="create_id" jdbcType="INTEGER" property="createId" />
+    <result column="create_time" jdbcType="DATE" property="createTime" />
+  </resultMap>
+
+  <insert id="addInfoBatch" parameterType="java.util.List">
+    INSERT INTO busi_customer_earnings(create_id,customer_id,amount,create_time)
+    values
+    <foreach collection="list"  item="pojo" separator=",">
+      (
+          #{pojo.createId},
+          #{pojo.customerId},
+          #{pojo.amount},
+          #{pojo.createTime}
+      )
+    </foreach>
+  </insert>
+</mapper>

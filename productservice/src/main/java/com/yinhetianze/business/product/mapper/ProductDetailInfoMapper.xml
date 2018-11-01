@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yinhetianze.business.product.mapper.ProductDetailInfoMapper">
+  <resultMap id="BaseResultMap" type="com.yinhetianze.pojo.product.ProductDetailPojo">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="del_flag" jdbcType="SMALLINT" property="delFlag" />
+    <result column="prod_id" jdbcType="INTEGER" property="prodId" />
+    <result column="cost_price" jdbcType="DECIMAL" property="costPrice" />
+    <result column="sale_price" jdbcType="DECIMAL" property="salePrice" />
+    <result column="member_price" jdbcType="DECIMAL" property="memberPrice" />
+    <result column="market_price" jdbcType="DECIMAL" property="marketPrice" />
+    <result column="prod_speci" jdbcType="VARCHAR" property="prodSpeci" />
+    <result column="sku_code" jdbcType="VARCHAR" property="skuCode" />
+    <result column="p_storage" jdbcType="SMALLINT" property="pStorage" />
+    <result column="p_status" jdbcType="SMALLINT" property="pStatus" />
+    <result column="create_user" jdbcType="INTEGER" property="createUser" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_user" jdbcType="INTEGER" property="updateUser" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="prod_param" jdbcType="LONGVARCHAR" property="prodParam" />
+    <result column="prod_details" jdbcType="LONGVARCHAR" property="prodDetails" />
+    <result column="vip_price" jdbcType="DECIMAL" property="vipPrice" />
+    <result column="u_price" jdbcType="DECIMAL" property="uPrice" />
+    <result column="promotion_price" jdbcType="DECIMAL" property="promotionPrice" />
+  </resultMap>
+
+  <sql id="selectColumnSql">
+    prod_id prodId,
+    sale_price sellPrice,
+    market_price marketPrice,
+    prod_speci prodSpeci,
+    sku_code skuCode,
+    p_storage storage,
+    p_status status,
+    create_time createTime,
+    del_flag delFlag,
+    cost_price costPrice,
+    member_price memberPrice,
+    vip_price vipPrice,
+    flag_price flagPrice,
+    number,
+    u_price uPrice,
+    promotion_price promotionPrice
+
+  </sql>
+
+  <select id="getProductDetailList" parameterType="map" resultType="map">
+    select
+      <include refid="selectColumnSql"/>
+    from
+      busi_product_detail
+    <where>
+      <if test="prodId != null">
+        prod_id = #{prodId}
+      </if>
+      <if test="skuCode != null and skuCode != ''">
+        and sku_code = #{skuCode}
+      </if>
+      <if test="status != null">
+        and p_status = #{status}
+      </if>
+      <if test="delFlag != null">
+        and del_flag = #{delFlag}
+      </if>
+    </where>
+    order by
+      create_time desc
+  </select>
+
+  <select id="getShopProductDetail" parameterType="map" resultType="map">
+    select
+      prod_id prodId,
+      cost_price costPrice,
+      member_price memberPrice,
+      prod_speci prodSpeci,
+      sku_code skuCode,
+      p_storage storage
+    from
+    busi_product_detail
+    <where>
+      <if test="prodId != null">
+        prod_id = #{prodId}
+      </if>
+      <if test="skuCode != null and skuCode != ''">
+        and sku_code = #{skuCode}
+      </if>
+      <if test="delFlag != null">
+        and del_flag = #{delFlag}
+      </if>
+    </where>
+    order by
+    create_time desc
+  </select>
+
+</mapper>

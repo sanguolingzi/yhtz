@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yinhetianze.systemservice.system.mapper.info.SysMenuInfoMapper">
+  <select id="selectMenuList" parameterType="com.yinhetianze.systemservice.system.model.SysMenuModel"
+          resultType="com.yinhetianze.systemservice.system.model.SysMenuModel">
+        select
+             menu.id,
+             menu.menu_name "menuName",
+             menu.menu_link "menuLink",
+             menu.is_work "isWork",
+             menu.parent_id "parentId",
+             (select menu_name from busi_sys_menu pmenu where pmenu.id = menu.parent_id) "pMenuName"
+         from busi_sys_menu menu
+         where menu.del_flag = 0
+         <if test="menuName != null and menuName != ''">
+             and menu.menu_name like '%${menuName}%'
+         </if>
+
+          <if test="parentId != null and parentId != ''">
+              and menu.parent_id = #{parentId}
+          </if>
+         order by menu.create_time desc
+  </select>
+</mapper>

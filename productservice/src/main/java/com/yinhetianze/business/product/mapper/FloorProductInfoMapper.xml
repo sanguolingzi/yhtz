@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yinhetianze.business.product.mapper.FloorProductInfoMapper">
+
+  <select id="selectProductFromFloor" parameterType="integer" resultType="java.util.Map">
+    select
+        product.p_title "pTitle",
+        product.p_subtitle "pSubtitle",
+        product.prod_name "prodName",
+        product.id,
+        product.market_price "marketPrice",
+        product.sell_price "sellPrice",
+        product.product_img "productImg",
+        product.integral_percent "integralPercent",
+        product.product_distinction "productDistinction",
+        product.vip_price "vipPrice",
+        CAST(((SELECT p_value FROM `busi_sys_sysproperties`  WHERE p_name='uRatio' AND del_flag=0 AND is_work=1)*product.share_price)AS DECIMAL  (11, 2))  AS uPrice,
+        product.promotion_price  "promotionPrice"
+      from busi_sys_floor floor
+    left join busi_sys_floor_detail detail on detail.floor_id = floor.id
+    left join busi_product product on product.id = detail.content_id
+    where floor.id = #{floorId} and floor.del_flag = 0
+    and detail.del_flag = 0
+    and product.del_flag = 0
+    and product.p_status=0
+    and product.audit_state=3
+      ORDER BY detail.sort ASC ,detail.create_time DESC
+    <!--
+    and product.p_status in (0,2)
+    and product.audit_state = 3
+    -->
+  </select>
+    <select id="selectFloorImg" parameterType="integer" resultType="java.util.Map">
+         SELECT
+          id,
+          floor_name "floorName",
+          photo_url "photoUrl",
+          floor_type "floorType",
+          link_markup "linkMarkup",
+          link_parameter "linkParameter",
+          floor_link "floorLink"
+         FROM
+          busi_sys_floor
+         WHERE
+          del_flag=0
+         AND
+          id=#{floorId}
+    </select>
+
+
+    <select id="getGuessProductList" resultType="java.util.Map">
+      SELECT
+         busi_product.id "id",
+         busi_product.p_title "pTitle",
+         busi_product.prod_name "prodName",
+         busi_product.p_subtitle "pSubtitle",
+         busi_product.sell_price "sellPrice",
+         busi_product.product_img "productImg",
+         busi_product.integral_percent "integralPercent",
+         busi_product.market_price "marketPrice",
+         busi_product.product_distinction "productDistinction",
+         busi_product.vip_price "vipPrice",
+         CAST(((SELECT p_value FROM `busi_sys_sysproperties`  WHERE p_name='uRatio' AND del_flag=0 AND is_work=1)*busi_product.share_price)AS DECIMAL  (11, 2))  AS uPrice,
+         busi_product.promotion_price  "promotionPrice"
+      FROM
+        busi_product_guess LEFT JOIN busi_product ON  busi_product.`id`=busi_product_guess.`prod_id`
+      WHERE
+         busi_product_guess.`del_flag`=0
+      AND
+        busi_product.audit_state=3
+      AND
+        busi_product.p_status=0
+      AND
+        busi_product.del_flag=0
+      ORDER BY
+        busi_product_guess.sort ASC,busi_product_guess.create_time desc
+
+    </select>
+</mapper>

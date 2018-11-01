@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yinhetianze.systemservice.mall.mapper.info.DetonatingInfoMapper">
+  <resultMap id="BaseResultMap" type="com.yinhetianze.pojo.back.DetonatingPojo">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="detonating_name" jdbcType="VARCHAR" property="detonatingName" />
+    <result column="photo_url" jdbcType="VARCHAR" property="photoUrl" />
+    <result column="product_id" jdbcType="INTEGER" property="productId" />
+    <result column="is_show" jdbcType="SMALLINT" property="isShow" />
+    <result column="sort" jdbcType="SMALLINT" property="sort" />
+    <result column="del_flag" jdbcType="SMALLINT" property="delFlag" />
+    <result column="create_user" jdbcType="INTEGER" property="createUser" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_user" jdbcType="INTEGER" property="updateUser" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+  </resultMap>
+
+  <select  id="selectBackstageDetonatingList" resultType="java.util.Map" parameterType="com.yinhetianze.pojo.back.DetonatingPojo">
+    SELECT
+     id,
+     detonating_name "detonatingName",
+     photo_url "photoUrl",
+     product_id "productId",
+     is_show "isShow",
+     sort
+    FROM
+     busi_sys_detonating
+    WHERE
+     del_flag=0
+    <if test="detonatingName!=null">
+      and detonating_name LIKE '%${detonatingName}%'
+    </if>
+      order by sort asc,create_time desc
+  </select>
+  <select id="selectDetonatingList" resultType="java.util.Map">
+      SELECT
+         busi_sys_detonating.id,
+         busi_sys_detonating.detonating_name "detonatingName",
+         busi_sys_detonating.photo_url "photoUrl",
+         busi_sys_detonating.product_id "productId",
+         CAST(((SELECT p_value FROM `busi_sys_sysproperties`  WHERE p_name='uRatio' AND del_flag=0 AND is_work=1)*busi_product.share_price)AS DECIMAL  (11, 2))  AS uPrice,
+         busi_product.market_price "marketPrice",
+         busi_product.product_distinction "productDistinction",
+         busi_product.p_storage "pStorage",
+         busi_product.sell_price "sellPrice"
+      FROM
+          busi_sys_detonating LEFT JOIN busi_product ON busi_sys_detonating.product_id=busi_product.id
+      WHERE
+          busi_sys_detonating.del_flag=0
+      AND
+          busi_sys_detonating.is_show=0
+      AND
+          busi_product.del_flag=0
+      AND
+          busi_product.p_status=0
+      AND
+          busi_product.audit_state=3
+      order by busi_sys_detonating.sort asc,busi_sys_detonating.create_time desc
+  </select>
+</mapper>

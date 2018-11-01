@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yinhetianze.business.activity.mapper.busi.ActivityProductBusiMapper">
+  <resultMap id="BaseResultMap" type="com.yinhetianze.pojo.product.ActivityProductPojo">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="prod_name" jdbcType="VARCHAR" property="prodName" />
+    <result column="prod_title" jdbcType="VARCHAR" property="prodTitle" />
+    <result column="prod_sub_title" jdbcType="VARCHAR" property="prodSubTitle" />
+    <result column="act_id" jdbcType="VARCHAR" property="actId" />
+    <result column="act_name" jdbcType="VARCHAR" property="actName" />
+    <result column="prod_img" jdbcType="VARCHAR" property="prodImg" />
+    <result column="sort" jdbcType="SMALLINT" property="sort" />
+    <result column="prod_storage" jdbcType="INTEGER" property="prodStorage" />
+    <result column="sell_price" jdbcType="DECIMAL" property="sellPrice" />
+    <result column="market_price" jdbcType="DECIMAL" property="marketPrice" />
+    <result column="u_price" jdbcType="INTEGER" property="uPrice" />
+    <result column="freight" jdbcType="DECIMAL" property="freight" />
+    <result column="shop_id" jdbcType="INTEGER" property="shopId" />
+    <result column="prod_speci" jdbcType="VARCHAR" property="prodSpeci" />
+    <result column="is_show" jdbcType="SMALLINT" property="isShow" />
+    <result column="del_flag" jdbcType="SMALLINT" property="delFlag" />
+    <result column="is_sale" jdbcType="SMALLINT" property="isSale" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="is_auto_sale" jdbcType="SMALLINT" property="isAutoSale" />
+    <result column="is_auto_off" jdbcType="SMALLINT" property="isAutoOff" />
+    <result column="auto_sale_time" jdbcType="TIMESTAMP" property="autoSaleTime" />
+    <result column="auto_off_time" jdbcType="TIMESTAMP" property="autoOffTime" />
+    <result column="create_user" jdbcType="INTEGER" property="createUser" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="update_user" jdbcType="INTEGER" property="updateUser" />
+    <result column="prod_details" jdbcType="LONGVARCHAR" property="prodDetails" />
+  </resultMap>
+
+  <update id="updateStorage" parameterType="map">
+    UPDATE busi_activity_product SET prod_storage=prod_storage+#{number} WHERE id=#{id} AND (prod_storage+#{number})&gt;=0
+  </update>
+</mapper>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yinhetianze.systemservice.mall.mapper.info.NoticeInfoMapper">
+  <resultMap id="BaseResultMap" type="com.yinhetianze.pojo.back.NoticePojo">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="title" jdbcType="VARCHAR" property="title" />
+    <result column="content" jdbcType="VARCHAR" property="content" />
+    <result column="create_user" jdbcType="SMALLINT" property="createUser" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_user" jdbcType="SMALLINT" property="updateUser" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="del_flag" jdbcType="SMALLINT" property="delFlag" />
+  </resultMap>
+
+  <select id="selectForCustomerMessage" parameterType="com.yinhetianze.systemservice.mall.model.NoticeModel" resultType="com.yinhetianze.systemservice.mall.model.NoticeModel">
+
+    select
+      title,
+      create_time "createTime"
+    from busi_notice
+    WHERE del_flag = 0
+    <if test="createTime != null">
+      and create_time >= #{createTime}
+    </if>
+    order by create_time desc
+
+
+  </select>
+</mapper>

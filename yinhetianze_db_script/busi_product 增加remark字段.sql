@@ -1,0 +1,1 @@
+ALTER TABLE busi_product ADD COLUMN remark VARCHAR(300) CHARACTER SET utf8 COLLATE utf8_general_ci COMMENT '商品详情描述';

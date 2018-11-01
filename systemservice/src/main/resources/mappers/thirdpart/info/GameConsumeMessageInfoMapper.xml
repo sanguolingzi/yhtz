@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yinhetianze.systemservice.thirdpart.mapper.info.GameConsumeMessageInfoMapper">
+  <resultMap id="BaseResultMap" type="com.yinhetianze.pojo.order.GameConsumeMessagePojo">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="trade_no" jdbcType="VARCHAR" property="tradeNo" />
+    <result column="trade_type" jdbcType="SMALLINT" property="tradeType" />
+    <result column="trade_desc" jdbcType="VARCHAR" property="tradeDesc" />
+    <result column="amount" jdbcType="DECIMAL" property="amount" />
+    <result column="game_id" jdbcType="INTEGER" property="gameId" />
+    <result column="customer_id" jdbcType="INTEGER" property="customerId" />
+    <result column="payment_time" jdbcType="TIMESTAMP" property="paymentTime" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="result" jdbcType="VARCHAR" property="result" />
+    <result column="code" jdbcType="SMALLINT" property="code" />
+      <result column="num" jdbcType="INTEGER" property="num" />
+  </resultMap>
+  <select id="selectGameRecord" parameterType="com.yinhetianze.systemservice.thirdpart.model.GameRecordModel" resultMap="BaseResultMap">
+      select
+          *
+      from
+        busi_game_consume_message
+       <where>
+          <if test="gameId != null">
+            game_id = #{gameId}
+          </if>
+          <if test="startDate != null and endDate != null">
+            and create_time &gt;= #{startDate}
+            and create_time &lt; #{endDate}
+          </if>
+      </where>
+  </select>
+</mapper>

@@ -1,0 +1,2051 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" readonly="true" id="f7a7c6c3-b4ea-4010-9a28-26037a5d03c0" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/pojo/target" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/shop/src/main/java/com/yinhetianze/business/shop/test" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/customerservice/mvnw" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/customerservice/mvnw.cmd" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/shop/src/main/java/com/yinhetianze/business/shop/test/Tconsumer.java" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/customerservice/customerservice.iml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/customer/src/main/resources/image" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/customer/src/main/resources/image/qrCode_logo.jpg" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pojo/target/classes/com/yinhetianze/pojo/product/ProductGuessPojo.class" afterPath="$PROJECT_DIR$/pojo/target/classes/com/yinhetianze/pojo/product/ProductGuessPojo.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/back/back.iml" afterPath="$PROJECT_DIR$/back/back.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/back/pom.xml" afterPath="$PROJECT_DIR$/back/pom.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/back/src/main/java/com/yinhetianze/BackApplication.java" afterPath="$PROJECT_DIR$/back/src/main/java/com/yinhetianze/BackApplication.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/back/src/main/resources/application-dev.properties" afterPath="$PROJECT_DIR$/back/src/main/resources/application-dev.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/back/src/main/resources/application.properties" afterPath="$PROJECT_DIR$/back/src/main/resources/application.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/back/src/main/resources/logback.xml" afterPath="$PROJECT_DIR$/back/src/main/resources/logback.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/billing/src/main/resources/application-dev.properties" afterPath="$PROJECT_DIR$/billing/src/main/resources/application-dev.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/billing/src/main/resources/application.properties" afterPath="$PROJECT_DIR$/billing/src/main/resources/application.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/billingservice/billingservice.iml" afterPath="$PROJECT_DIR$/billingservice/billingservice.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/pom.xml" afterPath="$PROJECT_DIR$/client/pom.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/src/main/resources/application-dev.properties" afterPath="$PROJECT_DIR$/client/src/main/resources/application-dev.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/src/main/resources/application.properties" afterPath="$PROJECT_DIR$/client/src/main/resources/application.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/src/main/resources/log4j.properties" afterPath="$PROJECT_DIR$/client/src/main/resources/log4j.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/src/main/resources/logback.xml" afterPath="$PROJECT_DIR$/client/src/main/resources/logback.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/core.iml" afterPath="$PROJECT_DIR$/core/core.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/main/java/com/yinhetianze/core/task/InitModuleManager.java" afterPath="$PROJECT_DIR$/core/src/main/java/com/yinhetianze/core/task/InitModuleManager.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/customer/pom.xml" afterPath="$PROJECT_DIR$/customer/pom.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/customer/src/main/java/com/yinhetianze/configurations/components/ComponentsConfig.java" afterPath="$PROJECT_DIR$/customer/src/main/java/com/yinhetianze/configurations/components/ComponentsConfig.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/customer/src/main/resources/application-dev.properties" afterPath="$PROJECT_DIR$/customer/src/main/resources/application-dev.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/customer/src/main/resources/application.properties" afterPath="$PROJECT_DIR$/customer/src/main/resources/application.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/customer/src/main/resources/logback.xml" afterPath="$PROJECT_DIR$/customer/src/main/resources/logback.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/generator/src/main/resources/application.properties" afterPath="$PROJECT_DIR$/generator/src/main/resources/application.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/messageservice/messageservice.iml" afterPath="$PROJECT_DIR$/messageservice/messageservice.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/order/order.iml" afterPath="$PROJECT_DIR$/order/order.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/order/pom.xml" afterPath="$PROJECT_DIR$/order/pom.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/order/src/main/java/com/yinhetianze/business/evaluate/executor/AddEvaluateExecutor.java" afterPath="$PROJECT_DIR$/order/src/main/java/com/yinhetianze/business/evaluate/executor/AddEvaluateExecutor.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/order/src/main/java/com/yinhetianze/business/exchange/executor/CollectExchangeExecutor.java" afterPath="$PROJECT_DIR$/order/src/main/java/com/yinhetianze/business/exchange/executor/CollectExchangeExecutor.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/order/src/main/java/com/yinhetianze/business/order/executor/CountAmountExecutor.java" afterPath="$PROJECT_DIR$/order/src/main/java/com/yinhetianze/business/order/executor/CountAmountExecutor.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/order/src/main/resources/logback.xml" afterPath="$PROJECT_DIR$/order/src/main/resources/logback.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/product/pom.xml" afterPath="$PROJECT_DIR$/product/pom.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/product/src/main/java/com/yinhetianze/business/category/executor/AddCategoryImageExecutor.java" afterPath="$PROJECT_DIR$/product/src/main/java/com/yinhetianze/business/category/executor/AddCategoryImageExecutor.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/product/src/main/java/com/yinhetianze/business/product/executor/AddProductExecutor.java" afterPath="$PROJECT_DIR$/product/src/main/java/com/yinhetianze/business/product/executor/AddProductExecutor.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/product/src/main/java/com/yinhetianze/business/product/executor/AddSlideshowImageExecutor.java" afterPath="$PROJECT_DIR$/product/src/main/java/com/yinhetianze/business/product/executor/AddSlideshowImageExecutor.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/product/src/main/resources/application-dev.properties" afterPath="$PROJECT_DIR$/product/src/main/resources/application-dev.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/product/src/main/resources/application-pre.properties" afterPath="$PROJECT_DIR$/product/src/main/resources/application-pre.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/product/src/main/resources/application-test.properties" afterPath="$PROJECT_DIR$/product/src/main/resources/application-test.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/product/src/main/resources/application.properties" afterPath="$PROJECT_DIR$/product/src/main/resources/application.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/product/src/main/resources/logback.xml" afterPath="$PROJECT_DIR$/product/src/main/resources/logback.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shop/pom.xml" afterPath="$PROJECT_DIR$/shop/pom.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shop/shop.iml" afterPath="$PROJECT_DIR$/shop/shop.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shop/src/main/java/com/yinhetianze/configurations/components/ComponentsConfig.java" afterPath="$PROJECT_DIR$/shop/src/main/java/com/yinhetianze/configurations/components/ComponentsConfig.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shop/src/main/resources/application-dev.properties" afterPath="$PROJECT_DIR$/shop/src/main/resources/application-dev.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shop/src/main/resources/application.properties" afterPath="$PROJECT_DIR$/shop/src/main/resources/application.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shop/src/main/resources/logback.xml" afterPath="$PROJECT_DIR$/shop/src/main/resources/logback.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shopservice/shopservice.iml" afterPath="$PROJECT_DIR$/shopservice/shopservice.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/task/pom.xml" afterPath="$PROJECT_DIR$/task/pom.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/task/src/main/resources/application-test.properties" afterPath="$PROJECT_DIR$/task/src/main/resources/application-test.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/task/src/main/resources/application.properties" afterPath="$PROJECT_DIR$/task/src/main/resources/application.properties" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/billing/src/main/resources/bootstrap.properties" afterPath="$PROJECT_DIR$/billing/src/main/resources/bootstraps.properties" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/client/src/main/resources/bootstrap.properties" afterPath="$PROJECT_DIR$/client/src/main/resources/bootstrapss.properties" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/customer/src/main/resources/bootstrap.properties" afterPath="$PROJECT_DIR$/customer/src/main/resources/bootstrapss.properties" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/product/src/main/resources/bootstrap.properties" afterPath="$PROJECT_DIR$/product/src/main/resources/bootstraps.properties" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/task/src/main/resources/bootstrap.properties" afterPath="$PROJECT_DIR$/task/src/main/resources/bootstrapss.properties" />
+    </list>
+    <ignored path="$PROJECT_DIR$/billing/target/" />
+    <ignored path="$PROJECT_DIR$/shop/target/" />
+    <ignored path="$PROJECT_DIR$/billingservice/target/" />
+    <ignored path="$PROJECT_DIR$/order/target/" />
+    <ignored path="$PROJECT_DIR$/task/target/" />
+    <ignored path="$PROJECT_DIR$/orderservice/target/" />
+    <ignored path="$PROJECT_DIR$/client/target/" />
+    <ignored path="$PROJECT_DIR$/pojo/target/" />
+    <ignored path="$PROJECT_DIR$/customerservice/target/" />
+    <ignored path="$PROJECT_DIR$/customer/target/" />
+    <ignored path="$PROJECT_DIR$/systemservice/target/" />
+    <ignored path="$PROJECT_DIR$/back/target/" />
+    <ignored path="$PROJECT_DIR$/messageservice/target/" />
+    <ignored path="$PROJECT_DIR$/target/" />
+    <ignored path="$PROJECT_DIR$/shopservice/target/" />
+    <ignored path="$PROJECT_DIR$/product/target/" />
+    <ignored path="$PROJECT_DIR$/core/target/" />
+    <ignored path="$PROJECT_DIR$/productservice/target/" />
+    <ignored path="$PROJECT_DIR$/kernel/target/" />
+    <ignored path="$PROJECT_DIR$/generator/target/" />
+    <ignored path="$PROJECT_DIR$/SolrService/target/" />
+    <ignored path="$PROJECT_DIR$/ElasticSearch/target/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CoverageDataManager">
+    <SUITE FILE_PATH="coverage/yinhetianze$TaskApplication.coverage" NAME="TaskApplication Coverage Results" MODIFIED="1539594055147" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="RegeisterExecutor.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/customer/src/main/java/com/yinhetianze/business/customer/executor/RegeisterExecutor.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="494">
+              <caret line="47" column="57" lean-forward="false" selection-start-line="47" selection-start-column="57" selection-end-line="47" selection-end-column="57" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CustomerBusiService.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/customerservice/src/main/java/com/yinhetianze/business/customer/service/busi/CustomerBusiService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="532">
+              <caret line="31" column="8" lean-forward="false" selection-start-line="31" selection-start-column="8" selection-end-line="31" selection-end-column="8" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CustomerBusiServiceImpl.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/customerservice/src/main/java/com/yinhetianze/business/customer/service/busi/impl/CustomerBusiServiceImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="3629">
+              <caret line="232" column="83" lean-forward="false" selection-start-line="232" selection-start-column="83" selection-end-line="232" selection-end-column="83" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BankrollInfoEnum.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/billingservice/src/main/java/com/yinhetianze/business/customer/util/BankrollInfoEnum.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="617">
+              <caret line="94" column="1" lean-forward="false" selection-start-line="94" selection-start-column="1" selection-end-line="94" selection-end-column="1" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-551">
+              <caret line="46" column="26" lean-forward="false" selection-start-line="46" selection-start-column="26" selection-end-line="46" selection-end-column="26" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="package-info" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>doRecommendReward</find>
+      <find>selectCount</find>
+      <find>customer</find>
+      <find>selectEaringList</find>
+      <find>customerId</find>
+      <find>gameId</find>
+      <find>updatePartner</find>
+      <find>busi_customer_recommend_relation</find>
+      <find>selectTotalEaring</find>
+      <find>isMember</find>
+      <find>handleMember</find>
+      <find>handlePartner</find>
+      <find>customerRecommendRelationInfoServiceImpl</find>
+      <find>selectRecommendUser</find>
+      <find>cancelPartner</find>
+      <find>recom_customer_id</find>
+      <find>handle</find>
+      <find>bindi</find>
+      <find>bindCustomerByGameId</find>
+      <find>gameBindCustomer</find>
+      <find>busiCustomerRecommendRelationPojo</find>
+      <find>setRecomCustomerId</find>
+      <find>json</find>
+      <find>fastjson.version</find>
+      <find>bindRelation</find>
+      <find>GetCustomerCenterInfoExecutor</find>
+      <find>GetCustomerEaringDetailExecutor</find>
+      <find>recommend</find>
+      <find>createQrcode</find>
+      <find>busi_customer_bankroll_flow</find>
+    </findStrings>
+    <replaceStrings>
+      <replace>myTest</replace>
+      <replace>businessLimit</replace>
+      <replace>ProductFresher</replace>
+    </replaceStrings>
+  </component>
+  <component name="GradleLocalSettings">
+    <option name="externalProjectsViewState">
+      <projects_view />
+    </option>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/billingservice/src/main/java/com/yinhetianze/business/customer/service/busi/CustomerEarningsBusiServiceImpl.java" />
+        <option value="$PROJECT_DIR$/billingservice/src/main/java/com/yinhetianze/business/customer/mapper/busi/CustomerEarningsBusiMapper.java" />
+        <option value="$PROJECT_DIR$/billingservice/src/main/java/com/yinhetianze/business/customer/mapper/info/CustomerEarningsInfoMapper.java" />
+        <option value="$PROJECT_DIR$/billingservice/src/main/java/com/yinhetianze/business/customer/service/info/impl/CustomerBankrollFlowInfoServiceImpl.java" />
+        <option value="$PROJECT_DIR$/billingservice/src/main/resources/mappers/customer/info/CustomerBankrollFlowInfoMapper.xml" />
+        <option value="$PROJECT_DIR$/task/src/main/java/com/yinhetianze/business/task/schedule/CustomerEaringSchedule.java" />
+        <option value="$PROJECT_DIR$/billingservice/src/main/java/com/yinhetianze/business/customer/service/info/impl/CustomerEarningsInfoServiceImpl.java" />
+        <option value="$PROJECT_DIR$/core/src/main/java/com/yinhetianze/mybatis/mapper/InfoMapper.java" />
+        <option value="$PROJECT_DIR$/yinhetianze_db_script/2018-10-12.sql" />
+        <option value="$PROJECT_DIR$/yinhetianze_db_script/2018-10-16我的市场相关.sql" />
+        <option value="$PROJECT_DIR$/billingservice/src/main/java/com/yinhetianze/business/customer/service/busi/impl/CustomerEarningsBusiServiceImpl.java" />
+        <option value="$PROJECT_DIR$/core/src/main/java/com/yinhetianze/core/business/httpresponse/message/ErrorMessage.java" />
+        <option value="$PROJECT_DIR$/billing/src/main/java/com/yinhetianze/business/customer/executor/DoEaringScheduleExecutor.java" />
+        <option value="$PROJECT_DIR$/customerservice/src/main/java/com/yinhetianze/business/customer/model/BusiRegeisterModel.java" />
+        <option value="$PROJECT_DIR$/customer/src/main/java/com/yinhetianze/business/customer/executor/RegeisterExecutor.java" />
+        <option value="$PROJECT_DIR$/billingservice/src/main/resources/mappers/customer/busi/CustomerBankrollBusiMapper.xml" />
+        <option value="$PROJECT_DIR$/core/src/main/java/com/yinhetianze/security/custom/userdetails/impl/TokenUser.java" />
+        <option value="$PROJECT_DIR$/customer/src/main/java/com/yinhetianze/business/customer/executor/GetCustomerRecommendInfoExecutor.java" />
+        <option value="$PROJECT_DIR$/customerservice/src/main/java/com/yinhetianze/business/customer/mapper/info/CustomerRecommendRelationInfoMapper.java" />
+        <option value="$PROJECT_DIR$/customerservice/src/main/java/com/yinhetianze/business/customer/service/info/CustomerRecommendRelationInfoService.java" />
+        <option value="$PROJECT_DIR$/customerservice/src/main/java/com/yinhetianze/business/customer/service/info/impl/CustomerRecommendRelationInfoServiceImpl.java" />
+        <option value="$PROJECT_DIR$/billing/src/main/java/com/yinhetianze/business/customer/executor/GetCustomerEaringListExecutor.java" />
+        <option value="$PROJECT_DIR$/customerservice/src/main/resources/mappers/busi/CustomerBusiMapper.xml" />
+        <option value="$PROJECT_DIR$/customerservice/src/main/java/com/yinhetianze/business/customer/service/busi/CustomerBusiService.java" />
+        <option value="$PROJECT_DIR$/billing/src/main/java/com/yinhetianze/business/customer/executor/GetCustomerEaringExecutor.java" />
+        <option value="$PROJECT_DIR$/back/src/main/java/com/yinhetianze/back/thirdpart/executor/GetCustomerDetailExecutor.java" />
+        <option value="$PROJECT_DIR$/customerservice/src/main/resources/mappers/info/CustomerInfoMapper.xml" />
+        <option value="$PROJECT_DIR$/customerservice/src/main/java/com/yinhetianze/business/customer/service/info/impl/CustomerInfoServiceImpl.java" />
+        <option value="$PROJECT_DIR$/customer/src/main/java/com/yinhetianze/business/customer/executor/UpdateCustomerPartnerExecutor.java" />
+        <option value="$PROJECT_DIR$/customerservice/src/main/java/com/yinhetianze/business/customer/service/busi/CustomerRecommendRelationBusiService.java" />
+        <option value="$PROJECT_DIR$/back/src/main/java/com/yinhetianze/back/thirdpart/executor/GetCustomerBindingExecutor.java" />
+        <option value="$PROJECT_DIR$/pojo/src/main/java/com/yinhetianze/pojo/customer/BusiCustomerRecommendRelationPojo.java" />
+        <option value="$PROJECT_DIR$/yinhetianze_db_script/2018-10-18推荐关系修改.sql" />
+        <option value="$PROJECT_DIR$/customer/src/main/java/com/yinhetianze/business/customer/executor/GameIdBindCustomerExecutor.java" />
+        <option value="$PROJECT_DIR$/customer/src/main/java/com/yinhetianze/business/customer/executor/LoginBySmsCodeExecutor.java" />
+        <option value="$PROJECT_DIR$/customerservice/src/main/java/com/yinhetianze/business/customer/service/busi/impl/CustomerBusiServiceImpl.java" />
+        <option value="$PROJECT_DIR$/customer/src/main/java/com/yinhetianze/business/customer/executor/RefreshUserQrcodeExecutor.java" />
+        <option value="$PROJECT_DIR$/customerservice/src/main/java/com/yinhetianze/business/customer/service/busi/impl/CustomerRecommendRelationBusiServiceImpl.java" />
+        <option value="$PROJECT_DIR$/customerservice/src/main/java/com/yinhetianze/business/customer/model/BusiCustomerCenterModel.java" />
+        <option value="$PROJECT_DIR$/customer/src/main/java/com/yinhetianze/business/customer/executor/GetCustomerCenterInfoExecutor.java" />
+        <option value="$PROJECT_DIR$/customerservice/src/main/resources/mappers/info/CustomerRecommendRelationInfoMapper.xml" />
+        <option value="$PROJECT_DIR$/customerservice/src/main/java/com/yinhetianze/business/customer/model/BusiCustomerRecommendRelationModel.java" />
+        <option value="$PROJECT_DIR$/billingservice/src/main/java/com/yinhetianze/business/customer/model/BusiCustomerEaringModel.java" />
+        <option value="$PROJECT_DIR$/billingservice/src/main/resources/mappers/customer/info/CustomerEarningsInfoMapper.xml" />
+        <option value="$PROJECT_DIR$/billingservice/src/main/java/com/yinhetianze/business/customer/model/ParaCustomerModel.java" />
+        <option value="$PROJECT_DIR$/billingservice/src/main/java/com/yinhetianze/business/customer/model/BusiCustomerBankrollFlowModel.java" />
+        <option value="$PROJECT_DIR$/billing/src/main/java/com/yinhetianze/business/customer/executor/GetCustomerEaringDetailListExecutor.java" />
+        <option value="$PROJECT_DIR$/customer/src/main/java/com/yinhetianze/business/customer/CustomerRestController.java" />
+        <option value="$PROJECT_DIR$/billing/src/main/java/com/yinhetianze/business/AccountingRestController.java" />
+        <option value="$PROJECT_DIR$/billing/src/main/java/com/yinhetianze/business/customer/executor/GetCustomerEaringDetailExecutor.java" />
+        <option value="$PROJECT_DIR$/yinhetianze_db_script/2018-10-23.sql" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="localRepository" value="D:\maven" />
+      </MavenGeneralSettings>
+    </option>
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="importAutomatically" value="true" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="MavenProjectNavigator">
+    <treeState>
+      <expand>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="back" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+        </path>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="billing" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+        </path>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="billing" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+          <item name="Lifecycle" type="58874e2:MavenProjectsStructure$LifecycleNode" />
+        </path>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="core" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+        </path>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="core" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+          <item name="Lifecycle" type="58874e2:MavenProjectsStructure$LifecycleNode" />
+        </path>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="customer" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+        </path>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="customer" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+          <item name="Lifecycle" type="58874e2:MavenProjectsStructure$LifecycleNode" />
+        </path>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="customerservice" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+        </path>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="customerservice" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+          <item name="Lifecycle" type="58874e2:MavenProjectsStructure$LifecycleNode" />
+        </path>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="pojo" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+        </path>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="pojo" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+          <item name="Lifecycle" type="58874e2:MavenProjectsStructure$LifecycleNode" />
+        </path>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="task" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+        </path>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="task" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+          <item name="Lifecycle" type="58874e2:MavenProjectsStructure$LifecycleNode" />
+        </path>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="yinhetianze" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+        </path>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="yinhetianze" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+          <item name="Lifecycle" type="58874e2:MavenProjectsStructure$LifecycleNode" />
+        </path>
+      </expand>
+      <select />
+    </treeState>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-3" />
+    <option name="y" value="6" />
+    <option name="width" value="1400" />
+    <option name="height" value="820" />
+  </component>
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource ProjectPane="true" />
+      <sortByType />
+      <manualOrder />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scratches" />
+      <pane id="Scope" />
+      <pane id="AndroidView" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="yinhetianze" type="b2602c69:ProjectViewProjectNode" />
+              <item name="yinhetianze" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="PackagesPane" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="nodejs_interpreter_path" value="D:/Program Files/nodejs/node" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth2" value="75" />
+    <property name="RequestMappingsPanelOrder2" value="2" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_flatWidth0" value="300" />
+    <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_flatOrder0" value="0" />
+    <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_flatWidth1" value="300" />
+    <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_flatOrder1" value="1" />
+    <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_flatWidth2" value="300" />
+    <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_flatOrder2" value="2" />
+    <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_flatWidth3" value="300" />
+    <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_flatOrder3" value="3" />
+    <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_flatWidth4" value="299" />
+    <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_flatOrder4" value="4" />
+    <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_treeWidth0" value="124" />
+    <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_treeOrder0" value="0" />
+    <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_treeWidth1" value="120" />
+    <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_treeOrder1" value="1" />
+    <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_treeWidth2" value="203" />
+    <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_treeOrder2" value="2" />
+    <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_treeWidth3" value="124" />
+    <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_treeOrder3" value="3" />
+    <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_treeWidth4" value="928" />
+    <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_treeOrder4" value="4" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\workspace2\yinhetianze\billingservice\src\main\resources\mappers\customer\info" />
+      <recent name="D:\workspace2\yinhetianze\customerservice\src\main\resources\mappers\info" />
+      <recent name="D:\workspace2\yinhetianze\productservice\src\main\java\com\yinhetianze\business\product\mapper" />
+      <recent name="D:\workspace2\yinhetianze\customer\src\main\resources" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.yinhetianze.business.customer.executor" />
+      <recent name="com.yinhetianze.business.customer.mapper.info" />
+      <recent name="com.yinhetianze.business.customer.mapper.busi" />
+      <recent name="com.yinhetianze.business.customer.service.info.impl" />
+      <recent name="com.yinhetianze.business.customer.service.info" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\workspace2\yinhetianze\yinhetianze_db_script" />
+      <recent name="D:\workspace2\yinhetianze\billingservice\src\main\resources\mappers\customer\busi" />
+      <recent name="D:\workspace2\yinhetianze\billingservice\src\main\java\com\yinhetianze\business\customer\service\busi" />
+      <recent name="D:\workspace2\yinhetianze\billing\src\main\java\com\yinhetianze\business\customer\executor" />
+      <recent name="D:\workspace2\yinhetianze\customerservice\src\main\resources\mappers\busi" />
+    </key>
+  </component>
+  <component name="RestoreUpdateTree" date="Moments ago" ActionInfo="_Update">
+    <UpdatedFiles>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Updated from server" />
+        <option name="myStatusName" value="Changed on server" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="CHANGED_ON_SERVER" />
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Updated" />
+          <option name="myStatusName" value="Changed" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="UPDATED" />
+          <PATH vcs="svn" revision="6297">D:\workspace2\yinhetianze\yinhetianze_db_script\2018-10-25.sql</PATH>
+          <PATH vcs="svn" revision="6297">D:\workspace2\yinhetianze\yinhetianze_db_script\2018-10-26.sql</PATH>
+          <PATH vcs="svn" revision="6297">D:\workspace2\yinhetianze\back\src\main\java\com\yinhetianze\back\mall\BackMallRestController.java</PATH>
+          <PATH vcs="svn" revision="6297">D:\workspace2\yinhetianze\back\src\main\java\com\yinhetianze\back\mall\executor\GetDetonatingListExecutor.java</PATH>
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Created" />
+          <option name="myStatusName" value="Created" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="CREATED" />
+          <PATH vcs="svn" revision="6297">D:\workspace2\yinhetianze\back\src\main\java\com\yinhetianze\back\mall\cachedata\DetonatingCacheData.java</PATH>
+          <PATH vcs="svn" revision="6297">D:\workspace2\yinhetianze\back\src\main\java\com\yinhetianze\back\mall\executor\RefreshDetonatingCacheExecutor.java</PATH>
+          <PATH vcs="svn" revision="6297">D:\workspace2\yinhetianze\productservice\src\main\java\com\yinhetianze\business\voucher\model</PATH>
+          <PATH vcs="svn" revision="6297">D:\workspace2\yinhetianze\productservice\src\main\java\com\yinhetianze\business\voucher\model\VoucherlModel.java</PATH>
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Deleted" />
+          <option name="myStatusName" value="Deleted" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="true" />
+          <option name="myId" value="REMOVED_FROM_REPOSITORY" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Restored" />
+          <option name="myStatusName" value="Will be restored" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="RESTORED" />
+        </FILE-GROUP>
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Modified" />
+        <option name="myStatusName" value="Modified" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MODIFIED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Skipped" />
+        <option name="myStatusName" value="Skipped" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="SKIPPED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged with conflicts" />
+        <option name="myStatusName" value="Will be merged with conflicts" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED_WITH_CONFLICTS" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged with tree conflicts" />
+        <option name="myStatusName" value="Merged with tree conflicts" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED_WITH_TREE_CONFLICT" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged with property conflicts" />
+        <option name="myStatusName" value="Will be merged with property conflicts" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED_WITH_PROPERTY_CONFLICT" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged" />
+        <option name="myStatusName" value="Will be merged" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Not in repository" />
+        <option name="myStatusName" value="Not in repository" />
+        <option name="mySupportsDeletion" value="true" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="UNKNOWN" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Locally added" />
+        <option name="myStatusName" value="Locally added" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="LOCALLY_ADDED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Locally removed" />
+        <option name="myStatusName" value="Locally removed" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="LOCALLY_REMOVED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Switched" />
+        <option name="myStatusName" value="Switched" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="SWITCHED" />
+      </FILE-GROUP>
+    </UpdatedFiles>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Spring Boot.AccountingApplication">
+    <configuration name="Accounting" type="Remote" factoryName="Remote">
+      <module name="billing" />
+      <option name="USE_SOCKET_TRANSPORT" value="true" />
+      <option name="SERVER_MODE" value="false" />
+      <option name="SHMEM_ADDRESS" value="javadebug" />
+      <option name="HOST" value="116.62.21.210" />
+      <option name="PORT" value="8083" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="8083" />
+        <option name="LOCAL" value="false" />
+      </RunnerSettings>
+    </configuration>
+    <configuration name="AccountingApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.yinhetianze.AccountingApplication" />
+      <module name="billing" />
+      <envs />
+    </configuration>
+    <configuration name="AddCustomerDrawrecordWeChatExecutor" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="com.yinhetianze.business.customer.executor.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="MAIN_CLASS_NAME" value="com.yinhetianze.business.customer.executor.AddCustomerDrawrecordWeChatExecutor" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="billing" />
+      <envs />
+    </configuration>
+    <configuration name="Back" type="Remote" factoryName="Remote">
+      <module name="back" />
+      <option name="USE_SOCKET_TRANSPORT" value="true" />
+      <option name="SERVER_MODE" value="false" />
+      <option name="SHMEM_ADDRESS" value="javadebug" />
+      <option name="HOST" value="116.62.21.210" />
+      <option name="PORT" value="8004" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="8004" />
+        <option name="LOCAL" value="false" />
+      </RunnerSettings>
+    </configuration>
+    <configuration name="BackApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.yinhetianze.BackApplication" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <module name="back" />
+      <envs />
+    </configuration>
+    <configuration name="CodeGenerator" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="com.yinhetianze.generator.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="MAIN_CLASS_NAME" value="com.yinhetianze.generator.CodeGenerator" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="generator" />
+      <envs />
+    </configuration>
+    <configuration name="Customer" type="Remote" factoryName="Remote">
+      <module name="customer" />
+      <option name="USE_SOCKET_TRANSPORT" value="true" />
+      <option name="SERVER_MODE" value="false" />
+      <option name="SHMEM_ADDRESS" value="javadebug" />
+      <option name="HOST" value="116.62.21.210" />
+      <option name="PORT" value="8007" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="8007" />
+        <option name="LOCAL" value="false" />
+      </RunnerSettings>
+    </configuration>
+    <configuration name="CustomerApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.yinhetianze.CustomerApplication" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <module name="customer" />
+      <envs />
+    </configuration>
+    <configuration name="CustomerEaringSchedule" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="com.yinhetianze.business.task.schedule.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="MAIN_CLASS_NAME" value="com.yinhetianze.business.task.schedule.CustomerEaringSchedule" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="task" />
+      <envs />
+    </configuration>
+    <configuration name="CustomerUtil" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="com.yinhetianze.business.customer.util.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="MAIN_CLASS_NAME" value="com.yinhetianze.business.customer.util.CustomerUtil" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="customerservice" />
+      <envs />
+    </configuration>
+    <configuration name="GetCustomerEaringDetailExecutor" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="com.yinhetianze.business.customer.executor.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="MAIN_CLASS_NAME" value="com.yinhetianze.business.customer.executor.GetCustomerEaringDetailExecutor" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="billing" />
+      <envs />
+    </configuration>
+    <configuration name="KernelApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.yinhetianze.kernel.KernelApplication" />
+      <module name="kernel" />
+      <envs />
+    </configuration>
+    <configuration name="Order" type="Remote" factoryName="Remote">
+      <option name="USE_SOCKET_TRANSPORT" value="true" />
+      <option name="SERVER_MODE" value="false" />
+      <option name="SHMEM_ADDRESS" value="javadebug" />
+      <option name="HOST" value="116.62.21.210" />
+      <option name="PORT" value="8008" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="8008" />
+        <option name="LOCAL" value="false" />
+      </RunnerSettings>
+    </configuration>
+    <configuration name="OrderApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.yinhetianze.OrderApplication" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <module name="order" />
+      <envs />
+    </configuration>
+    <configuration name="ProductApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.yinhetianze.ProductApplication" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <module name="product" />
+      <envs />
+    </configuration>
+    <configuration name="ShopApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.yinhetianze.ShopApplication" />
+      <module name="shop" />
+      <envs />
+    </configuration>
+    <configuration name="Task" type="Remote" factoryName="Remote">
+      <module name="task" />
+      <option name="USE_SOCKET_TRANSPORT" value="true" />
+      <option name="SERVER_MODE" value="false" />
+      <option name="SHMEM_ADDRESS" value="javadebug" />
+      <option name="HOST" value="116.62.21.210" />
+      <option name="PORT" value="8011" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="8011" />
+        <option name="LOCAL" value="false" />
+      </RunnerSettings>
+    </configuration>
+    <configuration name="TaskApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.yinhetianze.TaskApplication" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <module name="task" />
+      <envs />
+    </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <module />
+    </configuration>
+    <configuration default="true" type="Application" factoryName="Application">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="" />
+      <envs />
+    </configuration>
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+    </configuration>
+    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
+      <module name="" />
+      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
+      <option name="PROGRAM_PARAMETERS" />
+      <predefined_log_file id="idea.log" enabled="true" />
+    </configuration>
+    <configuration default="true" type="Remote" factoryName="Remote">
+      <option name="USE_SOCKET_TRANSPORT" value="true" />
+      <option name="SERVER_MODE" value="false" />
+      <option name="SHMEM_ADDRESS" value="javadebug" />
+      <option name="HOST" value="localhost" />
+      <option name="PORT" value="5005" />
+    </configuration>
+    <configuration default="true" type="TestNG" factoryName="TestNG">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SUITE_NAME" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="GROUP_NAME" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="OUTPUT_DIRECTORY" />
+      <option name="ANNOTATION_TYPE" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <option name="USE_DEFAULT_REPORTERS" value="false" />
+      <option name="PROPERTIES_FILE" />
+      <envs />
+      <properties />
+      <listeners />
+    </configuration>
+    <list size="18">
+      <item index="0" class="java.lang.String" itemvalue="Remote.Accounting" />
+      <item index="1" class="java.lang.String" itemvalue="Remote.Task" />
+      <item index="2" class="java.lang.String" itemvalue="Remote.Order" />
+      <item index="3" class="java.lang.String" itemvalue="Remote.Customer" />
+      <item index="4" class="java.lang.String" itemvalue="Remote.Back" />
+      <item index="5" class="java.lang.String" itemvalue="Spring Boot.TaskApplication" />
+      <item index="6" class="java.lang.String" itemvalue="Spring Boot.ProductApplication" />
+      <item index="7" class="java.lang.String" itemvalue="Spring Boot.OrderApplication" />
+      <item index="8" class="java.lang.String" itemvalue="Spring Boot.BackApplication" />
+      <item index="9" class="java.lang.String" itemvalue="Spring Boot.AccountingApplication" />
+      <item index="10" class="java.lang.String" itemvalue="Spring Boot.CustomerApplication" />
+      <item index="11" class="java.lang.String" itemvalue="Spring Boot.ShopApplication" />
+      <item index="12" class="java.lang.String" itemvalue="Spring Boot.KernelApplication" />
+      <item index="13" class="java.lang.String" itemvalue="Application.CustomerUtil" />
+      <item index="14" class="java.lang.String" itemvalue="Application.AddCustomerDrawrecordWeChatExecutor" />
+      <item index="15" class="java.lang.String" itemvalue="Application.CodeGenerator" />
+      <item index="16" class="java.lang.String" itemvalue="Application.GetCustomerEaringDetailExecutor" />
+      <item index="17" class="java.lang.String" itemvalue="Application.CustomerEaringSchedule" />
+    </list>
+    <recent_temporary>
+      <list size="5">
+        <item index="0" class="java.lang.String" itemvalue="Application.CustomerEaringSchedule" />
+        <item index="1" class="java.lang.String" itemvalue="Application.GetCustomerEaringDetailExecutor" />
+        <item index="2" class="java.lang.String" itemvalue="Application.CodeGenerator" />
+        <item index="3" class="java.lang.String" itemvalue="Application.AddCustomerDrawrecordWeChatExecutor" />
+        <item index="4" class="java.lang.String" itemvalue="Application.CustomerUtil" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false">
+    <option name="remove_strategy" value="false" />
+  </component>
+  <component name="SvnConfiguration" cleanupOnStartRun="true">
+    <configuration>C:\Users\Administrator\AppData\Roaming\Subversion</configuration>
+    <supportedVersion>125</supportedVersion>
+  </component>
+  <component name="SvnFileUrlMappingImpl">
+    <option name="myMappingRoots">
+      <list>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="D:\workspace2\yinhetianze" />
+          <option name="myCopyRoot" value="D:\workspace2\yinhetianze" />
+        </SvnCopyRootSimple>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="D:\workspace2\yinhetianze\back" />
+          <option name="myCopyRoot" value="D:\workspace2\yinhetianze\back" />
+        </SvnCopyRootSimple>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="D:\workspace2\yinhetianze\billing" />
+          <option name="myCopyRoot" value="D:\workspace2\yinhetianze\billing" />
+        </SvnCopyRootSimple>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="D:\workspace2\yinhetianze\billingservice" />
+          <option name="myCopyRoot" value="D:\workspace2\yinhetianze\billingservice" />
+        </SvnCopyRootSimple>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="D:\workspace2\yinhetianze\client" />
+          <option name="myCopyRoot" value="D:\workspace2\yinhetianze\client" />
+        </SvnCopyRootSimple>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="D:\workspace2\yinhetianze\core" />
+          <option name="myCopyRoot" value="D:\workspace2\yinhetianze\core" />
+        </SvnCopyRootSimple>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="D:\workspace2\yinhetianze\customer" />
+          <option name="myCopyRoot" value="D:\workspace2\yinhetianze\customer" />
+        </SvnCopyRootSimple>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="D:\workspace2\yinhetianze\customerservice" />
+          <option name="myCopyRoot" value="D:\workspace2\yinhetianze\customerservice" />
+        </SvnCopyRootSimple>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="D:\workspace2\yinhetianze\generator" />
+          <option name="myCopyRoot" value="D:\workspace2\yinhetianze\generator" />
+        </SvnCopyRootSimple>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="D:\workspace2\yinhetianze\kernel" />
+          <option name="myCopyRoot" value="D:\workspace2\yinhetianze\kernel" />
+        </SvnCopyRootSimple>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="D:\workspace2\yinhetianze\messageservice" />
+          <option name="myCopyRoot" value="D:\workspace2\yinhetianze\messageservice" />
+        </SvnCopyRootSimple>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="D:\workspace2\yinhetianze\order" />
+          <option name="myCopyRoot" value="D:\workspace2\yinhetianze\order" />
+        </SvnCopyRootSimple>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="D:\workspace2\yinhetianze\orderservice" />
+          <option name="myCopyRoot" value="D:\workspace2\yinhetianze\orderservice" />
+        </SvnCopyRootSimple>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="D:\workspace2\yinhetianze\pojo" />
+          <option name="myCopyRoot" value="D:\workspace2\yinhetianze\pojo" />
+        </SvnCopyRootSimple>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="D:\workspace2\yinhetianze\product" />
+          <option name="myCopyRoot" value="D:\workspace2\yinhetianze\product" />
+        </SvnCopyRootSimple>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="D:\workspace2\yinhetianze\productservice" />
+          <option name="myCopyRoot" value="D:\workspace2\yinhetianze\productservice" />
+        </SvnCopyRootSimple>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="D:\workspace2\yinhetianze\shop" />
+          <option name="myCopyRoot" value="D:\workspace2\yinhetianze\shop" />
+        </SvnCopyRootSimple>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="D:\workspace2\yinhetianze\shopservice" />
+          <option name="myCopyRoot" value="D:\workspace2\yinhetianze\shopservice" />
+        </SvnCopyRootSimple>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="D:\workspace2\yinhetianze\systemservice" />
+          <option name="myCopyRoot" value="D:\workspace2\yinhetianze\systemservice" />
+        </SvnCopyRootSimple>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="D:\workspace2\yinhetianze\task" />
+          <option name="myCopyRoot" value="D:\workspace2\yinhetianze\task" />
+        </SvnCopyRootSimple>
+      </list>
+    </option>
+    <option name="myMoreRealMappingRoots">
+      <list>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="D:\workspace2\yinhetianze" />
+          <option name="myCopyRoot" value="D:\workspace2\yinhetianze" />
+        </SvnCopyRootSimple>
+      </list>
+    </option>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="f7a7c6c3-b4ea-4010-9a28-26037a5d03c0" name="Default" comment="" />
+      <created>1535011231654</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1535011231654</updated>
+      <workItem from="1535011234946" duration="56000" />
+      <workItem from="1535011465400" duration="1374000" />
+      <workItem from="1535073529708" duration="9495000" />
+      <workItem from="1535333141381" duration="8412000" />
+      <workItem from="1535421246913" duration="14140000" />
+      <workItem from="1535505919622" duration="4354000" />
+      <workItem from="1535591044463" duration="14592000" />
+      <workItem from="1535678480302" duration="8812000" />
+      <workItem from="1535938354471" duration="9498000" />
+      <workItem from="1536032112348" duration="9619000" />
+      <workItem from="1536111760372" duration="9047000" />
+      <workItem from="1536206257682" duration="12842000" />
+      <workItem from="1536283429136" duration="1733000" />
+      <workItem from="1536562797772" duration="9925000" />
+      <workItem from="1536629456407" duration="14044000" />
+      <workItem from="1536653117770" duration="4470000" />
+      <workItem from="1536717499416" duration="16846000" />
+      <workItem from="1536802082364" duration="15715000" />
+      <workItem from="1536887953241" duration="15176000" />
+      <workItem from="1537147105341" duration="10202000" />
+      <workItem from="1537236873688" duration="17541000" />
+      <workItem from="1537324037624" duration="10319000" />
+      <workItem from="1537405533654" duration="3895000" />
+      <workItem from="1537425298070" duration="1979000" />
+      <workItem from="1537428239663" duration="35000" />
+      <workItem from="1537494383132" duration="5207000" />
+      <workItem from="1537503635108" duration="9877000" />
+      <workItem from="1537845384577" duration="11231000" />
+      <workItem from="1537925701308" duration="16315000" />
+      <workItem from="1538028369444" duration="11091000" />
+      <workItem from="1538099490067" duration="15526000" />
+      <workItem from="1538201439485" duration="1550000" />
+      <workItem from="1538964117120" duration="5533000" />
+      <workItem from="1539049108874" duration="20191000" />
+      <workItem from="1539137468082" duration="10043000" />
+      <workItem from="1539225110575" duration="3239000" />
+      <workItem from="1539308452200" duration="14909000" />
+      <workItem from="1539566751139" duration="24579000" />
+      <workItem from="1539653053654" duration="15154000" />
+      <workItem from="1539739827369" duration="8671000" />
+      <workItem from="1539846310133" duration="11301000" />
+      <workItem from="1539909211288" duration="15246000" />
+      <workItem from="1540001072374" duration="8719000" />
+      <workItem from="1540187428308" duration="2105000" />
+      <workItem from="1540200287624" duration="1891000" />
+      <workItem from="1540264880602" duration="8536000" />
+      <workItem from="1540774226607" duration="3783000" />
+      <workItem from="1540864009915" duration="8364000" />
+      <workItem from="1541055650861" duration="890000" />
+    </task>
+    <task id="LOCAL-00068" summary="增加规格字段配置">
+      <created>1539076817834</created>
+      <option name="number" value="00068" />
+      <option name="presentableId" value="LOCAL-00068" />
+      <option name="project" value="LOCAL" />
+      <updated>1539076817834</updated>
+    </task>
+    <task id="LOCAL-00069" summary="增加规格字段配置">
+      <created>1539077606987</created>
+      <option name="number" value="00069" />
+      <option name="presentableId" value="LOCAL-00069" />
+      <option name="project" value="LOCAL" />
+      <updated>1539077606987</updated>
+    </task>
+    <task id="LOCAL-00070">
+      <created>1539077834869</created>
+      <option name="number" value="00070" />
+      <option name="presentableId" value="LOCAL-00070" />
+      <option name="project" value="LOCAL" />
+      <updated>1539077834869</updated>
+    </task>
+    <task id="LOCAL-00071">
+      <created>1539152768437</created>
+      <option name="number" value="00071" />
+      <option name="presentableId" value="LOCAL-00071" />
+      <option name="project" value="LOCAL" />
+      <updated>1539152768438</updated>
+    </task>
+    <task id="LOCAL-00072">
+      <created>1539163568318</created>
+      <option name="number" value="00072" />
+      <option name="presentableId" value="LOCAL-00072" />
+      <option name="project" value="LOCAL" />
+      <updated>1539163568318</updated>
+    </task>
+    <task id="LOCAL-00073">
+      <created>1539163725743</created>
+      <option name="number" value="00073" />
+      <option name="presentableId" value="LOCAL-00073" />
+      <option name="project" value="LOCAL" />
+      <updated>1539163725743</updated>
+    </task>
+    <task id="LOCAL-00074">
+      <created>1539163738631</created>
+      <option name="number" value="00074" />
+      <option name="presentableId" value="LOCAL-00074" />
+      <option name="project" value="LOCAL" />
+      <updated>1539163738631</updated>
+    </task>
+    <task id="LOCAL-00075">
+      <created>1539315682162</created>
+      <option name="number" value="00075" />
+      <option name="presentableId" value="LOCAL-00075" />
+      <option name="project" value="LOCAL" />
+      <updated>1539315682163</updated>
+    </task>
+    <task id="LOCAL-00076" summary="我的市场 相关代码">
+      <created>1539594818794</created>
+      <option name="number" value="00076" />
+      <option name="presentableId" value="LOCAL-00076" />
+      <option name="project" value="LOCAL" />
+      <updated>1539594818796</updated>
+    </task>
+    <task id="LOCAL-00077" summary="我的市场 相关代码">
+      <created>1539594848181</created>
+      <option name="number" value="00077" />
+      <option name="presentableId" value="LOCAL-00077" />
+      <option name="project" value="LOCAL" />
+      <updated>1539594848181</updated>
+    </task>
+    <task id="LOCAL-00078" summary="我的市场 相关代码">
+      <created>1539594856091</created>
+      <option name="number" value="00078" />
+      <option name="presentableId" value="LOCAL-00078" />
+      <option name="project" value="LOCAL" />
+      <updated>1539594856091</updated>
+    </task>
+    <task id="LOCAL-00079" summary="我的市场 相关代码">
+      <created>1539595021210</created>
+      <option name="number" value="00079" />
+      <option name="presentableId" value="LOCAL-00079" />
+      <option name="project" value="LOCAL" />
+      <updated>1539595021210</updated>
+    </task>
+    <task id="LOCAL-00080" summary="我的市场 相关代码">
+      <created>1539595789578</created>
+      <option name="number" value="00080" />
+      <option name="presentableId" value="LOCAL-00080" />
+      <option name="project" value="LOCAL" />
+      <updated>1539595789578</updated>
+    </task>
+    <task id="LOCAL-00081" summary="我的市场 相关代码">
+      <created>1539597225178</created>
+      <option name="number" value="00081" />
+      <option name="presentableId" value="LOCAL-00081" />
+      <option name="project" value="LOCAL" />
+      <updated>1539597225178</updated>
+    </task>
+    <task id="LOCAL-00082">
+      <created>1539656231944</created>
+      <option name="number" value="00082" />
+      <option name="presentableId" value="LOCAL-00082" />
+      <option name="project" value="LOCAL" />
+      <updated>1539656231944</updated>
+    </task>
+    <task id="LOCAL-00083" summary="我的市场 相关脚本">
+      <created>1539656844540</created>
+      <option name="number" value="00083" />
+      <option name="presentableId" value="LOCAL-00083" />
+      <option name="project" value="LOCAL" />
+      <updated>1539656844541</updated>
+    </task>
+    <task id="LOCAL-00084" summary="增加 是否会员返回标识">
+      <created>1539672980986</created>
+      <option name="number" value="00084" />
+      <option name="presentableId" value="LOCAL-00084" />
+      <option name="project" value="LOCAL" />
+      <updated>1539672980986</updated>
+    </task>
+    <task id="LOCAL-00085" summary="手动激活合伙人 删掉该激活用户的推荐关系">
+      <created>1539675630673</created>
+      <option name="number" value="00085" />
+      <option name="presentableId" value="LOCAL-00085" />
+      <option name="project" value="LOCAL" />
+      <updated>1539675630673</updated>
+    </task>
+    <task id="LOCAL-00086" summary="推荐码靓号">
+      <created>1539682051357</created>
+      <option name="number" value="00086" />
+      <option name="presentableId" value="LOCAL-00086" />
+      <option name="project" value="LOCAL" />
+      <updated>1539682051357</updated>
+    </task>
+    <task id="LOCAL-00087">
+      <created>1539682847656</created>
+      <option name="number" value="00087" />
+      <option name="presentableId" value="LOCAL-00087" />
+      <option name="project" value="LOCAL" />
+      <updated>1539682847656</updated>
+    </task>
+    <task id="LOCAL-00088">
+      <created>1539683326902</created>
+      <option name="number" value="00088" />
+      <option name="presentableId" value="LOCAL-00088" />
+      <option name="project" value="LOCAL" />
+      <updated>1539683326902</updated>
+    </task>
+    <task id="LOCAL-00089" summary="增加一个手动触发 余额收益统计的功能">
+      <created>1539741540210</created>
+      <option name="number" value="00089" />
+      <option name="presentableId" value="LOCAL-00089" />
+      <option name="project" value="LOCAL" />
+      <updated>1539741540211</updated>
+    </task>
+    <task id="LOCAL-00090" summary="增加收益用户的 市场级别显示">
+      <created>1539743433747</created>
+      <option name="number" value="00090" />
+      <option name="presentableId" value="LOCAL-00090" />
+      <option name="project" value="LOCAL" />
+      <updated>1539743433747</updated>
+    </task>
+    <task id="LOCAL-00091">
+      <created>1539755588208</created>
+      <option name="number" value="00091" />
+      <option name="presentableId" value="LOCAL-00091" />
+      <option name="project" value="LOCAL" />
+      <updated>1539755588208</updated>
+    </task>
+    <task id="LOCAL-00092">
+      <created>1539758062961</created>
+      <option name="number" value="00092" />
+      <option name="presentableId" value="LOCAL-00092" />
+      <option name="project" value="LOCAL" />
+      <updated>1539758062961</updated>
+    </task>
+    <task id="LOCAL-00093" summary="推荐人关系修改相关代码">
+      <created>1539855755673</created>
+      <option name="number" value="00093" />
+      <option name="presentableId" value="LOCAL-00093" />
+      <option name="project" value="LOCAL" />
+      <updated>1539855755675</updated>
+    </task>
+    <task id="LOCAL-00094">
+      <created>1539857249951</created>
+      <option name="number" value="00094" />
+      <option name="presentableId" value="LOCAL-00094" />
+      <option name="project" value="LOCAL" />
+      <updated>1539857249951</updated>
+    </task>
+    <task id="LOCAL-00095">
+      <created>1539911301230</created>
+      <option name="number" value="00095" />
+      <option name="presentableId" value="LOCAL-00095" />
+      <option name="project" value="LOCAL" />
+      <updated>1539911301246</updated>
+    </task>
+    <task id="LOCAL-00096">
+      <created>1539912592728</created>
+      <option name="number" value="00096" />
+      <option name="presentableId" value="LOCAL-00096" />
+      <option name="project" value="LOCAL" />
+      <updated>1539912592728</updated>
+    </task>
+    <task id="LOCAL-00097">
+      <created>1539914461001</created>
+      <option name="number" value="00097" />
+      <option name="presentableId" value="LOCAL-00097" />
+      <option name="project" value="LOCAL" />
+      <updated>1539914461002</updated>
+    </task>
+    <task id="LOCAL-00098">
+      <created>1539917197291</created>
+      <option name="number" value="00098" />
+      <option name="presentableId" value="LOCAL-00098" />
+      <option name="project" value="LOCAL" />
+      <updated>1539917197291</updated>
+    </task>
+    <task id="LOCAL-00099">
+      <created>1539917880505</created>
+      <option name="number" value="00099" />
+      <option name="presentableId" value="LOCAL-00099" />
+      <option name="project" value="LOCAL" />
+      <updated>1539917880505</updated>
+    </task>
+    <task id="LOCAL-00100">
+      <created>1539920393170</created>
+      <option name="number" value="00100" />
+      <option name="presentableId" value="LOCAL-00100" />
+      <option name="project" value="LOCAL" />
+      <updated>1539920393170</updated>
+    </task>
+    <task id="LOCAL-00101">
+      <created>1539930057115</created>
+      <option name="number" value="00101" />
+      <option name="presentableId" value="LOCAL-00101" />
+      <option name="project" value="LOCAL" />
+      <updated>1539930057115</updated>
+    </task>
+    <task id="LOCAL-00102">
+      <created>1539930987140</created>
+      <option name="number" value="00102" />
+      <option name="presentableId" value="LOCAL-00102" />
+      <option name="project" value="LOCAL" />
+      <updated>1539930987140</updated>
+    </task>
+    <task id="LOCAL-00103">
+      <created>1539934253775</created>
+      <option name="number" value="00103" />
+      <option name="presentableId" value="LOCAL-00103" />
+      <option name="project" value="LOCAL" />
+      <updated>1539934253775</updated>
+    </task>
+    <task id="LOCAL-00104">
+      <created>1539934789070</created>
+      <option name="number" value="00104" />
+      <option name="presentableId" value="LOCAL-00104" />
+      <option name="project" value="LOCAL" />
+      <updated>1539934789070</updated>
+    </task>
+    <task id="LOCAL-00105">
+      <created>1540002909840</created>
+      <option name="number" value="00105" />
+      <option name="presentableId" value="LOCAL-00105" />
+      <option name="project" value="LOCAL" />
+      <updated>1540002909840</updated>
+    </task>
+    <task id="LOCAL-00106">
+      <created>1540016360999</created>
+      <option name="number" value="00106" />
+      <option name="presentableId" value="LOCAL-00106" />
+      <option name="project" value="LOCAL" />
+      <updated>1540016360999</updated>
+    </task>
+    <task id="LOCAL-00107">
+      <created>1540022434476</created>
+      <option name="number" value="00107" />
+      <option name="presentableId" value="LOCAL-00107" />
+      <option name="project" value="LOCAL" />
+      <updated>1540022434476</updated>
+    </task>
+    <task id="LOCAL-00108">
+      <created>1540188308074</created>
+      <option name="number" value="00108" />
+      <option name="presentableId" value="LOCAL-00108" />
+      <option name="project" value="LOCAL" />
+      <updated>1540188308074</updated>
+    </task>
+    <task id="LOCAL-00109">
+      <created>1540202075697</created>
+      <option name="number" value="00109" />
+      <option name="presentableId" value="LOCAL-00109" />
+      <option name="project" value="LOCAL" />
+      <updated>1540202075697</updated>
+    </task>
+    <task id="LOCAL-00110">
+      <created>1540274875449</created>
+      <option name="number" value="00110" />
+      <option name="presentableId" value="LOCAL-00110" />
+      <option name="project" value="LOCAL" />
+      <updated>1540274875450</updated>
+    </task>
+    <task id="LOCAL-00111" summary="个人中心接口增加 是否合伙人字段">
+      <created>1540275062117</created>
+      <option name="number" value="00111" />
+      <option name="presentableId" value="LOCAL-00111" />
+      <option name="project" value="LOCAL" />
+      <updated>1540275062117</updated>
+    </task>
+    <task id="LOCAL-00112">
+      <created>1540275181542</created>
+      <option name="number" value="00112" />
+      <option name="presentableId" value="LOCAL-00112" />
+      <option name="project" value="LOCAL" />
+      <updated>1540275181542</updated>
+    </task>
+    <task id="LOCAL-00113" summary="我的市场/推荐关系中修改显示内容">
+      <created>1540285453872</created>
+      <option name="number" value="00113" />
+      <option name="presentableId" value="LOCAL-00113" />
+      <option name="project" value="LOCAL" />
+      <updated>1540285453872</updated>
+    </task>
+    <task id="LOCAL-00114">
+      <created>1540286024701</created>
+      <option name="number" value="00114" />
+      <option name="presentableId" value="LOCAL-00114" />
+      <option name="project" value="LOCAL" />
+      <updated>1540286024701</updated>
+    </task>
+    <task id="LOCAL-00115">
+      <created>1540287396723</created>
+      <option name="number" value="00115" />
+      <option name="presentableId" value="LOCAL-00115" />
+      <option name="project" value="LOCAL" />
+      <updated>1540287396723</updated>
+    </task>
+    <task id="LOCAL-00116">
+      <created>1540287545278</created>
+      <option name="number" value="00116" />
+      <option name="presentableId" value="LOCAL-00116" />
+      <option name="project" value="LOCAL" />
+      <updated>1540287545278</updated>
+    </task>
+    <option name="localTasksCounter" value="117" />
+    <servers />
+  </component>
+  <component name="TestHistory">
+    <history-entry file="TestMain - 2018.08.30 at 11h 50m 30s.xml">
+      <configuration name="TestMain" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="TestMain - 2018.08.30 at 11h 51m 00s.xml">
+      <configuration name="TestMain" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="TestMain - 2018.08.30 at 11h 53m 13s.xml">
+      <configuration name="TestMain" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="TestMain - 2018.08.30 at 11h 57m 32s.xml">
+      <configuration name="TestMain" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="TestMain - 2018.08.30 at 11h 57m 49s.xml">
+      <configuration name="TestMain" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="TestMain - 2018.08.30 at 11h 59m 01s.xml">
+      <configuration name="TestMain" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="TestMain - 2018.08.30 at 12h 00m 56s.xml">
+      <configuration name="TestMain" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="TestMain_testSave - 2018.08.30 at 11h 50m 02s.xml">
+      <configuration name="TestMain.testSave" configurationId="JUnit" />
+    </history-entry>
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="458072000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <layout>
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.5478261" sideWeight="0.39339018" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.43123668" sideWeight="0.4938838" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="CDI" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="JSF" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.030434782" sideWeight="0.8187633" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934782" sideWeight="0.4978678" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1597826" sideWeight="0.73400855" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.5478261" sideWeight="0.6066098" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934782" sideWeight="0.4978678" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934782" sideWeight="0.4978678" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26492536" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
+      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28913045" sideWeight="0.48720682" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16044776" sideWeight="0.5061162" order="12" side_tool="true" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="修改生成的二维码边框设置" />
+    <MESSAGE value="去掉给注册推荐人的房卡" />
+    <MESSAGE value="微信提现&#10;增加手续费计算 &#10;提现金额不得小于5元" />
+    <MESSAGE value="返回头像 &#10;若默认 个人上传头像 否则 使用微信头像&#10;若都没有 则返回空" />
+    <MESSAGE value="我的市场 查询余额流水功能" />
+    <MESSAGE value="1 增加更新二维码的功能&#10;2 注册中推荐关系 增加层级描述&#10;3 用户微信绑定成功后 看情况更新头像和性别" />
+    <MESSAGE value="去掉 推荐奖励满足条件赠送余额" />
+    <MESSAGE value="新增后台 添加U比兑换商品功能" />
+    <MESSAGE value="增加库存字段显示" />
+    <MESSAGE value="增加规格字段配置" />
+    <MESSAGE value="我的市场 相关脚本" />
+    <MESSAGE value="增加 是否会员返回标识" />
+    <MESSAGE value="手动激活合伙人 删掉该激活用户的推荐关系" />
+    <MESSAGE value="推荐码靓号" />
+    <MESSAGE value="增加一个手动触发 余额收益统计的功能" />
+    <MESSAGE value="增加收益用户的 市场级别显示" />
+    <MESSAGE value="我的市场 相关代码" />
+    <MESSAGE value="推荐人关系修改相关代码" />
+    <MESSAGE value="个人中心接口增加 是否合伙人字段" />
+    <MESSAGE value="我的市场/推荐关系中修改显示内容" />
+    <option name="LAST_COMMIT_MESSAGE" value="" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/back/src/main/java/com/yinhetianze/back/system/executor/UpdateSysSyspropertiesExecutor.java</url>
+          <line>45</line>
+          <properties />
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/back/src/main/java/com/yinhetianze/back/common/executor/FileUploadExecutor.java</url>
+          <line>29</line>
+          <properties />
+          <option name="timeStamp" value="37" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/back/src/main/java/com/yinhetianze/back/system/executor/InsertProtocolExecutor.java</url>
+          <line>24</line>
+          <properties />
+          <option name="timeStamp" value="64" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/back/src/main/java/com/yinhetianze/back/system/executor/UpdateProtocolExecutor.java</url>
+          <line>25</line>
+          <properties />
+          <option name="timeStamp" value="69" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/back/src/main/java/com/yinhetianze/back/system/BackRestController.java</url>
+          <line>534</line>
+          <properties />
+          <option name="timeStamp" value="70" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://D:/maven/org/springframework/spring-webmvc/4.3.18.RELEASE/spring-webmvc-4.3.18.RELEASE.jar!/org/springframework/web/servlet/mvc/SimpleControllerHandlerAdapter.class</url>
+          <line>21</line>
+          <properties />
+          <option name="timeStamp" value="81" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/billing/src/main/java/com/yinhetianze/business/customer/executor/AddCustomerDrawrecordWeChatExecutor.java</url>
+          <line>87</line>
+          <properties />
+          <option name="timeStamp" value="84" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/task/src/main/java/com/yinhetianze/business/task/schedule/CustomerEaringSchedule.java</url>
+          <line>31</line>
+          <properties />
+          <option name="timeStamp" value="117" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/customer/src/main/java/com/yinhetianze/business/customer/executor/UpdateCustomerPartnerExecutor.java</url>
+          <line>35</line>
+          <properties />
+          <option name="timeStamp" value="139" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/back/src/main/java/com/yinhetianze/back/thirdpart/executor/GetCustomerBindingExecutor.java</url>
+          <line>76</line>
+          <properties />
+          <option name="timeStamp" value="155" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/back/src/main/java/com/yinhetianze/back/thirdpart/executor/GetCustomerBindingExecutor.java</url>
+          <line>130</line>
+          <properties />
+          <option name="timeStamp" value="156" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/customer/src/main/java/com/yinhetianze/business/customer/executor/GameIdBindCustomerExecutor.java</url>
+          <line>69</line>
+          <properties />
+          <option name="timeStamp" value="159" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="163" />
+    </breakpoint-manager>
+    <watches-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/pojo/src/main/java/com/yinhetianze/pojo/customer/BusiCustomerPojo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="418" column="17" lean-forward="false" selection-start-line="418" selection-start-column="17" selection-end-line="418" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/customerservice/src/main/java/com/yinhetianze/business/customer/service/info/impl/CustomerInfoServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="380">
+          <caret line="61" column="24" lean-forward="false" selection-start-line="61" selection-start-column="15" selection-end-line="61" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/customerservice/src/main/java/com/yinhetianze/business/customer/service/info/CustomerInfoService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="18" column="22" lean-forward="false" selection-start-line="18" selection-start-column="22" selection-end-line="18" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/customerservice/src/main/java/com/yinhetianze/business/customer/service/busi/impl/CustomerCollectorBusiServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="14" column="13" lean-forward="false" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/billingservice/src/main/java/com/yinhetianze/business/customer/service/info/CustomerEarningsInfoService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="247">
+          <caret line="17" column="34" lean-forward="false" selection-start-line="17" selection-start-column="34" selection-end-line="17" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/billingservice/src/main/java/com/yinhetianze/business/customer/service/info/impl/CustomerEarningsInfoServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="26" column="28" lean-forward="true" selection-start-line="26" selection-start-column="28" selection-end-line="26" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/billingservice/src/main/java/com/yinhetianze/business/customer/mapper/info/CustomerEarningsInfoMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="14" column="34" lean-forward="false" selection-start-line="14" selection-start-column="34" selection-end-line="14" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/customerservice/src/main/java/com/yinhetianze/business/customer/model/BusiCustomerCenterModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2660">
+          <caret line="198" column="33" lean-forward="false" selection-start-line="198" selection-start-column="33" selection-end-line="198" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/customer/src/main/java/com/yinhetianze/business/customer/executor/GetCustomerInfoExecutor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="841">
+          <caret line="72" column="37" lean-forward="false" selection-start-line="72" selection-start-column="37" selection-end-line="72" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/customer/src/main/java/com/yinhetianze/business/customer/executor/GetCustomerCenterInfoExecutor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="29" column="42" lean-forward="false" selection-start-line="29" selection-start-column="13" selection-end-line="29" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/customer/src/main/java/com/yinhetianze/business/customer/executor/GetCustomerAddressListExecutor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="27" column="13" lean-forward="false" selection-start-line="27" selection-start-column="13" selection-end-line="27" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/billingservice/src/main/resources/mappers/customer/info/CustomerDrawrecordInfoMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/customerservice/src/main/java/com/yinhetianze/business/customer/service/info/impl/CustomerRecommendRelationInfoServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="303">
+          <caret line="26" column="56" lean-forward="false" selection-start-line="26" selection-start-column="56" selection-end-line="26" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/customerservice/src/main/java/com/yinhetianze/business/customer/mapper/info/CustomerRecommendRelationInfoMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="13" column="45" lean-forward="false" selection-start-line="13" selection-start-column="45" selection-end-line="13" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/billingservice/src/main/java/com/yinhetianze/business/customer/model/BusiCustomerEaringModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="494">
+          <caret line="28" column="22" lean-forward="false" selection-start-line="28" selection-start-column="22" selection-end-line="28" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/billingservice/src/main/resources/mappers/customer/info/CustomerEarningsInfoMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-551">
+          <caret line="28" column="36" lean-forward="true" selection-start-line="28" selection-start-column="36" selection-end-line="28" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/customerservice/src/main/java/com/yinhetianze/business/customer/service/info/CustomerRecommendRelationInfoService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="361">
+          <caret line="22" column="38" lean-forward="false" selection-start-line="22" selection-start-column="38" selection-end-line="22" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/billingservice/src/main/java/com/yinhetianze/business/customer/model/ParaCustomerModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="18" column="35" lean-forward="true" selection-start-line="18" selection-start-column="35" selection-end-line="18" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/customerservice/src/main/java/com/yinhetianze/business/customer/model/BusiCustomerReceiveaddressModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/customerservice/src/main/java/com/yinhetianze/business/customer/model/BusiCustomerRecommendRelationModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="494">
+          <caret line="26" column="0" lean-forward="true" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/customerservice/src/main/resources/mappers/info/CustomerReceiveaddressInfoMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/customerservice/src/main/resources/mappers/info/CustomerRecommendRelationInfoMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="18" column="23" lean-forward="true" selection-start-line="18" selection-start-column="23" selection-end-line="19" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/billingservice/src/main/java/com/yinhetianze/business/customer/model/BusiCustomerBankrollFlowModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="11" column="7" lean-forward="true" selection-start-line="11" selection-start-column="7" selection-end-line="11" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/customerservice/src/main/resources/mappers/info/CustomerInfoMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/customerservice/src/main/java/com/yinhetianze/business/customer/service/busi/impl/CustomerRecommendRelationBusiServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="174">
+          <caret line="84" column="66" lean-forward="false" selection-start-line="84" selection-start-column="66" selection-end-line="84" selection-end-column="66" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/customer/src/main/resources/application-dev.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-456">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/customer/src/main/java/com/yinhetianze/business/customer/CustomerRestController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="275">
+          <caret line="496" column="14" lean-forward="true" selection-start-line="496" selection-start-column="14" selection-end-line="496" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/customer/src/main/java/com/yinhetianze/business/customer/executor/GetCustomerRecommendInfoExecutor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="574">
+          <caret line="58" column="0" lean-forward="false" selection-start-line="58" selection-start-column="0" selection-end-line="58" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/billing/src/main/java/com/yinhetianze/AccountingApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="10" column="13" lean-forward="false" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/billing/src/main/resources/application-dev.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/billing/src/main/java/com/yinhetianze/business/customer/executor/GetCustomerEaringListExecutor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="437">
+          <caret line="42" column="0" lean-forward="false" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/main/java/com/yinhetianze/core/business/TemplateBusinessExecutor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="304">
+          <caret line="42" column="0" lean-forward="false" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/billing/src/main/java/com/yinhetianze/business/customer/executor/GetCustomerDrawRecordManageExecutor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="23" column="13" lean-forward="false" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/billing/src/main/java/com/yinhetianze/business/customer/executor/GetCustomerEaringDetailExecutor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="703">
+          <caret line="96" column="13" lean-forward="true" selection-start-line="96" selection-start-column="13" selection-end-line="96" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/billing/src/main/java/com/yinhetianze/business/customer/executor/GetCustomerEaringExecutor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="418">
+          <caret line="55" column="75" lean-forward="false" selection-start-line="55" selection-start-column="75" selection-end-line="55" selection-end-column="75" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/billing/src/main/java/com/yinhetianze/business/customer/executor/GetCustomerDrawRecordDetailExecutor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="27" column="13" lean-forward="false" selection-start-line="27" selection-start-column="13" selection-end-line="27" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/billing/src/main/java/com/yinhetianze/business/customer/executor/GetCustomerEaringDetailListExecutor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="741">
+          <caret line="65" column="71" lean-forward="false" selection-start-line="65" selection-start-column="71" selection-end-line="65" selection-end-column="71" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/billing/src/main/java/com/yinhetianze/business/customer/executor/DoEaringScheduleExecutor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="27" column="13" lean-forward="false" selection-start-line="27" selection-start-column="13" selection-end-line="27" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/billing/src/main/java/com/yinhetianze/business/AccountingRestController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="7087">
+          <caret line="388" column="22" lean-forward="false" selection-start-line="388" selection-start-column="22" selection-end-line="388" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/yinhetianze_db_script/2018-10-23.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/customer/src/main/java/com/yinhetianze/business/customer/executor/RefreshUserQrcodeExecutor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="494">
+          <caret line="72" column="37" lean-forward="false" selection-start-line="72" selection-start-column="37" selection-end-line="72" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/customer/src/main/java/com/yinhetianze/business/customer/executor/LoginBySmsCodeExecutor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="741">
+          <caret line="84" column="32" lean-forward="false" selection-start-line="84" selection-start-column="32" selection-end-line="84" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/billingservice/src/main/resources/mappers/customer/busi/CustomerBankrollFlowBusiMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="12" column="9" lean-forward="false" selection-start-line="12" selection-start-column="9" selection-end-line="12" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/billingservice/src/main/resources/mappers/customer/info/CustomerBankrollFlowInfoMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="836">
+          <caret line="44" column="34" lean-forward="false" selection-start-line="44" selection-start-column="34" selection-end-line="44" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/billingservice/src/main/java/com/yinhetianze/business/customer/service/busi/CustomerBankrollBusiService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="10" column="17" lean-forward="false" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/billingservice/src/main/java/com/yinhetianze/business/customer/service/busi/impl/CustomerBankrollBusiServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="836">
+          <caret line="74" column="15" lean-forward="false" selection-start-line="74" selection-start-column="15" selection-end-line="74" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/customer/src/main/java/com/yinhetianze/business/customer/executor/RegeisterExecutor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="494">
+          <caret line="47" column="57" lean-forward="false" selection-start-line="47" selection-start-column="57" selection-end-line="47" selection-end-column="57" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/customerservice/src/main/java/com/yinhetianze/business/customer/service/busi/CustomerBusiService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="532">
+          <caret line="31" column="8" lean-forward="false" selection-start-line="31" selection-start-column="8" selection-end-line="31" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/customerservice/src/main/java/com/yinhetianze/business/customer/service/busi/impl/CustomerBusiServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3629">
+          <caret line="232" column="83" lean-forward="false" selection-start-line="232" selection-start-column="83" selection-end-line="232" selection-end-column="83" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/billingservice/src/main/java/com/yinhetianze/business/customer/util/BankrollInfoEnum.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="617">
+          <caret line="94" column="1" lean-forward="false" selection-start-line="94" selection-start-column="1" selection-end-line="94" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-551">
+          <caret line="46" column="26" lean-forward="false" selection-start-line="46" selection-start-column="26" selection-end-line="46" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <last-edited>back:war</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+                <option value="0.5" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <last-edited>Spring</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>ElasticSearch</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+                <option value="0.6" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectJDKs.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <last-edited>Maven: antlr:antlr:2.7.7</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>

@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper	namespace="com.yinhetianze.business.order.mapper.OrderBusiMapper">
+
+    <!--新增订单,返回主键-->
+    <insert id="addOrder" useGeneratedKeys="true" keyProperty="id" keyColumn="id" parameterType="map"  >
+        <selectKey resultType="int" order="AFTER" keyProperty="id">
+            SELECT LAST_INSERT_ID() as id
+        </selectKey>
+        INSERT INTO busi_order (customer_id,shop_id,orders_no,pay_integral,freight,total_amount,pay_amount,discount,give_integral,order_sourse,address,receive_address_id,receiver,
+        phone,address_default,number,order_type,pro_amount,integral_amount,order_status,pay_type,pay_time,total_order_no,create_time,settlement_amount,is_game_order,game_id,tax_type,
+        tax_no,tax_company,receipt_type,promotion_price,promotion_user,reward_amount,partner_id,partner_amount,member_amount,upgrade_promotion_user,upgrade_promotion_price,proxy_shop_id,room_card_num,buyer_message)
+        VALUES (#{customerId},#{shopId}, #{ordersNo},#{payIntegral},#{freight},#{totalAmount},#{payAmount},#{discount},#{giveIntegral},#{orderSourse,},#{address},#{receiveAddressId},
+        #{receiver},#{phone},#{addressDefault},#{number},#{orderType},#{proAmount},#{integralAmount},#{orderStatus},#{payType},#{payTime},#{totalOrderNo},#{createTime},
+        #{settlementAmount},#{isGameOrder},#{gameId},#{taxType},#{taxNo},#{taxCompany},#{receiptType},#{promotionPrice},#{promotionUser},#{rewardAmount},#{partnerId},
+        #{partnerAmount},#{memberAmount},#{upgradePromotionUser},#{upgradePromotionPrice},#{proxyShopId},#{roomCardNum},#{buyerMessage})
+    </insert>
+    <!--添加订单详细信息 -->
+    <insert id="addOrderDetail" parameterType="list" >
+        INSERT INTO busi_order_detail (order_id,prod_id,prod_sku,product_name,product_title,photo_url,original_price,sell_price,number,final_price,product_spec,pay_integral,integral_amount,product_distinction,
+        product_type,promotion_price,upgrade_promotion_price,game_amount,room_card_pic,u_price)
+        VALUES
+        <foreach collection ="list" item="item" index= "index" separator =",">
+            (#{item.orderId},#{item.prodId},#{item.prodSku},#{item.productName},#{item.prodTitle},#{item.photoUrl},#{item.originalPrice},#{item.sellPrice},#{item.number},#{item.finalPrice},
+            #{item.productSpec},#{item.payIntegral},#{item.integralAmount},#{item.productDistinction},#{item.productType},#{item.promotionPrice},#{item.upgradePromotionPrice},#{item.gameAmount},
+            #{item.roomCardPic},#{item.uPrice})
+        </foreach>
+    </insert>
+
+
+    <!--添加订单审核信息 -->
+    <insert id="addOrderAudit" parameterType="map" >
+        INSERT INTO busi_sys_orderaudit (order_id,audit_status,reason,create_user,once_audit_status)
+        VALUES
+        (#{orderId},#{auditStatus},#{reason},#{createUser},#{onceAuditStatus})
+    </insert>
+
+
+    <!--添加订单付款记录信息 -->
+    <insert id="addOrderTransRecord" parameterType="map" >
+        INSERT INTO busi_order_trans_record (totalOrdersNo,amount,deal_no,type,trans_result,appid,return_msg,trade_time,exchange_no)
+        VALUES
+        (#{totalOrdersNo},#{amount},#{dealNo},#{type},#{transResult},#{appid},#{returnMsg},#{tradeTime},#{exchangeNo})
+    </insert>
+
+
+    <!--更新订单付款信息-->
+    <update id="updateTransRecord" parameterType="map">
+        UPDATE busi_order_trans_record
+        <trim prefix="set" suffixOverrides=",">
+            <if test="totalOrdersNo!=null">
+                totalOrdersNo=#{totalOrdersNo},
+            </if>
+            <if test="amount!=null">
+                amount=#{amount},
+            </if>
+            <if test="dealNo!=null">
+                deal_no=#{dealNo},
+            </if>
+            <if test="type!=null">
+                type=#{type},
+            </if>
+            <if test="transResult!=null">
+                trans_result=#{transResult},
+            </if>
+            <if test="appid!=null">
+                appid=#{appid},
+            </if>
+            <if test="returnMsg!=null">
+                return_msg=#{returnMsg},
+            </if>
+            <if test="tradeTime!=null">
+                trade_time=#{tradeTime}
+            </if>
+        </trim>
+        WHERE id=#{id}
+    </update>
+
+    <!--更新订单审核信息-->
+    <update id="updateOrderAudit" parameterType="map">
+        UPDATE busi_sys_orderaudit
+        <trim prefix="set" suffixOverrides=",">
+            <if test="reason!=null">
+                reason=#{reason},
+            </if>
+            <if test="auditStatus!=null">
+                audit_status=#{auditStatus},
+            </if>
+            <if test="onceAuditStatus!=null">
+                once_audit_status=#{onceAuditStatus},
+            </if>
+            <if test="updateUser!=null">
+                update_user=#{updateUser},
+            </if>
+            <if test="updateTime!=null">
+                update_time=#{updateTime},
+            </if>
+            <if test="delFlag!=null">
+                del_flag=#{delFlag}
+            </if>
+        </trim>
+        WHERE id=#{id}
+    </update>
+
+    <!--添加订单操作记录-->
+    <insert id="addOrderLog" parameterType="map">
+        INSERT INTO busi_order_oplog (once_order_status,order_status,order_id,actor_id)
+        VALUES
+        (#{onceOrderStatus},#{orderStatus},#{orderId},#{actorId})
+    </insert>
+
+
+    <!--删除订单-->
+    <update id="deleteOrder">
+        UPDATE busi_order SET del_flag=1 WHERE id=#{orderId}
+    </update>
+
+    <!--更新订单信息-->
+    <update id="updateOrder" parameterType="map">
+        UPDATE busi_order
+        <trim prefix="set" suffixOverrides=",">
+            <if test="orderStatus!=null">
+                order_status=#{orderStatus},
+            </if>
+            <if test="auditStatus!=null">
+                audit_status=#{auditStatus},
+            </if>
+            <if test="totalOrderNo!=null">
+                total_order_no=#{totalOrderNo},
+            </if>
+            <if test="payType!=null">
+                pay_type=#{payType},
+            </if>
+            <if test="payTime!=null">
+                pay_time=#{payTime},
+            </if>
+            <if test="completeTime!=null">
+                complete_time=#{completeTime},
+            </if>
+            <if test="isGiveIntegral!=null">
+                is_give_integral=#{isGiveIntegral},
+            </if>
+            <if test="expressNo!=null">
+                express_no=#{expressNo},
+            </if>
+            <if test="companyName!=null">
+                company_name=#{companyName},
+            </if>
+            <if test="deliveryTime!=null">
+                delivery_time=#{deliveryTime},
+            </if>
+            <if test="evaluateTime!=null">
+                evaluate_time=#{evaluateTime},
+            </if>
+            <if test="cancelTime!=null">
+                cancel_time=#{cancelTime},
+            </if>
+            <if test="isAutoCancel!=null">
+                is_auto_cancel=#{isAutoCancel},
+            </if>
+            <if test="settlementStatus!=null">
+                settlement_status=#{settlementStatus},
+            </if>
+            <if test="settlementAmount!=null">
+                settlement_amount=#{settlementAmount},
+            </if>
+            <if test="isRebate!=null">
+                is_rebate=#{isRebate},
+            </if>
+            <if test="taxType!=null">
+                tax_type=#{taxType},
+            </if>
+            <if test="taxNo!=null">
+                tax_no=#{taxNo},
+            </if>
+            <if test="taxCompany!=null">
+                tax_company=#{taxCompany},
+            </if>
+            <if test="receiptType!=null">
+                receipt_type=#{receiptType},
+            </if>
+            <if test="gameNotifyResult!=null">
+                game_notify_result=#{gameNotifyResult}
+            </if>
+        </trim>
+        <where>
+            id=#{orderId}
+            <if test="onceOrderStatus!=null"> AND order_status=#{onceOrderStatus} </if>
+        </where>
+
+    </update>
+
+    <!--发起退货后，更新订单详情信息-->
+    <update id="updateOrderDetail" parameterType="map">
+        UPDATE busi_order_detail
+        <trim prefix="set" suffixOverrides=",">
+            <if test="refundStatus!=null">
+                refund_status=#{refundStatus},
+            </if>
+            <if test="exchangeId!=null">
+                exchange_id=#{exchangeId},
+            </if>
+        </trim>
+        WHERE id=#{id}
+    </update>
+
+    
+    <update id="updateSales" parameterType="map">
+        update busi_product_sales set increase_sales = increase_sales + #{number} where product_id=#{productId} AND (increase_sales + #{number})>=0
+    </update>
+
+    <update id="updateOrderDetailRebate" parameterType="Integer">
+        update busi_order set promotion_rebate=1 where id=#{ordersId}
+    </update>
+    
+    <update id="updateOrderSettlementId" parameterType="map">
+        update busi_order set settlement_id=#{settlementId} where id in(${ids})
+    </update>
+</mapper>

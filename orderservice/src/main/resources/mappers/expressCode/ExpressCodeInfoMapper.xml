@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yinhetianze.business.expressCode.mapper.ExpressCodeInfoMapper">
+  <resultMap id="BaseResultMap" type="com.yinhetianze.pojo.order.ExpressCodePojo">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="express_company" jdbcType="VARCHAR" property="expressCompany" />
+    <result column="express_code" jdbcType="VARCHAR" property="expressCode" />
+    <result column="express_track" jdbcType="VARCHAR" property="expressTrack" />
+    <result column="express_single" jdbcType="VARCHAR" property="expressSingle" />
+    <result column="express_delivery" jdbcType="VARCHAR" property="expressDelivery" />
+  </resultMap>
+
+  <select id="findAll" resultType="com.yinhetianze.pojo.order.ExpressCodePojo">
+    SELECT id,express_company expressCompany,express_code expressCode FROM busi_express_code
+  </select>
+
+</mapper>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yinhetianze.business.shop.mapper.info.ShopGuessInfoMapper">
+  <resultMap id="BaseResultMap" type="com.yinhetianze.pojo.shop.ShopGuessPojo">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="shop_id" jdbcType="INTEGER" property="shopId" />
+    <result column="sort" jdbcType="SMALLINT" property="sort" />
+    <result column="del_flag" jdbcType="SMALLINT" property="delFlag" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+  </resultMap>
+  <select id="selectShopGuessList" resultType="java.util.Map">
+    SELECT
+     busi_shop.id,
+     busi_shop.shop_name "shopName",
+     busi_shop.shop_logo "shopLogo"
+    FROM
+     busi_shop_guess LEFT JOIN busi_shop  ON busi_shop.id=busi_shop_guess.shop_id
+    WHERE
+     busi_shop_guess.del_flag=0
+    AND
+     busi_shop.del_flag=0
+    ORDER BY
+     busi_shop_guess.sort ASC
+  </select>
+    <select id="selectBackstageShopGuessList" resultType="java.util.Map">
+    SELECT
+        busi_shop_guess.id,
+        busi_shop_guess.shop_id "shopId",
+        busi_shop.shop_name "shopName",
+        busi_shop.shop_logo "shopLogo",
+        busi_shop.shop_type "shopType",
+        busi_shop.shop_main_product "shopMainProduct",
+        busi_shop.shop_main_photo "shopMainPhoto",
+        busi_shop_guess.sort "sort"
+    FROM
+        busi_shop_guess LEFT JOIN busi_shop ON busi_shop_guess.shop_id=busi_shop.id
+    WHERE
+        busi_shop_guess.del_flag=0
+    AND
+        busi_shop.del_flag=0
+    ORDER BY
+        busi_shop_guess.sort ASC
+    </select>
+</mapper>

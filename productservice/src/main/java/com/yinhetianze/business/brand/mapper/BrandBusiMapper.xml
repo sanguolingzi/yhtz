@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yinhetianze.business.brand.mapper.BrandBusiMapper">
+  <resultMap id="BaseResultMap" type="com.yinhetianze.pojo.brand.BrandPojo">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="brand_name" jdbcType="VARCHAR" property="brandName" />
+    <result column="brand_big_img" jdbcType="VARCHAR" property="brandBigImg" />
+    <result column="brand_small_img" jdbcType="VARCHAR" property="brandSmallImg" />
+    <result column="title" jdbcType="VARCHAR" property="title" />
+    <result column="synopsis" jdbcType="VARCHAR" property="synopsis" />
+    <result column="first_word" jdbcType="VARCHAR" property="firstWord" />
+    <result column="sort" jdbcType="INTEGER" property="sort" />
+    <result column="is_show" jdbcType="SMALLINT" property="isShow" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+  </resultMap>
+</mapper>

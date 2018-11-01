@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yinhetianze.business.product.mapper.ProductUnitRelationBusiMapper">
+  <resultMap id="BaseResultMap" type="com.yinhetianze.pojo.product.ProductUnitRelationPojo">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="categoryId" jdbcType="INTEGER" property="categoryid" />
+    <result column="unitId" jdbcType="INTEGER" property="unitid" />
+  </resultMap>
+
+</mapper>

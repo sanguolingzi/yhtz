@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yinhetianze.systemservice.mall.mapper.busi.AdvertisementDetailBusiMapper">
+  <resultMap id="BaseResultMap" type="com.yinhetianze.pojo.back.AdvertisementDetailPojo">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="advertisement_id" jdbcType="INTEGER" property="advertisementId" />
+    <result column="advertisement_detail_img" jdbcType="VARCHAR" property="advertisementDetailImg" />
+    <result column="advertisement_detail_link" jdbcType="VARCHAR" property="advertisementDetailLink" />
+    <result column="link_markup" jdbcType="SMALLINT" property="linkMarkup" />
+    <result column="link_parameter" jdbcType="VARCHAR" property="linkParameter" />
+    <result column="is_show" jdbcType="SMALLINT" property="isShow" />
+    <result column="sort" jdbcType="SMALLINT" property="sort" />
+    <result column="del_flag" jdbcType="SMALLINT" property="delFlag" />
+    <result column="create_user" jdbcType="INTEGER" property="createUser" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_user" jdbcType="INTEGER" property="updateUser" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+  </resultMap>
+</mapper>
